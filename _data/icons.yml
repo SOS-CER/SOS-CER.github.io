@@ -1,0 +1,73 @@
+requirements:
+    url: assets/images/phases/CSC116_RequirementsIcon.png
+design:
+    url: assets/images/phases/CSC116_DesignIcon.png 
+implementation:
+    url: assets/images/phases/CSC116_ImplementationIcon.png
+unitTest:
+    url: assets/images/phases/CSC116_UnitTestIcon.png
+systemTest:
+    url: assets/images/phases/CSC116_SystemTestIcon.png
+deployment:
+    url: assets/images/phases/CSC116_DeploymentIcon.png
+ccTool:
+    url: assets/images/tools/CSC116_toolCats_CC_Icon.png
+ciTool:
+    url: assets/images/tools/CSC116_toolCats_CI_Icon.png
+dnTool:
+    url: assets/images/tools/CSC116_toolCats_DN_Icon.png
+dtTool:
+    url: assets/images/tools/CSC116_toolCats_DT_Icon.png
+ideTool:
+    url: assets/images/tools/CSC116_toolCats_IDE_Icon.png
+plTool:
+    url: assets/images/tools/CSC116_toolCats_PL_Icon.png
+saTool:
+    url: assets/images/tools/CSC116_toolCats_SA_Icon.png
+ttTool:
+    url: assets/images/tools/CSC116_toolCats_TT_Icon.png
+vcTool:
+    url: assets/images/tools/CSC116_toolCats_VC_Icon.png
+    
+whiteccTool:
+    url: assets/images/tools/CSC116_toolCats_white_CC_Icon.png
+whiteciTool:
+    url: assets/images/tools/CSC116_toolCats_white_CI_Icon.png
+whitednTool:
+    url: assets/images/tools/CSC116_toolCats_white_DN_Icon.png
+whitedtTool:
+    url: assets/images/tools/CSC116_toolCats_white_DT_Icon.png
+whiteideTool:
+    url: assets/images/tools/CSC116_toolCats_white_IDE_Icon.png
+whiteplTool:
+    url: assets/images/tools/CSC116_toolCats_white_PL_Icon.png
+whitesaTool:
+    url: assets/images/tools/CSC116_toolCats_white_SA_Icon.png
+whitettTool:
+    url: assets/images/tools/CSC116_toolCats_white_TT_Icon.png
+whitevcTool:
+    url: assets/images/tools/CSC116_toolCats_white_VC_Icon.png
+    
+whiteTeamTask:
+    url: assets/images/icons/group.png
+whiteIndividualTask:
+    url: assets/images/icons/individual.png
+teamTask:
+    url: assets/images/icons/group.png
+individualTask:
+    url: assets/images/icons/individual.png   
+sos:
+    url: assets/images/icons/sos.png
+
+animation:
+    url: assets/images/icons/video.png
+reminder:
+    url: assets/images/icons/reminder.png
+demo:
+    url: assets/images/icons/demo.png   
+task:
+    url: assets/images/icons/task.png
+rubric:
+    url: assets/images/icons/rubric.png
+download:
+    url: assets/images/icons/download.png

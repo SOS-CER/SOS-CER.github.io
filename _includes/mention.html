@@ -1,0 +1,1 @@
+<div class="mention {% if include.type %}{{include.type}}{% else %}left{% endif %}"><h3>{{ include.title | remove: '<p>' | remove: '</p>' }}</h3><p>{{ include.content | markdownify }}</p></div>

@@ -1,0 +1,52 @@
+<div class="navRow">
+{% assign index = 0 %}
+{% assign foundIndex = 0 %}
+{% assign currentFilename = page.path | split: "/" | last | remove: ".md" %}
+{% assign directory = site.data.pagegroups[page.pagegroup].directory %}
+{% assign myCollection = site.data.pagegroups[page.pagegroup] %}
+{% assign collectionSize = myCollection.order | size %}
+{% assign myCollectionOrder = myCollection.order %}
+
+{% for p in myCollection.order %}
+   {% if currentFilename == p %}
+      {% assign foundIndex = index %}
+   {% endif %}
+   {% assign index = index | plus: 1 %}
+{% endfor %}
+
+<!-- Create the previous page arrow -->
+{% if foundIndex > 1 %}
+    {% assign prevIndex = foundIndex | minus: 1 %}
+    {% assign prevPage = myCollectionOrder[prevIndex] | remove: "[" | remove: "]" | remove: '"' | lstrip | rstrip %}
+    {% for doc in site.documents %}
+        {% assign currentFileName = doc.path | split: "/" | last | remove: ".md" %}
+		{% if doc.path | contains: directory %}
+            {% if currentFileName == prevPage %}
+                {% assign prevDescription = doc.description %}
+			    {% assign url = site.baseurl | append: doc.url %}
+                {% break %}	
+            {% endif %}
+		{% endif %}
+    {% endfor %}
+    <div class="prevPage"><a href="{{ url }}"><div class="triangle-left"></div>{{ prevDescription | markdownify | remove: "<p>" | remove: "</p>"}}</a></div>
+{% endif %}
+
+<!-- Create the next page arrow -->
+{% assign myCollectionOrderSize = collectionSize | minus: 1 %}
+
+{% if foundIndex < myCollectionOrderSize %}
+    {% assign nextIndex = foundIndex | plus: 1 %}
+    {% assign nextPage = myCollectionOrder[nextIndex] | remove: "[" | remove: "]" | remove: '"' | lstrip | rstrip%}
+    {% for doc in site.documents %}
+        {% assign currentFileName = doc.path | split: "/" | last | remove: ".md" %}
+		{% if doc.path | contains: directory %}
+            {% if currentFileName == nextPage %}
+                {% assign nextDescription = doc.description %}
+				{% assign url = site.baseurl | append: doc.url %}
+                {% break %}	
+            {% endif %}
+		{% endif %}
+    {% endfor %}
+    <div class="nextPage"><a href="{{ url }}"><div class="triangle-right"></div>{{ nextDescription | markdownify | remove: '<p>' | remove: '</p>' }}</a></div>
+{% endif %}
+</div>

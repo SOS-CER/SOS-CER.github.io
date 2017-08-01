@@ -1,0 +1,15 @@
+<br /> 
+<figure>
+    {% if include.caption %}
+        <img src="{{ include.file }}" class="center-image" {% if include.alt %} alt="{{ include.alt }}" {% endif %} 
+             style="{% if include.height %} height:  {{ include.height }}; {% endif %} 
+                    {% if include.width %}   width:  {{ include.width }};  {% endif %}"/>
+        <br />
+        <div class="">
+            <figcaption class="center-caption">{{ include.caption }}</figcaption>
+        </div>
+    {% else %}
+        <img src="{{ include.file }}" class="center-image" {% if include.alt %} alt="{{ include.alt }}" {% endif %} style="{% if include.height %} height:  {{ include.height }}; {% endif %} {% if include.width %} width:  {{ include.width }}; {% endif %}"/>/>
+    {% endif %}
+</figure>
+<br />

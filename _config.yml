@@ -1,0 +1,25 @@
+repository: SOS-CER/SOS-CER.github.io
+title: Science of Software - Computing Education Research
+description: Science of Software - Computing Education Research
+github: [metadata]
+show_downloads: false
+google_analytics:
+theme:
+
+markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "page"
+
+collections:         
+    projects:
+        output: true
+         
+gems: ['jekyll-relative-links', 'jekyll/scholar']
+  
+scholar:
+    style: ieee

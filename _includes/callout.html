@@ -1,0 +1,25 @@
+<div class="callout {% if include.type %}{{include.type}}{% else %}default{% endif %} right">
+    {% assign numIcons = 0 %}
+    <div class="callout-leftCol">
+        {% if include.icon %}
+            {% assign iconArray = include.icon | split: "," %}
+            {% for icon in iconArray %}
+                {% assign numIcons = numIcons | plus: 1 %}
+                {% assign whiteIcon = "white" | append: icon %}
+                {% assign currentIcon = site.data.icons[whiteIcon] %}
+                <div class="icon" role="img" aria-label="{{ icon }} Icon" style="background-image: url({{ site.baseurl }}/{{ currentIcon.url }});"></div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% if numIcons >= 1 %}
+        <div class="callout-rightCol" style="min-height: {{ numIcons | times: 58 }}px;">
+    {% else %}
+        <div class="callout-rightCol">
+    {% endif %}
+        {% if include.title %}
+            <h2>{{include.title | markdownify | remove: '<p>' | remove: '</p>' }}</h2>
+        {% endif %}
+        {{include.content | markdownify }}
+    </div>
+</div>

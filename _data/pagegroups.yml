@@ -1,0 +1,7 @@
+projects:
+    directory: _projects/
+    order: 
+     - auto-grading
+     - labs
+     - ta-training
+     
