@@ -7,7 +7,7 @@ description: SOS-CER
 {% include iconHeader.html type="sos" %}
 *Studying Computing Education through a Software Engineering Lens*
 
-The SOS-CER group is run by [Dr. Sarah Heckman](https://people.engr.ncsu.edu/sesmith5/) as part of the [Department of Computer Science](https://www.csc.ncsu.edu) at [NC State University](https://www.ncsu.edu).
+The SOS-CER group is run by [Dr. Sarah Heckman](https://people.engr.ncsu.edu/sesmith5/) and [Dr. Jason King](https://people.engr.ncsu.edu/jtking/) as part of the [Department of Computer Science](https://www.csc.ncsu.edu) at [NC State University](https://www.ncsu.edu).
 
 ## Projects
 
@@ -17,6 +17,7 @@ The SOS-CER group is run by [Dr. Sarah Heckman](https://people.engr.ncsu.edu/ses
 
 ## Publications
 
+  * S. Heckman and J. King, "Developing Software Engineering Skills using Real Tools for Automated Grading," in Proceedings of the 49th ACM Technical Symposium on Computer Science Education, New York, NY, USA, 2018, to appear.
   * M. Vellukunnel, P. Buffum, K. E. Boyer, J. Forbes, S. Heckman, K. Mayer-Patel, "Deconstructing the Discussion Forum: Student Questions and Computer Science Learning," SIGCSE 2017, pp. 603-608. (Acceptance Rate: 30%)
   * A. Smith, K. E. Boyer, J. Forbes, S. Heckman, K. Mayer-Patel, "My Digital Hand: A Tool for Scaling Up One-to-One Peer Teaching in Support of Computer Science Learning," SIGCSE 2017, pp. 549-554. (Acceptance Rate: 30%)
 
