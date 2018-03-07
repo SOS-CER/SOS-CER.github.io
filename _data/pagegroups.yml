@@ -5,3 +5,26 @@ projects:
      - labs
      - ta-training
      
+git-tutorial:
+    directory: _projects/git-guide/
+    order:
+     - index
+     - git-intro
+     - git-ncsu
+     - git-tools
+     - git-help
+     - git-config
+     - git-repo
+     - git-clone
+     - git-ignore
+     - git-project
+     - git-share
+     - git-import
+     - git-staging
+     - git-commit
+     - git-remote
+     - git-push
+     - git-pull
+     - git-merge
+     - git-older
+     - git-workflow

@@ -14,6 +14,7 @@ The SOS-CER group is run by [Dr. Sarah Heckman](https://people.engr.ncsu.edu/ses
   * [Automated Grading Tools](projects/auto-grading)
   * [CS2 Labs](projects/labs)
   * [TA Training](projects/ta-training)
+  * [Introduction to Git Version Control Guide](projects/git-guide)
 
 ## Publications
 

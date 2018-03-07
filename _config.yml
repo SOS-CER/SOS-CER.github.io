@@ -1,4 +1,5 @@
 repository: SOS-CER/SOS-CER.github.io
+baseurl: 
 title: Science of Software - Computing Education Research
 description: Science of Software - Computing Education Research
 github: [metadata]
@@ -19,7 +20,7 @@ collections:
     projects:
         output: true
          
-gems: ['jekyll-relative-links', 'jekyll/scholar']
+plugins: ['jekyll-relative-links', 'jekyll/scholar']
   
 scholar:
     style: ieee
