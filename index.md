@@ -12,13 +12,13 @@ The SOS-CER group is run by [Dr. Sarah Heckman](https://people.engr.ncsu.edu/ses
 ## Projects
 
   * [Automated Grading Tools](projects/auto-grading)
-  * [CS2 Labs](projects/labs)
-  * [TA Training](projects/ta-training)
+  * [CS2 Labs](projects/labs.html)
+  <!--* [TA Training](projects/ta-training)-->
   * [Introduction to Git Version Control Guide](projects/git-guide)
 
 ## Publications
 
-  * S. Heckman and J. King, "Developing Software Engineering Skills using Real Tools for Automated Grading," in Proceedings of the 49th ACM Technical Symposium on Computer Science Education, New York, NY, USA, 2018, to appear.
+  * S. Heckman and J. King, "Developing Software Engineering Skills using Real Tools for Automated Grading," in Proceedings of the 49th ACM Technical Symposium on Computer Science Education, New York, NY, USA, 2018, p. 794-799.
   * M. Vellukunnel, P. Buffum, K. E. Boyer, J. Forbes, S. Heckman, K. Mayer-Patel, "Deconstructing the Discussion Forum: Student Questions and Computer Science Learning," SIGCSE 2017, pp. 603-608. (Acceptance Rate: 30%)
   * A. Smith, K. E. Boyer, J. Forbes, S. Heckman, K. Mayer-Patel, "My Digital Hand: A Tool for Scaling Up One-to-One Peer Teaching in Support of Computer Science Learning," SIGCSE 2017, pp. 549-554. (Acceptance Rate: 30%)
 

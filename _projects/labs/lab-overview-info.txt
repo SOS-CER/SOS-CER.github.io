@@ -1,0 +1,96 @@
+Lab Overviews to Copy In
+(Goes under Learning Outcomes callout)
+
+
+## Lab 02 Overview
+The lab will be completed in the following steps:
+
+{% include tableOfContents.html pagegroup="02-lab" %}
+
+
+## Lab 03 Overview
+The lab will be completed in the following steps:
+
+{% include tableOfContents.html pagegroup="03-lab" %}
+  
+If you didn't finish all of the tasks for Lab 02, you can work on completing those as you work through the changes in Lab 03.  You must have 80% statement coverage to receive any feedback from teaching staff tests for Lab 03.
+
+
+## Lab 04 Overview
+You must complete Lab 04 in the following steps:
+
+{% include tableOfContents.html pagegroup="04-lab" %}
+  
+If you didn't finish all of the tasks for Lab 03 or in your Guided Projects, you can work on completing those as you work through the changes in Lab 04.  
+
+
+## Lab 05 Overview
+You must complete Lab 05 in the following steps:
+
+{% include tableOfContents.html pagegroup="05-lab" %}
+  
+If you didn't finish all of the tasks for Lab 04 or in your Guided Projects, you can work on completing those as you work through the changes in Lab 05.  
+
+
+## Lab 06 Overview
+You must complete Lab 06 in the following steps:
+
+{% include tableOfContents.html pagegroup="06-lab" %}
+  
+If you didn't finish all of the tasks for Lab 05 or in your Guided Projects, you can work on completing those as you work through the changes in Lab 06.  The changes in Lab 06 are independent of most earlier lab work (an example of additive rather than invasive change), but you should still ensure that all other functionality is correct!
+
+
+## Lab 07 Overview
+You must complete Lab 07 in the following steps:
+
+{% include tableOfContents.html pagegroup="07-lab" %}
+
+  
+If you didn't finish all of the tasks for Lab 06, you can work on completing those as you work through the changes in Lab 07.
+
+
+## Lab 08 Overview
+You must complete Lab 08 in the following steps:
+
+{% include tableOfContents.html pagegroup="08-lab" %}
+  
+If you didn't finish all of the tasks for Lab 07, you can work on completing those as you work through the changes in Lab 08.
+
+
+## Lab 09 Overview
+You must complete Lab 09 in the following steps:
+{% include tableOfContents.html pagegroup="09-lab" %}
+  
+If you didn't finish all of the tasks for Lab 08, you can work on completing those as you work through the changes in Lab 09.
+
+
+## Lab 10 Overview
+You must complete Lab 10 in the following steps:
+{% include tableOfContents.html pagegroup="10-lab" %}
+  
+If you didn't finish all of the tasks for Lab 09, you can work on completing those as you work through the changes in Lab 10.
+ 
+ 
+## Lab 11 Overview
+You must complete Lab 11 in the following steps:
+
+{% include tableOfContents.html pagegroup="11-lab" %}
+  
+If you didn't finish all of the tasks for Lab 10, you can work on completing those as you work through the changes in Lab 11. 
+
+
+
+## Lab 12 Overview
+You must complete Lab 12 in the following steps:
+
+{% include tableOfContents.html pagegroup="12-lab" %}
+    
+If you didn't finish all of the tasks for Lab 11, you can work on completing those as you work through the changes in Lab 12.  The expectation is that there will be no regression of back-end functionality as you work on the front-end.  And the front-end won't work properly, if your back-end is incorrect!
+
+
+
+## Lab 13 Overview
+You must complete Lab 13 in the following steps:
+
+
+{% include tableOfContents.html pagegroup="13-lab" %}
