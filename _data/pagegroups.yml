@@ -254,3 +254,19 @@ gp3:
      - 12-lab-studentschedule
      - 12-lab-test
      - 12-lab-deploy
+     
+comprehensive-exercise:
+    directory: _comprehensive-exercise/
+    order:
+     - index
+     - project-selection
+     - team-repo
+     - team-documentation
+     - software-life-cycle
+     - requirements
+     - black-box-testing
+     - design
+     - implementation
+     - testing
+     - presentation
+     - grading-rubric

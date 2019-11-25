@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+
+    <title>{{ page.title | default: site.github.repository_name }}</title>
+	
+    <link href="https://cdn.ncsu.edu/brand-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css" />
+	<!-- NC State Bootstrap CSS -->
+    <!-- jQuery 2.1.0 (NCSU Branding) -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <!-- Bootstrap JS (NCSU Branding) -->
+    <script src="https://cdn.ncsu.edu/brand-assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Brand Utility Bar -->
+    <!--- <script src="https://cdn.ncsu.edu/brand-assets/utility-bar/ub.php?maxWidth=1170&color=gray&showBrick=1"></script>--->
+    <!-- Web Fonts (NCSU Branding) -->
+    <link href="https://cdn.ncsu.edu/brand-assets/fonts/include.css" rel="stylesheet" type="text/css" />
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="https://brand.ncsu.edu/favicon.ico" />
+	<!-- Custom Styles -->
+	<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/syntax.css">
+</head>
+
+<body>
+    <div id="ncstate-utility-bar"></div>
+	<!-- Button to jump back to the top of the webpage -->
+    {% include topButton.html %}
+    <!-- HEADER -->
+    <div id="header_wrap" class="header_outer">
+        <header class="header_inner">
+            <h1 id="project_title">{{ page.title | default: site.title }}</h1>
+            <h2 id="project_tagline">{{ page.description | markdownify | remove: '<p>' | remove: '</p>' | default: site.description }}</h2>
+            {% include breadcrumb.html %}
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="main_outer">
+        <section id="main_content" class="main_inner">
+            {% if page.navigation %}{% include navigation.html %}{% endif %}
+            <div id="wrapper" style="padding-left:75px">
+                {{ content }}
+            </div>
+            {% if page.navigation %}{% include navigation.html %}{% endif %}
+        </section>
+    </div>
+
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="footer_inner">
+        
+        <p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br />
+        <span xmlns:cc="https://creativecommons.org/ns#" property="cc:attributionName">Dr. Jessica Young Schmidt and NC State University Computer Science Faculty</span> </p>
+  
+            <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>

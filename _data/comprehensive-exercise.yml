@@ -1,0 +1,37 @@
+course: "CSC116: Introduction to Computing - Java"
+course-short: "CSC116"
+github: https://github.ncsu.edu
+git-guide: https://sos-cer.github.io/projects/git-guide/
+ce-report: https://docs.google.com/document/d/1nVE-EcJSmRHaTuUsOESkdyV_5EyH-Spjiad-sQilVvc/edit#
+re-reflection: 
+re-resources:
+  - resource: "Slides"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+  - resource: "Other Resources"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+bbt-reflection: 
+testing-resources:
+  - resource: "Slides"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+  - resource: "Other Resources"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+design-reflection: 
+design-resources:
+  - resource: "Slides"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+  - resource: "Other Resources"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+imp-test-reflection: 
+imp-resources:
+  - resource: "Slides"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+  - resource: "Other Resources"
+    url: 
+    note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 

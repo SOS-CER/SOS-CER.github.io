@@ -15,11 +15,19 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: "page"
+  -
+    scope:
+      path: ""
+      type: "comprehensive-exercise"
+    values:
+      layout: CE-page
 
 collections:         
-    projects:
+     projects:
         output: true
-         
+     comprehensive-exercise:
+        output: true 
+                 
 plugins: ['jekyll-relative-links', 'jekyll/scholar']
   
 scholar:
