@@ -27,6 +27,22 @@ collections:
         output: true
      comprehensive-exercise:
         output: true 
+     testing:
+        output: true
+     testing-v6-0-0:
+        output: true
+     testing-exercise-DE:
+        output: true
+     testing-exercise-BBT-Triangle:
+        output: true
+     testing-exercise-BBT:
+        output: true
+     testing-exercise-WBT:
+        output: true
+     sssolitaire:
+        output: true
+     smssolitaire:
+        output: true
                  
 plugins: ['jekyll-relative-links', 'jekyll/scholar']
   

@@ -270,3 +270,76 @@ comprehensive-exercise:
      - testing
      - presentation
      - grading-rubric
+     
+testing:
+    directory: _testing/
+    order:
+     - index
+     
+testing-v6-0-0:
+    directory: _testing/version/6.0.0/
+    order:
+     - index    
+     - intro 
+     - test-cases
+     - testing-process
+     - testing-strategies
+     - example-programming-scenario
+     - project-structure
+     - bbt
+     - bbt-requirements
+     - bbt-equivalence
+     - bbt-boundary
+     - wbt
+     - wbt-junit-download
+     - wbt-writing
+     - wbt-junit-execute
+     - wbt-requirements
+     - wbt-equivalence
+     - wbt-boundary
+     - wbt-paths
+     - wbt-exceptions
+     - summary
+     - appendix
+     
+testing-exercise-DE:
+    directory: _testing/exercises/DE/
+    order:
+     - index   
+     - project-structure
+     - BBTP_Sides
+     - BBTP_Angles
+     - WBTP_Sides
+     - WBTP_Angles
+     - RerunBBT
+     - SubmittingExercise
+     
+testing-exercise-BBT-Triangle:
+    directory: _testing/exercises/BBT-Triangle/
+    order:
+     - index   
+     - project-structure
+     - BBTP_Sides
+     - BBTP_Angles
+     - SubmittingExercise
+     
+testing-exercise-BBT:
+    directory: _testing/exercises/BBT/
+    order:
+     - index   
+     - project-structure
+     - write-bbtp
+     - run-testcases
+     - SubmittingExercise
+     
+testing-exercise-WBT:
+    directory: _testing/exercises/WBT/
+    order:
+     - index   
+     - project-structure
+     - control-flow
+     - write-wbtp-second-joker
+     - debug-second-joker
+     - write-wbtp
+     - debug
+     - SubmittingExercise
