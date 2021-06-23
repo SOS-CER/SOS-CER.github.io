@@ -1,0 +1,158 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Automated Warning Application for Reliability Engineering</title>
+</head>
+
+<body>
+
+<div style="width: 964; height: 11071; padding-left: 1">
+
+<h2 align="left">Automated Warning Application for Reliability Engineering 
+(AWARE) Tutorial</h2>
+<h3 align="left">1.0 Background</h3>
+  <p align="left">AWARE aggregates compilation errors, warnings, and static analysis reports into a ranked 
+  listing of alerts. An alert is a notification to a software engineer, in the 
+  form of a warning message, of a potential problem, or fault in the source code 
+  that has been identified via compilation,  or static analysis. The 
+  alerts are ranked by the probability that a particular alert is a true 
+  positive in the system. The alert ranking is adapted by programmer feedback in 
+  the form of filtering alerts found to be a false positive (the alert is not a 
+  fault in the system). The probability that a remaining alert is a true 
+  positive in the system is adjusted based on the filtered alerts.<h3 align="left">2.0 Installing AWARE Plug-in</h3>
+<p align="left">Here you will find a screenshot tour of the AWARE installation 
+process in Eclipse 3.x. These particular screens were captured in Eclipse 3.2 
+running on Windows XP.</p>
+<h4 align="left"><font color="#669900">Step 1:</font></h4>
+<p align="left">Begin the installation from the Eclipse Help menu item.&nbsp; 
+Select Find and Install...</p>
+<p align="left">
+<img border="0" src="helpMenu.JPG" width="372" height="245"></p>
+<h4 align="left"><font color="#669900">Step 2:</font></h4>
+<p align="left">Search for new features to install and then click Next.</p>
+<p align="left">
+<img border="0" src="findNewInstall.JPG" width="594" height="525"></p>
+<h4 align="left"><font color="#669900">Step 3:</font></h4>
+<p align="left">Click the 'New Remote Site' button to add a new remote site.</p>
+<p align="left">
+<img border="0" src="newRemoteSite.JPG" width="597" height="528"></p>
+<h4 align="left"><font color="#669900">Step 4:</font></h4>
+<p align="left">This screen is showing the New Remote Site dialog, filled in 
+with the correct information to install AWARE<br>
+<br>
+&nbsp;&nbsp;&nbsp; Name: AWARE<br>
+&nbsp;&nbsp;&nbsp; URL: http://arches.csc.ncsu.edu/AWARE/AWARE-UPDATE<br>
+&nbsp;</p>
+<p align="left">
+<img border="0" src="AWARERemoteSite.JPG" width="350" height="146"></p>
+<h4 align="left"><font color="#669900">Step 5:</font></h4>
+<p align="left">When you first come back to this screen, the site you added may 
+NOT be selected. Be sure to select it before clicking Finish.</p>
+<p align="left">
+<img border="0" src="addedRemoteSite.JPG" width="596" height="528"></p>
+<h4 align="left"><font color="#669900">Step 6:</font></h4>
+<p align="left">This next screen shows all of the features that are available for 
+installation. Check AWARE and then click 'Next'.</p>
+<p align="left">
+<img border="0" src="featureToInstall.JPG" width="596" height="493"></p>
+<h4 align="left"><font color="#669900">Step 7:</font></h4>
+<p align="left">Select 'I accept...' and click next to accept the non-existant license agreement.</p>
+<p align="left">
+<img border="0" src="licenseAgreement.JPG" width="593" height="495"></p>
+<h4 align="left"><font color="#669900">Step 8:</font></h4>
+<p align="left">Click 'Change Location' and select <code>C:\eclipse</code>. Then click 'Finish'.</p>
+<p align="left">
+<img border="0" src="confirmInstall.JPG" width="595" height="495"></p>
+<h4 align="left"><font color="#669900">Step 9:</font></h4>
+<p align="left">Click 'Install All'.</p>
+<p align="left">
+<img border="0" src="installAllAWARE.JPG" width="595" height="496"></p>
+<h4 align="left"><font color="#669900">Step 10:</font></h4>
+<p align="left">Click Yes to Restart the workbench.</p>
+<p align="left">
+<img border="0" src="restartEnvironment.JPG" width="438" height="140"></p>
+<p align="left"><b>AWARE should now be installed.</b></p>
+<h4 align="left">3.0 Using AWARE Plug-in</h4>
+<p><u>NOTE:
+Please make sure that there are 
+no compile errors in your project before starting the following steps.</u></p>
+<h4 align="left"><font color="#669900">Step 1:</font></h4>
+<p align="left">AWARE is currently bundled with the FindBugs static code 
+analyzer Eclipse plug-in.&nbsp; We want FindBugs to run continuously while we 
+work on our project.&nbsp; To enable this plug-in, 
+right click on the iTrust project and select Properties.</p>
+<p align="left">
+<img border="0" src="projectProperties.JPG" width="297" height="484"></p>
+<h4 align="left"><font color="#669900">Step 2:</font></h4>
+<p align="left">Select the FindBugs properties tab and then check 'Run FindBugs automatically'. Press OK. Leave the other settings on this tab as they are.</p>
+<p align="left">
+<img border="0" src="findBugsAutomatically.JPG" width="804" height="522"></p>
+<h4 align="left"><font color="#669900">Step 3:</font></h4>
+<p align="left">You should now see the bugs that Find Bugs discovered in your 
+project under the 'Problems' tab.</p>
+<p align="left"><img border="0" src="findBugsBugs.JPG" width="758" height="185"></p>
+<h4 align="left"><font color="#669900">Step 4:</font></h4>
+<p align="left">Before we open the AWARE views, we should setup the AWARE alert 
+database, under Window -&gt; Preferences.</p>
+<p align="left">
+<img border="0" src="windowPreferences.JPG" width="170" height="301"></p>
+<h4 align="left"><font color="#669900">Step 5:</font></h4>
+<p align="left">Fill in the Database URL, Database Username, and Database 
+Password fields with the appropriate information (below we have non-working 
+example information).</p>
+<p align="left"><font color="#0000FF">CSC326/712 LAB NOTE: Database URL will be 
+in this form: jdbc:mysql://aramis.csc.ncsu.edu/csc712_xx</font></p>
+<p align="left"><img border="0" src="AWAREDB.JPG" width="576" height="517"></p>
+<h4 align="left"><font color="#669900">Step 6:</font></h4>
+<p align="left">Once you have working database information filled in, you will 
+need to create the AWARE tables if they do not already exist (if ANY of the 
+tables exist, you will have to drop all tables in order recreate the AWARE tables).&nbsp; You should see the 
+message below if you have created all tables successfully.</p>
+<p align="left">
+<img border="0" src="AWARETableSuccess.JPG" width="438" height="134"></p>
+<h4 align="left"><font color="#669900">Step 7:</font></h4>
+<p align="left">Open the views from the Eclipse Window menu item.&nbsp; Select 
+Other... under Show View</p>
+<p align="left">
+<img border="0" src="showOtherView.JPG" width="393" height="383"></p>
+<h4 align="left"><font color="#669900">Step 8:</font></h4>
+<p align="left">Expand the AWARE view folder and select all of the nodes beneath it and press OK.</p>
+<p align="left"><img border="0" src="AWAREViews.JPG" width="271" height="390"></p>
+<h4 align="left"><font color="#669900">Step 9:</font></h4>
+<p align="left">You should now see the open AWARE views in the view tray.</p>
+<p align="left">
+<img border="0" src="openAWAREViews.JPG" width="758" height="186"></p>
+<h4 align="left"><font color="#669900">Step 10:</font></h4>
+<p align="left">If you see an alert that you want to remove from the alert view, 
+you can right click on the alert and choose Filter Alert, which sends the alert 
+from the Alerts view to the Filtered Alerts View.</p>
+<p align="left"><img border="0" src="filterAlert.JPG" width="756" height="183"></p>
+<p align="left">
+<img border="0" src="filteredAlert.JPG" width="755" height="185"></p>
+<p align="left">
+To unfilter an alert, you can right click on the alert and choose UnFilter Alert</p>
+<p align="left">
+<img border="0" src="unfilteralert.JPG" width="758" height="175"></p>
+<h4 align="left"><font color="#669900">Step 11:</font></h4>
+<p align="left">If you want to see the line of code that is marked with an 
+alert, you can double click that alert in the Alerts view and AWARE will bring 
+up the line of code the alert references.</p>
+<p align="left"><img border="0" src="selectAlert.JPG" width="1019" height="763"></p>
+<h4 align="left"><font color="#669900">Step 12:</font></h4>
+<p align="left">When you fix an alert, the alert will disappear from the Alerts 
+view and will be added to the Closed Alerts view.&nbsp; The figure below demonstrates several alerts that have been fixed.</p>
+<p align="left"><img border="0" src="closedAlerts.JPG" width="754" height="187"></p>
+<h4 align="left"><font color="#669900">Step 13:</font></h4>
+<p align="left">Finally, when you are done working on your project, close 
+Eclipse and wait a minute before attempting to log off from your computer, as 
+AWARE is updating your Alert database with your most recent code changes.</p>
+
+</div>
+
+</body>
+
+</html>

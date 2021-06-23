@@ -4,11 +4,12 @@ tags: [software engineering, software lifecycle, CS2, CSC216, Lab01]
 description: CSC216 Lab 01 - Implement `StudentRecordIO`
 navigation: on
 pagegroup: 01-lab
+task: 5
 ---
 
 # CSC216 Lab 01: Implement `StudentRecordIO`
 {% include iconHeader.html type="implementation" %}
-`StudentRecordIO` provides `static` methods that support reading in student records from a file and writing student records to a file.  A student record is defined in [[UC1]](01-lab-requirements#uc1).  The read functionality supports [[UC2, S2]](01-lab-requirements#uc2-s2) and the write functionality supports [[UC2, S3]](01-lab-requirements#uc2-s3).
+`StudentRecordIO` provides `static` methods that support reading in student records from a file and writing student records to a file.  A student record is defined in [[Student Records Data Format]](01-lab-requirements#student-records).  The read functionality supports [[Use Case 3: Load Student Directory]](01-lab-requirements#uc3) and the write functionality supports [[Use Case 4: Save Student Directory]](01-lab-requirements#uc4).
 
 The two required public methods for `StudentRecordIO` are already provided as skeletons.  If you provide any additional methods, like the `private` one (`private Student processStudent(String line)`) suggested in the [design](01-lab-design), they should be `private`.
 
@@ -16,7 +17,7 @@ Since the methods of `StudentRecordIO` are `static`, `StudentRecordIO` doesn't r
 
 
 ## `readStudentRecords(String)` Implementation
-`readStudentRecords(String fileName)` will read in `Student` records from the file represented by the given `fileName`.  The records are returned in an `ArrayList<Student>` in a very similar manner to [`CourseRecordIO.readCourseRecords()` from GP1](../../gp1/gp1-libraries#java-collections-framework).  The method will throw a `FileNotFoundException` if the file does not exist on the file system. 
+`readStudentRecords(String fileName)` will read in `Student` records from the file represented by the given `fileName`.  The records are returned in an `ArrayList<Student>` in a very similar manner to [`CourseRecordIO.readCourseRecords()` from GP1](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-libraries#java-collections-framework).  The method will throw a `FileNotFoundException` if the file does not exist on the file system. 
 
 
 {% capture callout_content %}
@@ -28,13 +29,13 @@ Because we are working with character strings, using a `File` parameter to the `
 
 
 ## `writeStudentRecords(String)` Implementation
-`writeStudentRecords(String fileName, ArrayList<Student> studentDirectory)` will write the `Student`s in `studentDirectory` to the file represented by the `fileName` one `Student` record at a time.  The records are written in a very similar manner to [`CourseRecordIO.writeCourseRecords()` from GP1](../../gp1/gp1-libraries#file-output).  The method will throw an `IOException` if unable to write to the file.
+`writeStudentRecords(String fileName, ArrayList<Student> studentDirectory)` will write the `Student`s in `studentDirectory` to the file represented by the `fileName` one `Student` record at a time.  The records are written in a very similar manner to [`CourseRecordIO.writeCourseRecords()` from GP1](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-libraries#file-output).  The method will throw an `IOException` if unable to write to the file.
 
 
 ## Javadoc your Code
 Make sure that you Javadoc the `StudentRecordIO` class and methods. 
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -47,9 +48,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -59,11 +60,11 @@ At this point your project will build on Jenkins, maybe even with a green ball! 
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

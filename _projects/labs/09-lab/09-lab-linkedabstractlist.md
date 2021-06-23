@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 09 - Stacks and Queues
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - `LinkedAbstractList` Optimization
+title: CSC 217 Lab 09 - Stacks and Queues
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab09]
+description: CSC 217 Lab 09 - `LinkedAbstractList` Optimization
 navigation: on
 pagegroup: 09-lab
 ---
 
-# CSC216 Lab 09 `LinkedAbstractList` Optimization
+# CSC 217 Lab 09 `LinkedAbstractList` Optimization
 {% include iconHeader.html type="implementation,unitTest" %}
 Both the `ArrayQueue` and `LinkedQueue` implementations have an O(n) runtime for either `enqueue()` or `dequeue()` depending on what end of the list your considered the front.  There's nothing you can do to improve the efficiency of `ArrayQueue` - a right or left shift has to happen to maintain the `ArrayList`.  But you can improve the efficiency of your `LinkedQueue` by adding an optimization to `LinkedAbstractList`.  
 
@@ -46,8 +46,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

@@ -35,4 +35,4 @@ Calculate the cyclomatic complexity of given code.
 
 The following are the software testing materials we will use within CSC116:
 
-{% include tableOfContents.html pagegroup="testing-v6-0-0"%}
+{% include tableOfContents.html pagegroup="testing-v6-0-0" %}

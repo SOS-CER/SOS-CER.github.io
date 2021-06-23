@@ -11,7 +11,7 @@ public class RegistrationManagerTest {
 	private RegistrationManager manager;
 	
 	/**
-	 * Sets up the CourseManager and clears the data.
+	 * Sets up the RegistrationManager and clears the data.
 	 * @throws Exception if error
 	 */
 	@Before

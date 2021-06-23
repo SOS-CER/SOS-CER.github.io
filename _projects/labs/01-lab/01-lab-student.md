@@ -4,6 +4,7 @@ tags: [software engineering, software lifecycle, CS2, CSC216, Lab01]
 description: CSC216 Lab 01 - Implement `Student`
 navigation: on
 pagegroup: 01-lab
+task: 4
 ---
 
 # CSC216 Lab 01: Implement `Student`
@@ -27,11 +28,13 @@ Note that the `Student` class does not hash the password.  We expect that the pa
 
 
 ## `Student` Getters
-All getters for the `Student` fields are straight forward; they return the field.  Use [Source Code Generation](../../gp1/gp1-source-gen#generate-getters-and-setters) to help you create the getters.
+All getters for the `Student` fields are straight forward; they return the field.  Use [Source Code Generation](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-source-gen#generate-getters-and-setters) to help you create the getters.
 
 
 ## `Student` Setters
-The setters are more complex because they check to make sure that the `Student` fields are not invalid as defined in [[UC1]](01-lab-requirements#uc1).  If a value is invalid an `IllegalArgumentException` is thrown.
+The setters are more complex because they check to make sure that the `Student` fields are not invalid as defined in the [[Student Records Data Format]](01-lab-requirements#student-records) and in [[Use Case 3: Load Student Directory]](01-lab-requirements#uc3) and [[Use Case 5: Add Student to Student Directory]](01-lab-requirements#uc5).  If a value is invalid an `IllegalArgumentException` is thrown.  Note taht you are not yet fully implementing Use Case 3 and 5.  You're creating functionality that will make the full implementation of these use cases easier in other parts of the program.
+
+The Alternative Flows of [[Use Case 5: Add Student to Student Directory]](01-lab-requirements#uc5) describe the string messages that should be used when constructing the `IllegalArgumentException` if there's an error.
 
   * `setFirstName(String firstName)`: throws an `IllegalArgumentException` if the parameter is null or an empty string.
   * `setLastName(String lastName)`: throws an `IllegalArgumentException` if the parameter is null or an empty string.
@@ -48,19 +51,19 @@ Note that in the design, `setId()` is listed as a `private` method.  This is bec
 
 
 ## `Student` `hashCode()` and `equals()`
-[Generate `hashCode()` and `equals()`](../../gp1/gp1-source-gen#generate-equals-and-hashcode) on all of the `Student` fields.
+[Generate `hashCode()` and `equals()`](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-source-gen#generate-equals-and-hashcode) on all of the `Student` fields.
 
 
 ## `Student` `toString()`
 Override `toString()` by right clicking in the editor (inside the `Student` class definition) and selecting **Source > Override/Implement Methods**.  Select `toString()`.  
 
-`toString()` should return a string containing the fields as a comma separated line as defined in [[UC1]](01-lab-requirements#uc1).
+`toString()` should return a string containing the fields as a comma separated line as defined in [[Student Records Data Format]](01-lab-requirements#student-records) and [[Use Case 4: Save Student Directory]](01-lab-requirements#uc5).  Note that you are not yet implementing the save functionality, just the output format of a single student record.
 
 
 ## Javadoc your Code
 Make sure that you Javadoc the `Student` class, state, and methods.  For the overridden methods `equals()`, `hashCode()`, and `toString()`, remove the green comments and Javadoc them to describe how the methods work in `Student`.  Do NOT delete the `@Override` annotation.
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -73,9 +76,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -85,12 +88,12 @@ At this point your project should build on Jenkins with a Yellow ball.  That is 
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
 

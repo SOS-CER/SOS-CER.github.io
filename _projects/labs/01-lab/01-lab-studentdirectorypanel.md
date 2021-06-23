@@ -4,6 +4,7 @@ tags: [software engineering, software lifecycle, CS2, CSC216, Lab01]
 description: CSC216 Lab 01 - `StudentDirectoryPanel` Overview
 navigation: on
 pagegroup: 01-lab
+task: 7
 ---
 
 # CSC216 Lab 01: `StudentDirectoryPanel` Overview

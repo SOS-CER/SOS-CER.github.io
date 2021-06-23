@@ -1,25 +1,18 @@
 ---
-title: Guided Project 1 WolfScheduler - Course and Schedule
+title: Guided Project 1 - Software Development Practices and Tools
 tags: [software engineering, software lifecycle, CS2, CSC216, GP1]
 description: Guided Project 1 Introduction
-navigation: on
 pagegroup: gp1
 ---
 
-# Guided Project Introduction
+# Guided Project 1 Introduction
 **Target Audience:** this guided project is geared toward the beginning Java programmer who has some experience with Java programming from the command line.
 
-Creating a good software system, one that people want to use, requires more than just writing code. Writing software is a process, called [software engineering](../se-overview/index). Software engineering is a sub-area of computer science where practitioners use processes and practices to develop high quality, performant, and usable software that meet a set of customer requirements.
+Creating a good software system, one that people want to use, requires more than just writing code. Writing software is a process, called [software engineering](https://pages.github.ncsu.edu/engr-csc-software-development/software-lifecycle/index). Software engineering is a sub-area of computer science where practitioners use processes and practices to develop high quality, performant, and usable software that meet a set of customer requirements.  Tools support these processes and practices.
 
-The Guided Projects will walk you through the phases of the [software lifecycle](../se-overview/index): [requirements](../se-overview/requirements), [design](../se-overview/design), [implementation](../se-overview/implementation), [test](../se-overview/test), and [deployment](../se-overview/deployment).  Additionally, Guided Projects introduce you to the [software practices and tools that support those practices](../se-overview/index#software-development-practices-and-tools).  
+The Guided Projects will walk you through the phases of the [software lifecycle](https://pages.github.ncsu.edu/engr-csc-software-development/software-lifecycle/index): requirements, design, implementation, test, and deployment.  Additionally, the Guided Projects will introduce you to the [software practices and tools that support those practices](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/). 
 
-
-{% capture callout_content %}
-  * Implement and test a multi-class software system from a given set of requirements and design.
-  * Use software engineering best practices like test-driven development, code coverage, static analysis, version control, continuous integration, and documentation with supporting tooling to implement and test object-oriented systems.
-{% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
-
+{% include atAGlance.html %} 
 
 
 {% capture callout_content %}
@@ -29,35 +22,56 @@ Integrated Development Environments (IDEs) facilitate software development by in
 
 
 ## WolfScheduler System
+{% include iconHeader.html type="overview" %}
 You will implement and test PART of the [WolfScheduler](../wolf-scheduler/index) system.  The WolfScheduler system provides a way for a student to determine which course schedule may be best for them in an upcoming semester.  
 
 You will develop the WolfScheduler project over the course of the three guided projects.  The [WolfScheduler requirements](../wolf-scheduler/ws-requirements) describe the fully implemented system. Guided Project 1 will focus on the following requirements:
 
-  * [Use Case 1](../wolf-scheduler/ws-requirements#uc1): Loading Courses
-  * [Use Case 2](../wolf-scheduler/ws-requirements#uc2): Scheduling - the focus is on the following sub flows and associated alternative flows
-     * Sub Flow 1: Naming a schedule
-     * Sub Flow 2: Adding a course
-     * Sub Flow 3: Removing a course
-     * Sub Flow 6: Reset schedule
-     * Sub Flow 7: Course details
-  * [Use Case 3](../wolf-scheduler/ws-requirements#uc3): Display Final Schedule - except for event information
+  * [Use Case 1: Load Course Catalog](../wolf-scheduler/ws-requirements#uc1)
+  * [Use Case 2: Rename Schedule](../wolf-scheduler/ws-requirements#uc2)
+  * [Use Case 3: View Course Information](../wolf-scheduler/ws-requirements#uc3)
+  * [Use Case 4: Add Course to Schedule](../wolf-scheduler/ws-requirements#uc4)
+  * [Use Case 5: Remove Course from schedule](../wolf-scheduler/ws-requirements#uc5)
+  * [Use Case 8: Reset Schedule](../wolf-scheduler/ws-requirements#uc8)
+  * [Use Case 9: Display Final Schedule](../wolf-scheduler/ws-requirements#uc9) - only courses
+  * [Use Case 10: Export Schedule](../wolf-scheduler/ws-requirements#uc10) - only courses
   
 You will complete functionality related to events and schedule conflicts in future Guided Projects.  There are expectations from the Guided Projects that you must follow.  Do NOT attempt to implement any functionality before a Guided Project tells you to do so!
 
 As part of the Guided Project, you will be expected to run provided JUnit tests and acceptance tests to ensure that your implementation meets the requirements and design of the system.
 
 
-## Guided Project Time Expectations
-As you can see from the [WolfScheduler](../wolf-scheduler/) project, you will be creating a project that is likely as large as or larger than any project you have completed in your earlier coursework.  While some elements are provided and there are detailed instructions, the Guided Project still takes time to complete.  We expect that Guided Project 1 will take anywhere from **8-15 hours** to complete.
+## Tasks
+{% include iconHeader.html type="task" %}
+{% include tasks.html assignment=page.pagegroup %}
+
+{% capture print %}{% include printable.html %}{% endcapture %}
+{{ print }}
 
 
-## Guided Project Feedback and Evaluation
-We are using the Jenkins Continuous Integration system to automatically evaluate your work and provide feedback on your submission.  Go to the [Guided Project and Project Jenkins Server by using http://go.ncsu.edu/jenkins-csc216](http://go.ncsu.edu/jenkins-csc216).  **NOTE: The Jenkins servers for CSC216 are self signed and are maintained by the CSC216 teaching staff and CSC IT.  Please select the option to accept the signed certificate.  Usually, there's a link for Advanced that will display an option to trust the certificate.**
 
-All assignments have a rubric that you can use to estimate your grade.  Use the Jenkins feedback and your black box test results to [estimate the grade for Guided Project 1](../wolf-scheduler/ws-rubric).
+## Grading Rubric
+{% include iconHeader.html type="rubric" %}
+
+Your Wolf Scheduler Guided Project 2 will be evaluated on the following items:
+
+### Overall Rubric
+
+{% include rubricTable.html project="gp1" grade-category="overall" %} 
+
+### Deductions
+
+{% include deductionsRubricTable.html project="deductions" grade-category="overall" %}
+
+### Javadoc Rubric
+
+{% include javadocRubricTable.html project="javadoc" grade-category="overall" %}
+
+## Jenkins Server
+{% include iconHeader.html type="ciTool" %}
+
+We are using the Jenkins Continuous Integration system to automatically evaluate your work and provide feedback on your submission.  Go to the [Guided Project and Project Jenkins Server by using [https://csc216-jenkins.csc.ncsu.edu](https://csc216-jenkins.csc.ncsu.edu).  **NOTE: The Jenkins servers for CSC216 are self signed and are maintained by the CSC216 teaching staff and CSC IT.  Please select the option to accept the signed certificate.  Usually, there's a link for Advanced that will display an option to trust the certificate.**
 
 
-## Guided Project Tasks
-You are expected to complete the following tasks to complete Guided Project 1:
 
-{% include tableOfContents.html pagegroup="gp1"%}
+

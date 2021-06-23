@@ -1,0 +1,153 @@
+    semester: Spring 2021
+    shortName: CSC 217
+    name: Software Development Fundamentals Lab
+    description: Laboratory course to accompany CSC 216 lecture course. Application of the software processes and practices to design, implement, and test the development of software solutions requiring composition; inheritance; finite state machines; and linear data structures, including recursive linked lists.
+    prerequisites:
+      - CSC 116 with a C or better
+    corequisites:
+      - CSC 216
+    outcomes:
+      - Design, implement, and test programs which use object-oriented language features of inheritance, abstract classes, interfaces, and polymorphism;
+      - Employ the phases of the software development life cycle (requirements, design, implementation, and test) in developing software;
+      - Use UML class diagrams to propose a design to satisfy requirements;
+      - Use design patterns (e.g., model-view-controller and the state pattern) to solve development problems;
+      - Design effective system and unit tests and implement automated unit test code;
+      - Navigate and extract information from the Java API, and employ the Javadoc tool to construct internal documentation of source code;
+      - Use software engineering best practices like pair programming, test-driven development, code coverage, static analysis, version control, continuous integration, and documentation with supporting tooling to design, implement, and test object-oriented systems.
+      - Design, implement, and test a finite state machine;
+      - Design, implement, and test simple recursive data structures;
+      - Implement, test, and use a stack, queue, array-based list, and linked list.
+    instructor:
+      - name: Dr. Heckman
+        primary: yes
+        title: Instructor
+        url: https://www.csc.ncsu.edu/people/sesmith5
+        image: heckman.jpg
+        officeLocation: EB2 2297
+        email: sarah_heckman@ncsu.edu 
+      - name: Mr. Tetterton
+        primary: no
+        title: Section 601 Instructor
+        url: 
+        image: tetterton.jpg
+        officeLocation: online
+        email: jctetter@ncsu.edu  
+    staff:
+      #- name: Peer Teacher
+      #  title: Peer Teaching Fellow
+      #  image: 
+      #  title: Lab 203
+# Title represents lab sections/        
+    logistics:
+      - name: Syllabus
+        url: syllabi/S21_CSC217_Syllabus
+        color: 7b48d3
+        description: CSC 217 syllabus
+      - name: Schedule
+        url: schedule/S21_CSC217_Schedule
+        color: 8a5cd8
+        description: CSC 217 schedule
+      - name: Labs
+        url: https://pages.github.ncsu.edu/engr-csc217/labs/
+        color: 9971dd
+        description: CSC 217 Labs
+      - name: Moodle Gradebook
+        url: https://moodle-courses2021.wolfware.ncsu.edu/course/view.php?id=1220
+        color: a886e2
+        description: CSC 217 grades are managed in Moodle
+    support:
+      - name: MyDigitalHand
+        url: https://www.mydigitalhand.org
+        color: 1E4173
+        description: Join code "S48H4FR" when visiting office hours
+      - name: Piazza
+        url: https://piazza.com/class/kd9bt9y0eqa3zr
+        color: 3e7aab
+        description: Course message board
+      - name: Academic Counseling
+        url: https://counseling.dasa.ncsu.edu/services/academic-counseling/
+        color: CC0000
+        description: Guidance on improving academic performances
+    assignments:
+      - name: Labs
+        url: https://pages.github.ncsu.edu/engr-csc316-staff/Labs
+        color: 6F7D1C
+        description: Lab written and coding activities      
+    officeHourCalendar:
+        name: Office Hours Calendar
+        url: https://calendar.google.com/calendar/embed?src=ncsu.edu_7brr7mh4i38jncp4hlrna64noo%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA 
+    labSections:
+      - name: Section 201
+        time: Asynchronous
+        location: Online
+        deadline: T 11:45pm
+        jenkins-url: https://csc217-201-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 202
+        time: M 12:50p-2:40p
+        location: Online
+        deadline: M 12:40p
+        jenkins-url: https://csc217-202-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 203
+        time: M 3:00p-4:50p
+        location: Online
+        deadline: M 2:50p
+        jenkins-url: https://csc217-203-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 204
+        time: M 5:20p-7:10p
+        location: Online
+        deadline: M 5:10p
+        jenkins-url: https://csc217-204-jenkins.csc.ncsu.edu/jenkins/
+      #- name: Section 211
+      #  time: T 8:30a-10:20a
+      #  location: EBII 1229 (students may also participate online)
+      #  deadline: T 8:20a
+      #  jenkins-url: https://csc217-211-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 212
+        time: T 10:40a-12:30p
+        location: Online
+        deadline: T 10:30a
+        jenkins-url: https://csc217-212-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 213
+        time: T 3:00p-4:50p
+        location: Online
+        deadline: T 2:50p
+        jenkins-url: https://csc217-213-jenkins.csc.ncsu.edu/jenkins/
+      #- name: Section 214
+      #  time: T 5:20p-7:10p
+      #  location: Online
+      #  deadline: T 5:10p
+      #  jenkins-url: https://csc217-214-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 221
+        time: W 8:30a-10:20a
+        location: Online
+        deadline: W 8:20a
+        jenkins-url: https://csc217-221-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 222
+        time: W 12:50p-2:40p
+        location: EBII 1229 (students may also participate online)
+        deadline: W 12:40p
+        jenkins-url: https://csc217-222-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 223
+        time: W 3:00p-4:50p
+        location: Online
+        deadline: W 2:50p
+        jenkins-url: https://csc217-223-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 224
+        time: W 5:20p-7:10p
+        location: Online
+        deadline: W 5:10p
+        jenkins-url: https://csc217-224-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 601
+        time: Asynchronous
+        location: Online
+        deadline: T 11:45p
+        jenkins-url: https://csc217-601-jenkins.csc.ncsu.edu/jenkins/
+    archive:
+      - name: Syllabi Archive
+        url: syllabi/
+        color: 9932CC
+        description: CSC 217 syllabi archive
+      - name: Schedule Archive
+        url: schedule/
+        color: 8A2BE2
+        description: CSC 217 schedule archive

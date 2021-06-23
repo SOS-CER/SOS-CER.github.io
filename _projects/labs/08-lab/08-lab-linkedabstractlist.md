@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 08 - LinkedAbstractList
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab08]
-description: CSC216 Lab 08 - Implement and Test Custom `LinkedAbstractList`
+title: CSC 217 Lab 08 - LinkedAbstractList
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab08]
+description: CSC 217 Lab 08 - Implement and Test Custom `LinkedAbstractList`
 navigation: on
 pagegroup: 08-lab
 ---
-# CSC216 Lab 08 Implement and Test Custom `LinkedAbstractList`
+# CSC 217 Lab 08 Implement and Test Custom `LinkedAbstractList`
 {% include iconHeader.html type="implementation,unitTest" %}
 The design of the course roll functionality calls for a custom implementation of an array list that doesn't allow for null elements or duplicate elements as defined by the `equals()` method, and has a capacity.  
 
@@ -82,7 +82,7 @@ If the element to set is a duplicate of an element already in the list as determ
 If the index is out of range (`index < 0 || index >= size()`), the method should throw an `IndexOutOfBoundsException`.
 
 
-## mplement `LinkedAbstractList.get(int)`
+## Implement `LinkedAbstractList.get(int)`
 Override and implement the `LinkedAbstractList.get(int)` method so that it will return the element, of type `E` at the given index.  
 
 If the index is out of range (`index < 0 || index >= size()`), the method should throw an `IndexOutOfBoundsException`.
@@ -98,8 +98,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

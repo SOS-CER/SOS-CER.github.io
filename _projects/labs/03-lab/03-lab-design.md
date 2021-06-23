@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 03 - Collections
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab03]
-description: CSC216 Lab 03 - Design
+title: CSC 217 Lab 03 - Collections
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab03]
+description: CSC 217 Lab 03 - Design
 navigation: on
 pagegroup: 03-lab
 ---
 
-# CSC216 Lab 03: Design
+# CSC 217 Lab 03: Design
 {% include iconHeader.html type="design" %}
 The design of `PackScheduler` for Lab 03's `StudentDirectory` functionality consists of four classes in four packages.  There are a couple of modifications from the [design in Lab 01](../01-lab/01-lab-design).
 
@@ -28,7 +28,7 @@ The details of the classes are mostly described in [Lab 01](../01-lab/01-lab-des
   * [edu.ncsu.csc216.pack_scheduler.io.StudentRecordIO](03-lab-studentrecordio)
      * `StudentRecordIO` now uses the `SortedList` class rather than `ArrayList`.  Both the `readStudentRecords()` and `writeStudentRecords()` method headers are updated.
   * [edu.ncsu.csc216.pack_scheduler.directory.StudentDirectory](03-lab-studentdirectory)
-     * `StudentDirectory`'s parameter `directory` is a `SortedList`.  No method headers are changed.
+     * `StudentDirectory`'s field `studentDirectory` is a `SortedList`.  No method headers are changed.
   * [edu.ncsu.csc216.pack_scheduler.ui.StudentDirectoryPanel](03-lab-test)
      * There are no changes to the GUI.
 

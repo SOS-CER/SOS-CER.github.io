@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 11 - Recursive Linked Lists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab11]
-description: CSC216 Lab 11 - Design
+title: CSC 217 Lab 11 - Recursive Linked Lists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab11]
+description: CSC 217 Lab 11 - Design
 navigation: on
 pagegroup: 11-lab
 ---
 
-# CSC216 Lab 11 Design
+# CSC 217 Lab 11 Design
 {% include iconHeader.html type="design" %}
 The design for Lab 11 is shown below.  To follow the development paradigm of *additive change*, the custom `LinkedListRecursive` will be implemented in the `edu.ncsu.csc216.pack_scheduler.util` package.  The `FacultySchedule` functionality will be added as separate classes and integrated into `Faculty`, `RegistrationManager`, `Course`, and `CourseRecordIO`.
 

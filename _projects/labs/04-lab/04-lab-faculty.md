@@ -1,27 +1,38 @@
 ---
-title: CSC216 Lab 04 - Design
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab04]
-description: CSC216 Lab 04 - Designing `PackScheduler` Faculty Functionality
+title: CSC 217 Lab 04 - Design
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab04]
+description: CSC 217 Lab 04 - Designing `PackScheduler` Faculty Functionality
 navigation: on
 pagegroup: 04-lab
 ---
-# CSC216 Lab 04: Designing `PackScheduler` Faculty Functionality
+# CSC 217 Lab 04: Designing `PackScheduler` Faculty Functionality
 {% include iconHeader.html type="design" %}
 Now that you have compared two designs and integrated two systems to meet a provided design, you should propose your own design for the faculty functionality.
 
 
 ## Creating your Design
-Using the [extended requirements below](#faculty-requirements) and the candidate designs from Part 1, you will extend the one of the designs to include the faculty functionality discussed in [[UC0]](#uc0), [[UC1]](#uc1), [[UC8]](#uc8), [[UC9]](#uc9), and [[UC10]](#uc10).
+Using the [extended requirements below](#faculty-requirements), current requirements(04-lab-requirements), and the candidate designs from Part 1, you will extend the one of the designs to include the faculty functionality discussed below.
 
-We have provided the candidate designs as [Dia](http://dia-installer.de/) files:
+**Updated or New Requirements**
 
-  * [Candidate Design A](images/DesignA.dia)
-  * [Candidate Design B](images/DesignB.dia)
+  * **PackScheduler**
+     * [Use Case 0: Start PackScheduler](#uc0)
+	 
+  * **Faculty Directory**
+     * [Use Case 18: Create Faculty Directory](#uc18)
+     * [Use Case 19: Load Faculty Directory](#uc19)
+     * [Use Case 20: Save Faculty Directory](#uc20)
+     * [Use Case 21: Add Faculty to Faculty Directory](#uc21)
+     * [Use Case 22: Remove Faculty from Faculty Directory](#uc22)
+	 
+  * **Faculty Scheduling**
+     * [Use Case 23: View Faculty Schedule](#uc23)
 
-We have also provided an XML class diagram file that can be used by the [web application UMLetino](http://www.umlet.com/umletino/umletino.html). Select **File Import** and select an XML file.
 
-  * [Candidate Design A](images/DesignA.xml)
-  * [Candidate Design B](images/DesignB.xml)
+We have provided an UXF class diagram file that can be used by the [web application UMLetino](http://www.umlet.com/umletino/umletino.html). Select **File Import** and select an UXF file.
+
+  * [Candidate Design A](images/DesignA.uxf)
+  * [Candidate Design B](images/DesignB.uxf)
   
 Another diagramming tool option is [PlantUML](http://plantuml.com/)
   
@@ -45,272 +56,215 @@ Make sure that your design is submitted for grading!
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
 
 ## Faculty Requirements
-Below are the requirements for faculty in the `PackScheduler` system:
+Below are the requirements for faculty in the `PackScheduler` system.  
 
 
-### <a id="uc0"></a>Use Case 0: Authentication
+### <a id="uc0"></a>Use Case 0: Start PackScheduler
+{% include iconHeader.html type="objective" %}
+Starts the PackScheduler application.
 
-**Main Flow:** The program starts by providing an authentication window requesting a user id and password. The user enters their id and password and clicks the OK button [[S1]](#uc0-s1)[[E1]](#uc0-e1) or the Cancel button [[S2]](#uc0-s2).
+#### Main Flow
 
-**Sub Flows:** 
+  1. The user starts the Pack Scheduler application. 
+  2. The user enters their id and password in the authentication area and clicks the OK button **[[Hash Password]](#uc0-hashpassword)** **[[Already Logged In]](#uc0-alreadyloggedin)** **[[Invalid Authentication]](#uc0-invalidauthentication)**. 
+  3. The user is redirected to the appropriate functionality for the user type of **[[Registrar]](#uc0-registrar)**, **[[Student]](#uc0-student)**, or **[[Faculty]](#uc0-faculty)**.
+	 
+#### Extensions (Sub-flows)
 
-  * <a id="uc0-s1"></a>[S1]: The provided password is hashed using the SHA-256 algorithm and is compared with the user's stored password [[E2]](#uc0-e2)[[E3]](#uc0-e3). The user is directed to the appropriate interface depending on their role in the system:
-     * If the user is the registrar, they are directed to the registrar user interface [[UC1]](#uc1).  
-     * If the user is a student, they are directed to the student user interface [[UC6]](#uc6).
-     * <font color="red">If the user is a faculty member, they are directed to the faculty user interface </font>[[UC10]](#uc10)<font color="red">.</font>
-  * <a id="uc0-s2"></a>[S2]: The program exits with no changes to any stored data.
-
-**Alternative Flows:**
-
-  * <a id="uc0-e1"></a>[E1]: If a user is already logged into the system, a new user may not log in.
-  * <a id="uc0-e2"></a>[E2]: If the user doesn't exist in the system, a pop-up message stating "Invalid id or password" is displayed.  The user clicks OK and is returned to the authentication window [[UC0]](#uc0).
-  * <a id="uc0-e3"></a>[E3]: If the user's hashed password doesn't match the stored hashed password, a pop-up message stating "Invalid id or password" is displayed.  The user clicks OK and is returned to the authentication window [[UC0]](#uc0).
+  * <a id="uc0-hashpassword"></a>**[Hash Password]** The provided password is hashed using the SHA-256 algorithm and is compared with the user's stored password **[[Invalid Authentication]](#uc0-invalidauthentication)**.
+  * <a id="uc0-registrar"></a>**[Registrar]** The Registrar can work with the **[[Student Directory]](#uc0-studentdirectory)**, **[[Course Catalog]](#uc0-coursecatalog)**, and the **[[Faculty Directory]](#uc0-facultydirectory)**.
+  * <a id="uc0-student"></a>**[Student]** The Student can **[[Modify their Schedule]](#uc0-modifytheirschedule)**.
+  * <a id="uc0-faculty"></a>**[Faculty]** The Faculty member can **[[View their Schedule]](#uc0-viewschedule)**.
+  * <a id="uc0-studentdirectory"></a>**[Student Directory]** The **registrar** can do one or more of the following tasks related to the Student Directory:
+     * [Use Case 2: Create Student Directory](04-lab-requirements#uc2)
+     * [Use Case 3: Load Student Directory](04-lab-requirements#uc3)
+     * [Use Case 4: Save Student Directory](04-lab-requirements#uc4)
+     * [Use Case 5: Add Student to Student Directory](04-lab-requirements#uc5)
+     * [Use Case 6: Remove Student from Student Directory](04-lab-requirements#uc6)
+  * <a id="uc0-coursecatalog"></a>**[Course Catalog]** The **registrar** can do one or more of the following tasks related to the Course Catalog:
+     * [Use Case 7: Create Course Catalog](04-lab-requirements#uc7)
+	 * [Use Case 8: Load Course Catalog](04-lab-requirements#uc8)
+	 * [Use Case 9: Save Course Catalog](04-lab-requirements#uc9)
+	 * [Use Case 10: Add Course to Course Catalog](04-lab-requirements#uc10)
+	 * [Use Case 11: Remove Course from Course Catalog](04-lab-requirements#uc11)
+  * <a id="uc0-modifytheirschedule"></a>**[Modify their Schedule]** The **student** can do one or more of the following tasks realated to Student Scheduling:
+     * [Use Case 12: Rename Schedule](04-lab-requirements#uc12)
+	 * [Use Case 13: View Course Information](04-lab-requirements#uc13)
+	 * [Use Case 14: Add Course to Schedule](04-lab-requirements#uc14)
+	 * [Use Case 15: Remove Course from Schedule](04-lab-requirements#uc15)
+	 * [Use Case 16: Reset Schedule](04-lab-requirements#uc16)
+	 * [Use Case 17: Display Final Schedule](#uc17)
+  * <a id="uc0-facultydirectory"></a>**[Faculty Directory]**  The **registrar** can do one or more of the following tasks realted to the Faculty Directory:
+     * [Use Case 18: Create Faculty Directory](#uc18)
+     * [Use Case 19: Load Faculty Directory](#uc19)
+     * [Use Case 20: Save Faculty Directory](#uc20)
+     * [Use Case 21: Add Faculty to Faculty Directory](#uc21)
+     * [Use Case 22: Remove Faculty from Faculty Directory](#uc22)
+  * <a id="uc0-viewschedule"></a>**[View Schedule]** The **faculty** can do the following:
+     * [Use Case 23: View Faculty Schedule](#uc23)
   
+#### Alternative Flows
 
-### <a id="uc1"></a>Use Case 1: Registrar Functionality
+  * <a id="uc0-alreadyloggedin"></a>[Already Logged In] If a user is already logged into the system, a new user may not log in.
+  * <a id="uc0-invalidauthentication"></a>[Invalid Authentication] If the user doesn't exist in the system or the user's hashed password doesn't match the stored hashed password, a pop-up message stating "Invalid id or password" is displayed.  The user clicks OK and is returned to the authentication window.
 
-**Main Flow:** The registrar initially starts with an empty student directory, course catalog, and <font color="red>empty faculty directory</font>.  The registrar can work with the student directory [[UC2]](#uc2), course catalog [[UC4]](#uc4), <font color="red">and faculty directory </font>[[UC8]](#uc8).
-
-
-### <a id="uc2"></a>Use Case 2: Student Directory
-
-**Main Flow:** The registrar can create a new, empty, student directory [[S1]](#uc2-s1); load an existing student directory from a text file [[S2]](#uc2-s2); save the current student directory to a text file [[S3]](#uc2-s3); add a student to the directory [[S4]](#uc2-s4); and remove a student from the directory [[S5]](#uc2-s5).  If the user quits the program, any changes to the student directory are lost unless the user saves the student directory [[S3]](#uc2-s3). All students are stored in the directory in alphabetical order by last name and then by first name.  If there are two students with the same name, then the id is considered in the sort.
-
-<!-- ![*Student Directory GUI*](images/StudentDirectoryPanel.PNG) -->
-
-**Sub Flows:**
-
-  * <a id="uc2-s1"></a>[S1]: The user clicks the **New Student Directory** button.  Any students in the directory are cleared, and a new empty directory is created.  The *Student Directory* list is empty.
-  * <a id="uc2-s2"></a>[S2]: The user clicks the **Load Student Directory** button.  A dialog opens where the user selects a text file containing student information [[E1]](#uc2-e1).  A list of students from valid records is created and displayed in the *Student Directory* list in sorted order.  Any invalid records [[UC3, E1]](#uc3-e1) are ignored. 
-  * <a id="uc2-s3"></a>[S3]: The user clicks the **Save Student Directory** button.  A dialog opens where the user selects the location to save the list of students [[E2]](#uc2-e2)  The list of students is saved to a text file with a student record on each line.  Each student record is a comma separated list of items [[UC3]](#uc3)and the students are saved in sorted order.
-  * <a id="uc2-s4"></a>[S4]: The user adds a student, with a unique id [[E3]](#uc2-e3), by entering a first name [[E4]](#uc2-e4), last name [[E5]](#uc2-e5), id [[E6]](#uc2-e6), email [[E7]](#uc2-e7), password [[E8]](#uc2-e8), repeated password, and max credits [[E9]](#uc2-e9)[[E10]](#uc2-e10) and clicks the **Add Student** button.  The password and repeated password are hashed using SHA-256 and must match [[E11]](#uc2-e11).  The student is added to the directory in sorted order.
-  * <a id="uc2-s5"></a>[S5]: The user selects a student in the *Student Directory* list and clicks the **Remove Student** button [[E12]](#uc2-e12).  The student is removed from the *Student Directory* list.
   
-**Alternative Flows:**
+### <a id="uc18"></a>Use Case 18: Create Faculty Directory
+{% include iconHeader.html type="objective" %}
+The registrar can create a new, empty, faculty directory.
 
-  * <a id="uc2-e1"></a>[E1]: If the file cannot be found on the file system, the error message "Unable to read file <filename>" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e2"></a>[E2]: If the file cannot be written to, the error message "Unable to write to file <filename>" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e3"></a>[E3]: If the student's id is not unique, the error message "Student already in system." is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e4"></a>[E4]: If the student's first name is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid first name" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e5"></a>[E5]: If the student's last name is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid last name" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e6"></a>[E6]: If the student's id is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid id" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e7"></a>[E7]: If the student's email is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid email" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e8"></a>[E8]: If the student's password is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid password" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e9"></a>[E9]: If the student's max credits are invalid [[UC3, E1]](#uc3-e1), the error message "Invalid max credits" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e10"></a>[E10]: If the max credits are not a number, the error message "Max credits must be a positive number between 3 and 18." is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e11"></a>[E11]: If the student's password and repeated passwords do not match, the error message "Passwords do not match" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e12"></a>[E12]: If there is no student selected, the error message "No student selected." is displayed. The user clicks OK and is returned to the student directory display.
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Faculty Directories.
+
+#### Main Flow
+
+  1. The registrar clicks the **New Faculty Directory** button.
+  2. A new empty Faculty Directory is created.
+  3. The display is updated so that the *Faculty Directory* list is empty.
 
 
-### <a id="uc3"></a>Use Case 3: Student Records
+### <a id="uc19"></a>Use Case 19: Load Faculty Directory
+{% include iconHeader.html type="objective" %}
+The registrar can load a faculty directory from a file.
 
-**Main Flow:** Every student has a first name, last name, id, email address, password, and max number of credits they can take in a given semester [[E1]](#uc3-e1). To protect the student's information, the student's password should be hashed using SHA-256 when stored.  When stored in a text file, a student record is a comma separated list in the following format:
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Faculty Directories.
 
-    firstName,lastName,id,email,hashedPassword,maxCredits
+#### Main Flow
 
-**Alternative Flows:**
+  1. The registrar clicks the **Load Faculty Directory** button. 
+  2. A dialog appears and the user can browse the file system for the text file containing faculty information **[[Faculty Records Data Format]](#faculty-records)** **[[Invalid File]](#uc19-invalid-file)**.
+  3. A list of faculty is created from valid records. Invalid records are ignored **[[Invalid Faculty Records]](#invalid-faculty-records)**.
+  4. All faculty are stored in the directory in alphabetical order by last name and then by first name.  If there are two faculty with the same name, then the id is considered in the sort.
 
-  * <a id="uc3-e1"></a>[E1]: A student is invalid if any of the following are true:
-     * an item is missing
-     * first name is null or an empty string
-     * last name is null or an empty string
-     * id is null or an empty string
-     * email is null or an empty string
-     * email doesn't contain an '@' character
-     * email doesn't contain a '.' character
-     * the index of the last '.' character in the email string is smaller than the index of the first '@' character (e.g., first.last@address would be invalid)
-     * the password is null or an empty string
-     * max credits is below 3 or above 18
+#### Alternative Flows
+
+  * <a id="uc19-invalid-file"></a>**[Invalid File]** If the file cannot be found on the file system, the error message "Unable to read file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the faculty directory display.
 
 
-### <a id="uc4"></a>Use Case 4: Course Catalog
+### <a id="uc20"></a>Use Case 20: Save Faculty Directory
+{% include iconHeader.html type="objective" %}
+The registrar can save the current list of faculty in a faculty directory to a file.
 
-**Main Flow:** The registrar can create a new, empty, course catalog [[S1]](#uc4-s1); load an existing course catalog from a text file [[S2]](#uc4-s2); save the current course catalog to a text file [[S3]](#uc4-s3); add a course to the catalog [[S4]](#uc4-s4); and remove a course from the catalog [[S5]](#uc4-s5).  If the user quits the program, any changes to the course catalog are lost unless the user saves the course catalog [[S3]](#uc4-s3). All courses are stored in the catalog in sorted order by course name and section.  There may be multiple sections of the same course, but a course/section pair must be unique.
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Faculty Directories.
 
-<!-- TODO: Add in an item for assigning a faculty member to a course -->
+#### Main Flow
 
-<!--![*Course Catalog GUI*](images/CourseCatalogPanel.PNG) -->
+  1. The registrar clicks the **Save Faculty Directory** button.
+  2. A dialog appears and the user selects the location to save the list of faculty and provides a name for the file **[[Error Saving]](#uc20-error-saving)**.
+  3. The list of faculty is saved to a text file with a faculty record on each line **[[Faculty Records Data Format]](#faculty-records)**.  The faculty are saved in sorted order by last name, first name, and id.
 
-    courseName,courseTitle,sectionNumber,creditHours,instructorUnityID,meetingDays,startTime,endTime
+#### Alternative Flows
 
-**Sub Flows:**
+  * <a id="uc20-error-saving"></a>**[Error Saving]** If the file cannot be saved, the error message "Unable to write to file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the faculty directory display.
 
-  * <a id="uc4-s1"></a>[S1]: The user clicks the **New Course Catalog** button.  Any courses in the catalog are cleared, and a new empty catalog is created.  The *Course Catalog* list is empty.
-  * <a id="uc4-s2"></a>[S2]: The user clicks the **Load Course Catalog** button.  A dialog opens where the user selects a text file containing course information [[E1]](#uc4-e1).  A list of courses from valid records is created and displayed in the *Course Catalog* list in sorted order.  Any invalid records [[UC5, E1]](#uc5-e1) are ignored. 
-  * <a id="uc4-s3"></a>[S3]: The user clicks the **Save Course Catalog** button.  A dialog opens where the user selects the location to save the list of courses [[E2]](#uc4-e2)  The list of courses is saved to a text file with a course record on each line.  Each course record is a comma separated list of items [[UC5]](#uc5)and the courses are saved in sorted order.
-  * <a id="uc4-s4"></a>[S4]: The user adds a course, with a unique name/section pair [[E3]](#uc4-e3), by entering a course name [[E4]](#uc4-e4), course title [[E5]](#uc4-e5), section number [[E6]](#uc4-e6), credit hours [[E7]](#uc4-e7), instructor unity id [[E8]](#uc4-e8), meeting days [[E9]](#uc4-e9), start time [[E10]](#uc4-e10), and end time [[E11]](#uc4-e11)[[E12]](#uc4-e12) and clicks the **Add Course** button.  The course is added to the catalog in sorted order.
-  * <a id="uc4-s5"></a>[S5]: The user selects a course in the *Course Catalog* list and clicks the **Remove Course** button [[E13]](#uc4-e13).  The course is removed from the *Course Catalog* list.
+
+### <a id="uc21"></a>Use Case 21: Add Faculty to Faculty Directory
+{% include iconHeader.html type="objective" %}
+The registrar can add a faculty to the faculty directory.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Faculty
+
+#### Main Flow
+
+  1. The registrar enters information about a new faculty member in the *Faculty Information* portion of the user interface **[[Faculty Records Data Format]](#faculty-records)** and clicks **Add Faculty** button.
+     * first name **[[Invalid First Name]](#uc21-invalid-first-name)**
+	 * last name **[[Invalid Last Name]](#uc21-invalid-last-name)**
+	 * id **[[Invalid ID]](#uc21-invalid-id)**
+	 * email **[[Invalid Email]](#uc21-invalid-email)**
+	 * password **[[Invalid Password]](#uc21-invalid-password)**
+	 * repeat password **[[Invalid Password]](#uc21-invalid-password)**
+	 * max courses **[[Invalid Max Courses]](#uc21-invalid-max-courses)** 
+  2. The password and repeated password are hashed using SHA-256 and must match **[[Non-matching Passwords]](#uc21-non-matching-passwords)**.
+  3. The faculty is added to the *Faculty Directory* in sorted order by last name, first name, and id **[[Non-unique ID]](#uc21-non-unique-id)**. 
+
+#### Alternative Flows
+
+  * <a id="uc21-invalid-first-name"></a>**[Invalid First Name]** If the faculty's first name is invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid first name" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc12-invalid-last-name"></a>**[Invalid Last Name]**  If the faculty's last name is invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid last name" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-invalid-id"></a>**[Invalid ID]** If the faculty's id is invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid id" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-invalid-email"></a>**[Invalid Email]** If the faculty's email is invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid email" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-invalid-password"></a>**[Invalid Password]** If the faculty's password or repeated password is invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid password" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-invalid-max-courses"></a>**[Invalid Max Courses]** If the faculty's max courses are invalid **[[Invalid Faculty Records]](#invalid-faculty-records)**, the error message "Invalid max courses" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-non-matching-passwords"></a>**[Non-matching Passwords]** If the faculty's password and repeated passwords do not match, the error message "Passwords do not match" is displayed.  The user clicks OK and is returned to the faculty directory display.
+  * <a id="uc21-non-unique-id"></a>**[Non-unique ID]** If the faculty's id is not unique, the error message "Faculty already in system." is displayed.  The user clicks OK and is returned to the faculty directory display.
+
+
+### <a id="uc22"></a>Use Case 22: Remove Faculty from Faculty Directory
+{% include iconHeader.html type="objective" %}
+The registrar can remove a faculty from the faculty directory.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Faculty Directories.
+
+#### Main Flow
+
+  1. The registrar selects a faculty in the *Faculty Directory* list and clicks the **Remove Faculty** button **[[No Faculty Selected]](#uc22-no-faculty-selected)**.
+  2. The faculty is removed from the *Faculty Directory* list.
+
+
+#### Alternative Flows
+
+  * <a id="uc22-no-faculty-selected"></a>**[No Faculty Selected]** If there is no faculty selected, the error message “No faculty selected.” is displayed. The user clicks OK and is returned to the faculty directory display.  
   
-**Alternative Flows:**
+### <a id="uc23"></a>Use Case 23: View Faculty Schedule
+{% include iconHeader.html type="objective" %}
+A faculty member can view their class schedule.
 
-  * <a id="uc4-e1"></a>[E1]: If the file cannot be found on the file system, the error message "Unable to read file <filename>" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e2"></a>[E2]: If the file cannot be written to, the error message "Unable to write to file <filename>" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e3"></a>[E3]: If the course's name and section already exist in the catalog, the error message "Course already in system." is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e4"></a>[E4]: If the course's name is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid course name" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e5"></a>[E5]: If the course's title is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid course title" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e6"></a>[E6]: If the course's section number is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid section number" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e7"></a>[E7]: If the course's credit hours is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid credit hours" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e8"></a>[E8]: If the course's instructor unity id is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid instructor unity id" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e9"></a>[E9]: If the course's meeting days are invalid [[UC5, E1]](#uc5-e1), the error message "Invalid meeting days" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e10"></a>[E10]: If the course's start time is invalid, the error message "Invalid start time" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e11"></a>[E11]: If the course's end time is invalid, the error message "Invalid end time" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e12"></a>[E12]: If the course's end time and start time together are invalid, the error message "Invalid course times" is displayed. The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e13"></a>[E13]: If there is no course selected, the error message "No course selected." is displayed. The user clicks OK and is returned to the course catalog display.
+#### Preconditions
+The PackScheduler application has started and a registered faculty member has logged in.
 
-     
-### <a id="uc5"></a>Use Case 5: Course Records
+#### Main Flow
 
-**Main Flow:** Every course has a course name, course title, section number, number of credit hours, instructor's unity id, meeting days, start time, and end time. [[S1]](#uc5-s1). When stored in a text file, a course record is a comma separated list in the following format:
+  1. The faculty member can see their schedule in a table.
+  2. The faculty member selects a course.
+  3. The course details are displayed with the course name, section, title, instructor, credit hours, and meeting information. If the meeting days are “A”, the details view shows “Arranged”. Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time. Only “AM” and “PM” are used.
 
-    courseName,courseTitle,sectionNumber,creditHours,instructorUnityID,meetingDays,startTime,endTime
 
-**Sub Flows:**
+## Data Format
 
-  * <a id="uc5-s1"></a>[S1]: Information about scheduled courses are stored in a file with one course record per line.  A course record is a comma separated list of the course name, course title, section number, the number of credit hours, instructor's unity id, meeting days, start time, and end time.  The start time and end time may be omitted if the meeting days are listed as 'A'(rranged).  Valid course records are stored in a list of courses [[E1]](#uc5-e1).  An example of what a course schedule file might look like is below:
+### Faculty Records
+
+Faculty records can be saved and loaded from a file in the correct format.  An example of a valid file would be: 
 
 ```
-CSC116,Intro to Programming - Java,001,3,jdyoung2,MW,0910,1100
-CSC116,Intro to Programming - Java,002,3,spbalik,MW,1120,1310
-CSC116,Intro to Programming - Java,003,3,tbdimitr,TH,1120,1310
-CSC216,Programming Concepts - Java,001,4,sesmith5,TH,1330,1445
-CSC216,Programming Concepts - Java,002,4,jtking,MW,1330,1445
-CSC216,Programming Concepts - Java,601,4,jep,A
+Ashely,Witt,awitt,mollis@Fuscealiquetmagna.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,2
+Fiona,Meadows,fmeadow,pharetra.sed@et.org,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,3
+Brent,Brewer,bbrewer,sem.semper@orcisem.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,1
+Halla,Aguirre,haguirr,Fusce.dolor.quam@amalesuadaid.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,3
+Kevyn,Patel,kpatel,risus@pellentesque.ca,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,1
+Elton,Briggs,ebriggs,arcu.ac@ipsumsodalespurus.edu,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,3
+Norman,Brady,nbrady,pede.nonummy@elitfermentum.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,1
+Lacey,Walls,lwalls,nascetur.ridiculus.mus@fermentum.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,2
 ```
-    
-**Alternative Flows:**
 
-  * <a id="uc5-e1"></a>[E1] An invalid course record is ignored and not added to the list of courses stored by the system. A course record is invalid if one or more of the following are true, and an invalid course records is skipped:
-     * an item is missing
-     * the course name is null or an empty string
-     * the course name is fewer than 4 characters or greater than 6 characters
-     * the course title is null or an empty string
-     * the section number is NOT exactly three digits
-     * the credit hours are not a number
-     * the credit hours are less than 1 or greater than 5
-     * the instructor's id is null or an empty string
-     * meeting days consist of any characters other than 'M', 'T', 'W', 'H', 'F', or 'A' 
-     * if 'A' is in the meeting days list, it must be the only character
-     * the start time is not between 0000 and 2359 an invalid military time
-     * the end time is not between 0000 and 2359 or an invalid military time
-     * the end time is less than the start time (i.e., no overnight classes)
-     * a start time and/or end time is listed when meeting days is 'A'
-     * a course with the same name and section
+A faculty record has a first name, last name, id, email address, password, and max number of courses they can teach in a given semester. To protect the faculty's information, the faculty's password should be hashed using SHA-256 when stored.  
 
-
-### <a id="uc6"></a>Use Case 6: Student Scheduling
-
-**Preconditions:** The student exists in the student directory [[UC2]](#uc2) and has successfully authenticated to the system [[UC0]](#uc0).  At least one course for the upcoming semester has been loaded into the system [[UC4]](#uc4).
-
-**Main Flow:** The student starts with an empty schedule.  The student can name their schedule [[S1]](#uc6-s1), add a course to their schedule [[S2]](#uc6-s2), and remove a course from their schedule [[S3]](#uc6-s3).  The student can reset their schedule [[S4]](#uc6-s4).  The student can display their final schedule [[UC7]](#uc7).  Anytime a course in the catalog list is selected, details about the course are displayed [[S5]](#uc6-s5).
-
-**Sub Flows:**
-
-  * <a id="uc6-s1"></a>[S1]: The schedule's default name is "My Schedule".  The student can name their schedule or leave the title empty [[E1]](#uc6-e1).
-  * <a id="uc6-s2"></a>[S2]: All courses are listed.  The student may select a course and add the course to their schedule [[E2]](#uc6-e2)[[E3]](#uc6-e3).
-  * <a id="uc6-s3"></a>[S3]: The student selects a course from their schedule and clicks the remove course button.  The course is removed from the schedule [[E4]](#uc6-e4).
-  * <a id="uc6-s4"></a>[S4]: The student clicks the reset schedule button.  All courses are removed from the schedule.  The schedule's name is reset.
-  * <a id="uc6-s5"></a>[S5]: The student clicks on a course in the catalog list.  The course details are displayed with the course name, section, title, instructor, credit hours, and meeting information.  If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.
-
-**Alternative Flows:**
-
-  * <a id="uc6-e1"></a>[E1]: If the title name is invalid, a pop-up message stating "Invalid title." is displayed.  The student clicks OK and is returned to the GUI with no change.
-  * <a id="uc6-e2"></a>[E2]: If the student has already added a course with the same name to their schedule (the same section or a different section), a pop-up message stating "You are already enrolled in <course name>." is displayed, where <course name> is replaced with the name of the course.  The student clicks OK and is returned to their schedule with no change.
-  * <a id="uc6-e3"></a>[E3]: If the course conflicts with another course (meaning there is an overlap of at least one day and time, even by the same minute) on the student's schedule, a pop-up message stating "The course cannot be added due to a conflict." is displayed.  The student clicks OK and is returned to their schedule with no change.
-  * <a id="uc6-e4"></a>[E4]: If no course is selected in the student's schedule, a pop-up message stating "No item selected in the schedule." is displayed.  The student clicks OK and is returned to their schedule with no change.
-
-
-### <a id="uc7"></a>Use Case 7: Display Final Schedule
-
-**Preconditions:** At least one course has been added to the student's schedule [[UC6]](#uc6).
-
-**Main Flow:** The student's schedule is displayed showing the courses in a table listing [[S1]](#uc7-s1).  The schedule can be exported as a comma-separated list of courses [[S2]](#uc7-s2).  The student can revise their schedule [[UC6]](#uc6).
-
-**Sub Flows:**
-
-  * <a id="uc7-s1"></a>[S1]: A text table will list all student courses  with columns for course name, section, title, instructor, credit hours, meeting information.  If the meeting days are "A", the details view shows "Arranged".  Otherwise, and the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.  
-  * <a id="uc7-s2"></a>[S2]: If the export button is pressed, the student is prompted with a file dialog where they can provide a file name for saving the schedule.  The schedule is stored in a text file with a comma-separated list of courses, in sorted order by name and section, with an ordering of information as follows: [[E1]](#uc7-e1).
-     * Course: name,section,title,credits,instructor,meetingDays[,startTime,endTime]
-
-**Alternative Flows:**
-
-  * <a id="uc7-e1"></a>[E1]: If the file cannot be saved, a pop-up message stating "The file cannot be saved." is displayed.  The student clicks OK and is returned to the file saving dialog [[S2]](#uc7-s2).
-
-
-
-### <a id="uc8"></a>Use Case 8: Faculty Directory
-
-
-**Main Flow:** <font color="red">The registrar can create a new, empty, faculty directory </font>[[S1]](#uc8-s1)<font color="red">; load an existing faculty directory from a text file </font>[[S2]](#uc8-s2); save the current faculty directory to a text file </font>[[S3]](#uc8-s3)<font color="red">; add a faculty to the directory </font>[[S4]](#uc8-s4)<font color="red">; remove a faculty from the directory </font>[[S5]](#uc8-s5)<font color="red">; add a faculty member to a course </font>[[S6]](#uc8-s6)<font color="red">; and remove a faculty member from a course </font>[[S7]](#uc8-s7)<font color="red">.  If the user quits the program, any changes to the faculty directory are lost unless the user saves the faculty directory </font>[[S3]](#uc8-s3)<font color="red">. All faculty are stored in the directory in alphabetical order by last name and then by first name.  If there are two faculty with the same name, then the id is considered in the sort.</font>
-
-<!-- ![*Student Directory GUI*](images/StudentDirectoryPanel.PNG) -->
-
-**Sub Flows:**
-
-  * <a id="uc8-s1"></a>[S1]: <font color="red">The user clicks the **New Faculty Directory** button.  Any faculty in the directory are cleared, and a new empty directory is created.  The *Faculty Directory* list is empty.</font>
-  * <a id="uc8-s2"></a>[S2]: <font color="red">The user clicks the **Load Faculty Directory** button.  A dialog opens where the user selects a text file containing faculty information </font>[[E1]](#uc8-e1)<font color="red">.  A list of faculty from valid records is created and displayed in the *Faculty Directory* list in sorted order.  Any invalid records </font>[[UC9, E1]](#uc9-e1)<font color="red"> are ignored. </font>
-  * <a id="uc8-s3"></a>[S3]: <font color="red">The user clicks the **Save Faculty Directory** button.  A dialog opens where the user selects the location to save the list of faculty </font>[[E2]](#uc8-e2)<font color="red">  The list of faculty is saved to a text file with a faculty record on each line.  Each faculty record is a comma separated list of items </font>[[UC9]](#uc9)<font color="red"> and the faculty are saved in sorted order.</font>
-  * <a id="uc8-s4"></a>[S4]: <font color="red">The user adds a faculty, with a unique id </font>[[E3]](#uc8-e3)<font color="red">, by entering a first name </font>[[E4]](#uc8-e4)<font color="red">, last name </font>[[E5]](#uc8-e5)<font color="red">, id </font>[[E6]](#uc8-e6)<font color="red">, email </font>[[E7]](#uc8-e7)<font color="red">, password </font>[[E8]](#uc8-e8)<font color="red">, repeated password, and max courses </font>[[E9]](#uc8-e9)[[E10]](#uc8-e10)<font color="red"> and clicks the **Add Faculty** button.  The password and repeated password are hashed using SHA-256 and must match </font>[[E11]](#uc8-e11)<font color="red">.  The faculty is added to the directory in sorted order.</font>
-  * <a id="uc8-s5"></a>[S5]: <font color="red">The user selects a faculty in the *Faculty Directory* list and clicks the **Remove Faculty** button </font>[[E12]](#uc8-e12)<font color="red">.  The faculty is removed from the *Faculty Directory* list.</font>
-  * <a id="uc8-s6"></a>[S6]: <font color="red">The user selects a course and enters the faculty's id to add them as the instructor of the course </font>[[E13]](#uc8-e13)[[E14]](uc8-e14)<font color="red">.  The faculty member's list of courses is updated.</font>
-  * <a id="uc8-s7"></a>[S7]: <font color="red">The user selects a course and removes the faculty's id.  The faculty member's list of courses is updated.</font>
-  
-**Alternative Flows:**
-
-  * <a id="uc8-e1"></a>[E1]: <font color="red">If the file cannot be found on the file system, the error message "Unable to read file <filename>" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e2"></a>[E2]: <font color="red">If the file cannot be written to, the error message "Unable to write to file <filename>" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e3"></a>[E3]: <font color="red">If the faculty's id is not unique, the error message "Faculty already in system." is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e4"></a>[E4]: <font color="red">If the faculty's first name is invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid first name" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e5"></a>[E5]: <font color="red">If the faculty's last name is invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid last name" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e6"></a>[E6]: <font color="red">If the faculty's id is invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid id" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e7"></a>[E7]: <font color="red">If the faculty's email is invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid email" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e8"></a>[E8]: <font color="red">If the faculty's password is invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid password" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e9"></a>[E9]: <font color="red">If the faculty's max courses are invalid </font>[[UC9, E1]](#uc9-e1)<font color="red">, the error message "Invalid max courses" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e10"></a>[E10]: <font color="red">If the max courses are not a number, the error message "Max courses must be a positive number between 0 and 3." is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e11"></a>[E11]: <font color="red">If the faculty's password and repeated passwords do not match, the error message "Passwords do not match" is displayed.  The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e12"></a>[E12]: <font color="red">If there is no faculty selected, the error message "No faculty selected." is displayed. The user clicks OK and is returned to the faculty directory display.</font>
-  * <a id="uc8-e12"></a>[E13]: <font color="red">If the faculty member isn't in the faculty directory, the error message "Faculty member doesn't exist." is displayed.  The user clicks OK and is returned to the course display.</font>
-  * <a id="uc8-e12"></a>[E14]: <font color="red">If the faculty member doesn't have any availability to teach the course, the error message "Faculty member unavailable." is displayed.  The user clicks OK and is returned to the course display.</font>
-
-  
-
-### <a id="uc9"></a>Use Case 9: Faculty Records
-
-
-**Main Flow:** <font color="red">Every faculty has a first name, last name, id, email address, password, and max number of courses they can teach in a given semester </font>[[E1]](#uc9-e1)<font color="red">. To protect the faculty's information, the faculty's password should be hashed using SHA-256 when stored.  When stored in a text file, a faculty record is a comma separated list in the following format:</font>
+When stored in a text file, a faculty record is a comma separated list in the following format:
 
     firstName,lastName,id,email,hashedPassword,maxCourses
+	
+### Invalid Faculty Records
 
-**Alternative Flows:**
+A faculty record is invalid in at least the following situations:
 
-  * <a id="uc9-e1"></a>[E1]: <font color="red">A faculty is invalid if any of the following are true:
-     * <font color="red">an item is missing</font>
-     * <font color="red">first name is null or an empty string</font>
-     * <font color="red">last name is null or an empty string</font>
-     * <font color="red">id is null or an empty string</font>
-     * <font color="red">email is null or an empty string</font>
-     * <font color="red">email doesn't contain an '@' character</font>
-     * <font color="red">email doesn't contain a '.' character</font>
-     * <font color="red">the index of the last '.' character in the email string is smaller than the index of the first '@' character (e.g., first.last@address would be invalid)</font>
-     * <font color="red">the password is null or an empty string</font>
-     * <font color="red">max courses is under 0 or above 3</font>
-
-     
-
-### <a id="uc10"></a>Use Case 10: Faculty Scheduling
-
-**Preconditions:** <font color="red">The faculty exists in the faculty directory </font>[[UC8]](#uc8)<font color="red"> and has successfully authenticated to the system </font>[[UC0]](#uc0)<font color="red">.  At least one course for the upcoming semester has been loaded into the system </font>[[UC4]](#uc4)<font color="red">.</font>
-
-**Main Flow:** <font color="red">The faculty member can see their schedule.  Selecting a course in the schedule shows the details about the course</font>[[S1]](#uc10-s1)<font color="red">.</font>
-
-**Sub Flows:**
-
-  * <a id="uc10-s1"></a>[S1]: <font color="red">The faculty clicks on a course in the catalog list.  The course details are displayed with the course name, section, title, instructor, credit hours, and meeting information.  If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.</font>
-
+  * an item is missing
+  * first name is null or an empty string
+  * last name is null or an empty string
+  * id is null or an empty string
+  * email is null or an empty string
+  * email doesn't contain an '@' character
+  * email doesn't contain a '.' character
+  * the index of the last '.' character in the email string is smaller than the index of the first '@' character (e.g., first.last@address would be invalid)
+  * the password is null or an empty string
+  * max courses is under 0 or above 3

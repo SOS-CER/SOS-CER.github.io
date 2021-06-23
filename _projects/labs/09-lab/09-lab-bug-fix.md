@@ -1,7 +1,7 @@
 ---
 title: CSC216 Lab 09 - Stacks and Queues
 tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - Bug Fix!
+description: CSC 217 Lab 09 - Bug Fix!
 navigation: on
 pagegroup: 09-lab
 ---

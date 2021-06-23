@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 08 - LinkedAbstractList
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab08]
-description: CSC216 Lab 08 - Implement and Test `CourseRoll`
+title: CSC 217 Lab 08 - LinkedAbstractList
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab08]
+description: CSC 217 Lab 08 - Implement and Test `CourseRoll`
 navigation: on
 pagegroup: 08-lab
 ---
-# CSC216 Lab 08 Implement and Test `CourseRoll`
+# CSC 217 Lab 08 Implement and Test `CourseRoll`
 {% include iconHeader.html type="implementation,unitTest" %}
 The [updated design](08-lab-design) contains a new package, `edu.ncsu.csc216.pack_scheduler.course.roll` and a new class `CourseRoll`.  
 
@@ -80,8 +80,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

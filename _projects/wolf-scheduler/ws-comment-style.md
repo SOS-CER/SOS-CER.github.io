@@ -12,7 +12,7 @@ pagegroup: wolf-scheduler
 ## Commenting
 {% include iconHeader.html type="dtTool" %}
 
-Every class, method, and field must be Javadoced and follow the [CSC Department's Style Guidelines](http://courses.ncsu.edu/csc116/common/style_guidelines.pdf). Your Javadoc comments must be meaningful and relevant to the class, method, and field.
+Every class, method, and field must be Javadoced and follow the [CSC Department's Style Guidelines](https://pages.github.ncsu.edu/engr-csc116-staff/CSC116-Materials/course-resources/style-guidelines/). Your Javadoc comments must be meaningful and relevant to the class, method, and field.
 
 
 ## Generating Javadoc

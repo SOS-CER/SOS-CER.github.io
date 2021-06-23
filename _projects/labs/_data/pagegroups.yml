@@ -1,0 +1,184 @@
+00-lab:
+    directory: 00-lab/
+    order: 
+     - index
+
+01-lab:
+    directory: 01-lab/
+    order:
+     - index
+     - 01-lab-import
+     - 01-lab-requirements
+     - 01-lab-design
+     - 01-lab-student
+     - 01-lab-studentrecordio
+     - 01-lab-studentdirectory
+     - 01-lab-studentdirectorypanel
+     - 01-lab-test
+     - 01-lab-deploy
+     
+02-lab:
+    directory: 02-lab/
+    order:
+     - index
+     - 02-lab-requirements
+     - 02-lab-design
+     - 02-lab-tools
+     - 02-lab-student
+     - 02-lab-studentrecordio
+     - 02-lab-studentdirectory
+     - 02-lab-test
+     - 02-lab-deploy
+     
+03-lab:
+    directory: 03-lab/
+    order:
+     - index
+     - 03-lab-requirements
+     - 03-lab-design
+     - 03-lab-library
+     - 03-lab-library-test
+     - 03-lab-student
+     - 03-lab-studentrecordio
+     - 03-lab-studentdirectory
+     - 03-lab-test
+     - 03-lab-deploy
+     
+04-lab:
+    directory: 04-lab/
+    order:
+     - index
+     - 04-lab-requirements
+     - 04-lab-design-comparison
+     - 04-lab-design
+     - 04-lab-implementation
+     - 04-lab-test
+     - 04-lab-faculty
+     - 04-lab-deploy
+     
+05-lab:
+    directory: 05-lab/
+    order:
+     - index
+     - 05-lab-project-selection
+     - 05-lab-requirements
+     - 05-lab-design
+     - 05-lab-extract-superclass
+     - 05-lab-code-inspection
+     - 05-lab-test
+     - 05-lab-deploy
+     
+06-lab:
+    directory: 06-lab/
+    order:
+     - index
+     - 06-lab-requirements
+     - 06-lab-fsm
+     - 06-lab-design
+     - 06-lab-invalidtransitionexception
+     - 06-lab-while-switch
+     - 06-lab-state
+     - 06-lab-course
+     - 06-lab-test
+     - 06-lab-deploy
+     
+07-lab:
+    directory: 07-lab/
+    order:
+     - index
+     - 07-lab-requirements
+     - 07-lab-design
+     - 07-lab-arraylist
+     - 07-lab-schedule
+     - 07-lab-student
+     - 07-lab-test
+     - 07-lab-deploy
+
+08-lab:
+    directory: 08-lab/
+    order:
+     - index
+     - 08-lab-requirements
+     - 08-lab-design
+     - 08-lab-linkedabstractlist
+     - 08-lab-courseroll
+     - 08-lab-course
+     - 08-lab-schedule-student
+     - 08-lab-registrationmanager
+     - 08-lab-test
+     - 08-lab-deploy
+     
+09-lab:
+    directory: 09-lab/
+    order:
+     - index
+     - 09-lab-project-selection
+     - 09-lab-bug-fix
+     - 09-lab-requirements
+     - 09-lab-design
+     - 09-lab-stacks
+     - 09-lab-queues
+     - 09-lab-runtime-efficiency
+     - 09-lab-linkedabstractlist
+     - 09-lab-waitlist
+     - 09-lab-test
+     - 09-lab-deploy
+     
+10-lab:
+    directory: 10-lab/
+    order:
+     - index
+     - 10-lab-requirements
+     - 10-lab-design
+     - 10-lab-linkedlist
+     - 10-lab-faculty
+     - 10-lab-facultyrecordio
+     - 10-lab-facultydirectory
+     - 10-lab-registrationmanager
+     - 10-lab-test
+     - 10-lab-deploy
+     
+11-lab:
+    directory: 11-lab/
+    order:
+     - index
+     - 11-lab-requirements
+     - 11-lab-design
+     - 11-lab-linkedlistrecursive
+     - 11-lab-facultyschedule
+     - 11-lab-faculty
+     - 11-lab-courserecordio
+     - 11-lab-registrationmanager
+     - 11-lab-test
+     - 11-lab-deploy
+     
+12-lab:
+    directory: 12-lab/
+    order:
+     - index
+     - 12-lab-requirements
+     - 12-lab-design
+     - 12-lab-blackboxtest
+     - 12-lab-gui
+     - 12-lab-studentschedule
+     - 12-lab-test
+     - 12-lab-deploy
+     
+13-lab:
+    directory: 13-lab/
+    order:
+     - index
+     - 13-lab-problem
+     - 13-lab-presentation
+     
+cbe:
+    director: cbe/
+    order:
+     - index
+     - 0-setup
+     - 1-fsm
+     - 2-arraylist
+     - 3-linkedlist
+     - 4-stacks-queues
+     - 5-linkedlistrecursive
+     - 6-deploy

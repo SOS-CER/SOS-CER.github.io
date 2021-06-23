@@ -1,16 +1,17 @@
 ---
 title: CSC216 Lab 01 - Installation and Project Creation
 tags: [software engineering, software lifecycle, CS2, CSC216, Lab01]
-description: CSC216 Lab 01 - Import `PackScheduler` Project
+description: CSC216 Lab 01 - Import PackScheduler Project
 navigation: on
 pagegroup: 01-lab
+task: 1
 ---
 
 # CSC216 Lab 01: Import `PackScheduler` Project
 {% include iconHeader.html type="ideTool" %}
-The teaching staff have provided a starting Eclipse project for `PackScheduler`.  If you are working individually (Section 701 Distance Students), you only need to complete Steps 1-3 before moving on to the next page.  Students in the on-campus section should complete all steps to ensure that all members of the team have the project in their workspace and connected to the same repository.
+The teaching staff have provided a starting Eclipse project for `PackScheduler`.  If you are working individually (some students in the async lab sections), you only need to complete Steps 1-3 before moving on to the next page.  Students working on teams should complete all steps to ensure that all members of the team have the project in their workspace and connected to the same repository.
 
-**On-campus Students:** Identify which person in the pair is Partner 1 and who is Partner 2.  If you have a team of 3, then two students are Partner 2.
+**Collaborating Students:** Identify which person in the pair is Partner 1 and who is Partner 2.  If you have a team of 3, then two students are Partner 2.
 
 
 ## Import Project into Eclipse
@@ -42,9 +43,9 @@ You have been provided a project with enough skeleton code so that it compiles. 
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -54,12 +55,12 @@ GitHub Resources:
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
 
@@ -71,8 +72,8 @@ Check the following items on Jenkins for [your last build](../../jenkins/#build-
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Cloning an Existing Repository](../../git-tutorial/git-clone)
-  * [Importing an Existing Project from your Repository](../../git-tutorial/git-import.html)
+  * [Cloning an Existing Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-clone)
+  * [Importing an Existing Project from your Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-import.html)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Cloning and Importing in GitHub" %}
 
@@ -86,11 +87,11 @@ GitHub Resources:
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Pull Your Remote Repository Contents to Your Local Repository](../../git-tutorial/git-pull)
+  * [Pull Your Remote Repository Contents to Your Local Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-pull)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Pulling in GitHub" %}
 
 
 ## Collaborating in GitHub
-Make sure that you are following the [standard Git workflow](../../git-tutorial/git-workflow) when working on teams.  Always commit your changes and then pull the latest changes before starting work.
+Make sure that you are following the [standard Git workflow](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-workflow) when working on teams.  Always commit your changes and then pull the latest changes before starting work.
 

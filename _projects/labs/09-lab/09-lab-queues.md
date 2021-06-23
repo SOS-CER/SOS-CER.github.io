@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 09 - Queues and Queues
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - Implement and Test `Queue`s
+title: CSC 217 Lab 09 - Queues and Queues
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab09]
+description: CSC 217 Lab 09 - Implement and Test `Queue`s
 navigation: on
 pagegroup: 09-lab
 ---
 
-# CSC216 Lab 09 Implement and Test `Queue`s
+# CSC 217 Lab 09 Implement and Test `Queue`s
 {% include iconHeader.html type="implementation,unitTest" %}
 The data structure that will eventually be used to implement the waitlist functionality is currently unknown.  So you'll explore several different specialized data structures before selecting the best one for waitlist. Now you'll work with `Queue`s. 
 
@@ -80,8 +80,8 @@ Check your job on Jenkins.
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

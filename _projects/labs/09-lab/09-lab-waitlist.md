@@ -1,18 +1,18 @@
 ---
-title: CSC216 Lab 09 - Stacks and Queues
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - Implement and Test Waitlist Functionality
+title: CSC 217 Lab 09 - Stacks and Queues
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab09]
+description: CSC 217 Lab 09 - Implement and Test Waitlist Functionality
 navigation: on
 pagegroup: 09-lab
 ---
 
-# CSC216 Lab 09 Implement and Test Waitlist Functionality
+# CSC 217 Lab 09 Implement and Test Waitlist Functionality
 {% include iconHeader.html type="implementation,unitTest" %}
 Now that you have two stack implementations and two queue implementations, you now need to identify which specialized data structure is needed to implement the waitlist functionality.  Review the [requirements](09-lab-requirements#uc6) to identify which implementation is best.
 
 
 ## `waitlist` Field
-Start by adding the `waitlist` field to `CourseRoll`.  Construct the `waitlist` in the `CourseRoll()` constructor, to have a capacity of 10 (as per [UC4](09-lab-requirement#uc4)).
+Start by adding the `waitlist` field to `CourseRoll`.  Construct the `waitlist` in the `CourseRoll()` constructor, to have a capacity of 10 (as per [[UC8]](09-lab-requirement#uc8) and [[UC10]](09-lab-requirement#uc8)).
 
 
 ## Update `CourseRoll(Course c, int enrollmentCap)`
@@ -67,8 +67,8 @@ Check your job on Jenkins.
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

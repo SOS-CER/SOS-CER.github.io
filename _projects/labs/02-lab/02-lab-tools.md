@@ -78,4 +78,4 @@ Also note that your `.project` file also changed.  The `.project` file contains 
 
 ## EclEmma
 {% include iconHeader.html type="ccTool" %}
-Ensure that [EclEmma is installed](../../install/) in Eclipse so that you can run your tests with your code instrumented for coverage.
+Ensure that [EclEmma is installed](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/eclipse/eclipse-install.html) in Eclipse so that you can run your tests with your code instrumented for coverage.

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/edu.ncsu.csc.realsearch.aware_1.7.0.jar" id="edu.ncsu.csc.realsearch.aware" version="1.7.0"/>
+</site>

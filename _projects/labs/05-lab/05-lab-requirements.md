@@ -1,198 +1,512 @@
 ---
-title: CSC216 Lab 05 - Inspection & Debugging
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab05]
-description: CSC216 Lab 05 - Requirements
+title: CSC 217 Lab 05 - Inspection & Debugging
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab05]
+description: CSC 217 Lab 05 - Requirements
 navigation: on
 pagegroup: 05-lab
 ---
-# CSC216 Lab 05: Requirements
+# CSC 217 Lab 05: Requirements
 {% include iconHeader.html type="requirements" %}
 `PackScheduler` is a course registration system for a university, similar to the system in MyPackPortal that you use to register for your classes.  You'll work on implementing a system that provides the functionality for admitted students to register for courses that are taught by faculty.  The courses will have enrollment caps and waitlists.  
 
-<font color="red">For Lab 05, you will focus on the Registrar functionality, which consists of Use Cases 0 - 5.</font>
+<font color="red">For Lab 05, you will focus on the Registrar functionality, which consists of Use Cases 2 - 11.</font>
 
 
-## <a id="uc0"></a>Use Case 0: Authentication
+**Users**
 
-**Main Flow:** The program starts by providing an authentication window requesting a user id and password. The user enters their id and password and clicks the OK button [[S1]](#uc0-s1)[[E1]](#uc0-e1) or the Cancel button [[S2]](#uc0-s2).
+  * [Registrar](#registrar)
+  * [Student](#student)
+  
+**Requirements**
 
-**Sub Flows:** 
-
-  * <a id="uc0-s1"></a>[S1]: The provided password is hashed using the SHA-256 algorithm and is compared with the user's stored password [[E2]](#uc0-e2)[[E3]](#uc0-e3). The user is directed to the appropriate interface depending on their role in the system:
-     * If the user is the registrar, they are directed to the registrar user interface [[UC1]](#uc1).  
-     * If the user is a student, they are directed to the student user interface [[UC6]](#uc6).
-  * <a id="uc0-s2"></a>[S2]: The program exits with no changes to any stored data.
-
-**Alternative Flows:**
-
-  * <a id="uc0-e1"></a>[E1]: If a user is already logged into the system, a new user may not log in.
-  * <a id="uc0-e2"></a>[E2]: If the user doesn't exist in the system, a pop-up message stating "User doesn't exist" is displayed.  The user clicks OK and is returned to the authentication window [[UC0]](#uc0).
-  * <a id="uc0-e3"></a>[E3]: If the user's hashed password doesn't match the stored hashed password, a pop-up message stating "Invalid id or password" is displayed.  The user clicks OK and is returned to the authentication window [[UC0]](#uc0).
-
-
-## <a id="uc1"></a>Use Case 1: Registrar Functionality
-
-**Main Flow:** The registrar initially starts with an empty student directory and course catalog.  The registrar can work with the student directory [[UC2]](#uc2) and the course catalog [[UC4]](#uc4).
-
+  * **PackScheduler**
+     * [Use Case 0: Start PackScheduler](#uc0)
+     * [Use Case 1: Stop PackScheduler](#uc1)
+  
+  * **Student Directory**
+     * [Use Case 2: Create Student Directory](#uc2)
+     * [Use Case 3: Load Student Directory](#uc3)
+     * [Use Case 4: Save Student Directory](#uc4)
+     * [Use Case 5: Add Student to Student Directory](#uc5)
+     * [Use Case 6: Remove Student from Student Directory](#uc6)
+	 
+  * **Course Catalog**
+     * [Use Case 7: Create Course Catalog](#uc7)
+	 * [Use Case 8: Load Course Catalog](#uc8)
+	 * [Use Case 9: Save Course Catalog](#uc9)
+	 * [Use Case 10: Add Course to Course Catalog](#uc10)
+	 * [Use Case 11: Remove Course from Course Catalog](#uc11)
+  
+  * **Student Scheduling**
+     * [Use Case 12: Rename Schedule](#uc12)
+	 * [Use Case 13: View Course Information](#uc13)
+	 * [Use Case 14: Add Course to Schedule](#uc14)
+	 * [Use Case 15: Remove Course from Schedule](#uc15)
+	 * [Use Case 16: Reset Schedule](#uc16)
+	 * [Use Case 17: Display Final Schedule](#uc17)
   
 
-## <a id="uc2"></a>Use Case 2: Student Directory
+**Data Formats**
 
-**Main Flow:** The registrar can create a new, empty, student directory [[S1]](#uc2-s1); load an existing student directory from a text file [[S2]](#uc2-s2); save the current student directory to a text file [[S3]](#uc2-s3); add a student to the directory [[S4]](#uc2-s4); and remove a student from the directory [[S5]](#uc2-s5).  If the user quits the program, any changes to the student directory are lost unless the user saves the student directory [[S3]](#uc2-s3). All students are stored in the directory in alphabetical order by last name and then by first name.  If there are two students with the same name, then the id is considered in the sort.
+  * [Student Records](#student-records)
+  * [Invalid Student Records](#invalid-student-records)
+  * [Course Records](#course-records)
+  * [Invalid Course Records](#invalid-course-records)
 
-<!-- ![*Student Directory GUI*](images/StudentDirectoryPanel.PNG) -->
 
-**Sub Flows:**
+## Users
+{% include iconHeader.html type="teamTask" %}
+There are several types of users for the PackScheduler system.  The users listed here are the people that would interact with the system.  They may or may not correspond to classes in the system.  The user roles are summarized below.
 
-  * <a id="uc2-s1"></a>[S1]: The user clicks the **New Student Directory** button.  Any students in the directory are cleared, and a new empty directory is created.  The *Student Directory* list is empty.
-  * <a id="uc2-s2"></a>[S2]: The user clicks the **Load Student Directory** button.  A dialog opens where the user selects a text file containing student information [[E1]](#uc2-e1).  A list of students from valid records is created and displayed in the *Student Directory* list in sorted order.  Any invalid records [[UC3, E1]](#uc3-e1) are ignored. 
-  * <a id="uc2-s3"></a>[S3]: The user clicks the **Save Student Directory** button.  A dialog opens where the user selects the location to save the list of students [[E2]](#uc2-e2)  The list of students is saved to a text file with a student record on each line.  Each student record is a comma separated list of items [[UC3]](#uc3) and the students are saved in sorted order.
-  * <a id="uc2-s4"></a>[S4]: The user adds a student, with a unique id [[E3]](#uc2-e3), by entering a first name [[E4]](#uc2-e4), last name [[E5]](#uc2-e5), id [[E6]](#uc2-e6), email [[E7]](#uc2-e7), password [[E8]](#uc2-e8), repeated password, and max credits [[E9]](#uc2-e9)[[E10]](#uc2-e10) and clicks the **Add Student** button.  The password and repeated password are hashed using SHA-256 and must match [[E11]](#uc2-e11).  The student is added to the directory in sorted order.
-  * <a id="uc2-s5"></a>[S5]: The user selects a student in the *Student Directory* list and clicks the **Remove Student** button [[E12]](#uc2-e12).  The student is removed from the *Student Directory* list.
+### Registrar
+The registrar is a university official that maintains the directory of enrolled students.
+
+### Student
+The student is registered in the system by the registrar and can create a schedule of courses from courses listed in the course catalog that do not conflict with each other.
+
+## Requirements
+
+### <a id="uc0"></a>Use Case 0: Start PackScheduler
+{% include iconHeader.html type="objective" %}
+Starts the PackScheduler application.
+
+#### Main Flow
+
+  1. The user starts the Pack Scheduler application. 
+  2. The user enters their id and password in the authentication area and clicks the OK button **[[Hash Password]](#uc0-hashpassword)** **[[Already Logged In]](#uc0-alreadyloggedin)** **[[Invalid Authentication]](#uc0-invalidauthentication)**. 
+  3. The user is redirected to the appropriate functionality for the user type of **[[Registrar]](#uc0-registrar)** or **[[Student]](#uc0-student)**.
+	 
+#### Extensions (Sub-flows)
+
+  * <a id="uc0-hashpassword"></a>**[Hash Password]** The provided password is hashed using the SHA-256 algorithm and is compared with the user's stored password **[[Invalid Authentication]](#uc0-invalidauthentication)**.
+  * <a id="uc0-registrar"></a>**[Registrar]** The Registrar can work with the **[[Student Directory]](#uc0-studentdirectory)**, **[[Course Catalog]](#uc0-coursecatalog)**, and the **[[Faculty Directory]](#uc0-facultydirectory)**.
+  * <a id="uc0-student"></a>**[Student]** The Student can **[[Modify their Schedule]](#uc0-modifytheirschedule)**.
+  * <a id="uc0-studentdirectory"></a>**[Student Directory]** The **registrar** can do one or more of the following tasks related to the Student Directory:
+     * [Use Case 2: Create Student Directory](#uc2)
+     * [Use Case 3: Load Student Directory](#uc3)
+     * [Use Case 4: Save Student Directory](#uc4)
+     * [Use Case 5: Add Student to Student Directory](#uc5)
+     * [Use Case 6: Remove Student from Student Directory](#uc6)
+  * <a id="uc0-coursecatalog"></a>**[Course Catalog]** The **registrar** can do one or more of the following tasks related to the Course Catalog:
+     * [Use Case 7: Create Course Catalog](#uc7)
+	 * [Use Case 8: Load Course Catalog](#uc8)
+	 * [Use Case 9: Save Course Catalog](#uc9)
+	 * [Use Case 10: Add Course to Course Catalog](#uc10)
+	 * [Use Case 11: Remove Course from Course Catalog](#uc11)
+  * <a id="uc0-modifytheirschedule"></a>**[Modify their Schedule]** The **student** can do one or more of the following tasks realated to Student Scheduling:
+     * [Use Case 12: Rename Schedule](#uc12)
+	 * [Use Case 13: View Course Information](#uc13)
+	 * [Use Case 14: Add Course to Schedule](#uc14)
+	 * [Use Case 15: Remove Course from Schedule](#uc15)
+	 * [Use Case 16: Reset Schedule](#uc16)
+	 * [Use Case 17: Display Final Schedule](#uc17)
   
-**Alternative Flows:**
+  
+#### Alternative Flows
 
-  * <a id="uc2-e1"></a>[E1]: If the file cannot be found on the file system, the error message "Unable to read file <filename>" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e2"></a>[E2]: If the file cannot be written to, the error message "Unable to write to file <filename>" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e3"></a>[E3]: If the student's id is not unique, the error message "Student already in system." is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e4"></a>[E4]: If the student's first name is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid first name" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e5"></a>[E5]: If the student's last name is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid last name" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e6"></a>[E6]: If the student's id is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid id" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e7"></a>[E7]: If the student's email is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid email" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e8"></a>[E8]: If the student's password is invalid [[UC3, E1]](#uc3-e1), the error message "Invalid password" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e9"></a>[E9]: If the student's max credits are invalid [[UC3, E1]](#uc3-e1), the error message "Invalid max credits" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e10"></a>[E10]: If the max credits value is not a number, the error message "Max credits must be a positive number between 3 and 18." is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e11"></a>[E11]: If the student's password and repeated passwords do not match, the error message "Passwords do not match" is displayed.  The user clicks OK and is returned to the student directory display.
-  * <a id="uc2-e12"></a>[E12]: If there is no student selected, the error message "No student selected." is displayed. The user clicks OK and is returned to the student directory display.
+  * <a id="uc0-alreadyloggedin"></a>[Already Logged In] If a user is already logged into the system, a new user may not log in.
+  * <a id="uc0-invalidauthentication"></a>[Invalid Authentication] If the user doesn't exist in the system or the user's hashed password doesn't match the stored hashed password, a pop-up message stating "Invalid id or password" is displayed.  The user clicks OK and is returned to the authentication window.
 
 
-## <a id="uc3"></a>Use Case 3: Student Records
+### <a id="uc1"></a>Use Case 1: Stop PackScheduler
+{% include iconHeader.html type="objective" %}
+Stops the PackScheduler application.
 
-**Main Flow:** Every student has a first name, last name, id, email address, password, and max number of credits they can take in a given semester [[E1]](#uc3-e1). To protect the student's information, the student's password should be hashed using SHA-256 when stored.  When stored in a text file, a student record is a comma separated list in the following format:
+#### Preconditions
+The user is in the main window of the PackScheduler application.
+
+#### Main Flow
+
+  1. The user clicks the close window button.
+  2. The application closes without any errors.
+
+
+### <a id="uc2"></a>Use Case 2: Create Student Directory
+{% include iconHeader.html type="objective" %}
+The registrar can create a new, empty, student directory.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Student Directories.
+
+#### Main Flow
+
+  1. The registrar clicks the **New Student Directory** button.
+  2. A new empty Student Directory is created.
+  3. The display is updated so that the *Student Directory* list is empty.
+
+
+### <a id="uc3"></a>Use Case 3: Load Student Directory
+{% include iconHeader.html type="objective" %}
+The registrar can load a student directory from a file.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Student Directories.
+
+#### Main Flow
+
+  1. The registrar clicks the **Load Student Directory** button. 
+  2. A dialog appears and the user can browse the file system for the text file containing student information **[[Student Records Data Format]](#student-records)** **[[Invalid File]](#uc3-invalid-file)**.
+  3. A list of students is created from valid records. Invalid records are ignored **[[Invalid Student Records]](#invalid-student-records)**.
+  4. All students are stored in the directory in alphabetical order by last name and then by first name.  If there are two students with the same name, then the id is considered in the sort.
+
+#### Alternative Flows
+
+  * <a id="uc3-invalid-file"></a>**[Invalid File]** If the file cannot be found on the file system, the error message "Unable to read file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the student directory display.
+
+
+### <a id="uc4"></a>Use Case 4: Save Student Directory
+{% include iconHeader.html type="objective" %}
+The registrar can save the current list of students in a student directory to a file.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Student Directories.
+
+#### Main Flow
+
+  1. The registrar clicks the **Save Student Directory** button.
+  2. A dialog appears and the user selects the location to save the list of students and provides a name for the file **[[Error Saving]](#uc4-error-saving)**.
+  3. The list of students is saved to a text file with a student record on each line **[[Student Records Data Format]](#student-records)**.  The students are saved in sorted order by last name, first name, and id.
+
+#### Alternative Flows
+
+  * <a id="uc4-error-saving"></a>**[Error Saving]** If the file cannot be saved, the error message "Unable to write to file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the student directory display.
+
+
+### <a id="uc5"></a>Use Case 5: Add Student to Student Directory
+{% include iconHeader.html type="objective" %}
+The registrar can add a student to the student directory.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Student Directories.
+
+#### Main Flow
+
+  1. The registrar enters information about a new student in the *Student Information* portion of the user interface **[[Student Records Data Format]](#student-records)** and clicks **Add Student** button.
+     * first name **[[Invalid First Name]](#uc5-invalid-first-name)**
+	 * last name **[[Invalid Last Name]](#uc5-invalid-last-name)**
+	 * id **[[Invalid ID]](#uc5-invalid-id)**
+	 * email **[[Invalid Email]](#uc5-invalid-email)**
+	 * password **[[Invalid Password]](#uc5-invalid-password)**
+	 * repeat password **[[Invalid Password]](#uc5-invalid-password)**
+	 * max credits 
+  2. The password and repeated password are hashed using SHA-256 and must match **[[Non-matching Passwords]](#uc5-non-matching-passwords)**.
+  3. The student is added to the *Student Directory* in sorted order by last name, first name, and id **[[Non-unique ID]](#uc5-non-unique-id)**. 
+
+#### Alternative Flows
+
+  * <a id="uc5-invalid-first-name"></a>**[Invalid First Name]** If the student's first name is invalid [[Invalid Student Records]](#invalid-student-records), the error message "Invalid first name" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-invalid-last-name"></a>**[Invalid Last Name]**  If the student's last name is invalid [[Invalid Student Records]](#invalid-student-records), the error message "Invalid last name" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-invalid-id"></a>**[Invalid ID]** If the student's id is invalid [[Invalid Student Records]](#invalid-student-records), the error message "Invalid id" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-invalid-email"></a>**[Invalid Email]** If the student's email is invalid [[Invalid Student Records]](#invalid-student-records), the error message "Invalid email" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-invalid-password"></a>**[Invalid Password]** If the student's password or repeated password is invalid [[Invalid Student Records]](#invalid-student-records), the error message "Invalid password" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-non-matching-passwords"></a>**[Non-matching Passwords]** If the student's password and repeated passwords do not match, the error message "Passwords do not match" is displayed.  The user clicks OK and is returned to the student directory display.
+  * <a id="uc5-non-unique-id"></a>**[Non-unique ID]** If the student's id is not unique, the error message "Student already in system." is displayed.  The user clicks OK and is returned to the student directory display.
+
+
+### <a id="uc6"></a>Use Case 6: Remove Student from Student Directory
+{% include iconHeader.html type="objective" %}
+The registrar can remove a student from the student directory.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with Student Directories.
+
+#### Main Flow
+
+  1. The registrar selects a student in the *Student Directory* list and clicks the **Remove Student** button **[[No Student Selected]](#uc6-no-student-selected)**.
+  2. The student is removed from the *Student Directory* list.
+
+
+#### Alternative Flows
+
+  * <a id="uc6-no-student-selected"></a>**[No Student Selected]** If there is no student selected, the error message “No student selected.” is displayed. The user clicks OK and is returned to the student directory display.
+  
+### <a id="uc7"></a>Use Case 7: Create Course Catalog
+{% include iconHeader.html type="objective" %}
+The registrar can create a new, empty, course catalog.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with the Course Catalog.
+
+#### Main Flow
+
+  1. The registrar clicks the **New Course Catalog** button.
+  2. Any courses in the catalog are cleared.
+  2. A new empty Course Catalog is created.
+  3. The display is updated so that the *Course Catalog* list is empty.
+
+
+### <a id="uc8"></a>Use Case 8: Load Course Catalog
+{% include iconHeader.html type="objective" %}
+The registrar can load a course catalog from a file.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with the Course Catalog.
+
+#### Main Flow
+
+  1. The registrar clicks the **Load Course Catalog** button. 
+  2. A dialog appears and the user can browse the file system for the text file containing course information **[[Course Records Data Format]](#course-records)** **[[Invalid File]](#uc8-invalid-file)**.
+  3. A list of courses is created from valid records. Invalid records are ignored **[[Invalid Course Records]](#invalid-course-records)**.
+  4. All courses are stored in the catalog in alphabetical order by course name and section.  
+
+#### Alternative Flows
+
+  * <a id="uc8-invalid-file"></a>**[Invalid File]** If the file cannot be found on the file system, the error message "Unable to read file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the course catalog display.
+
+
+### <a id="uc9"></a>Use Case 9: Save Course Catalog
+{% include iconHeader.html type="objective" %}
+The registrar can save the current list of courses in the course catalog to a file.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with the Course Catalog.
+
+#### Main Flow
+
+  1. The registrar clicks the **Save Course Catalog** button.
+  2. A dialog appears and the user selects the location to save the list of courses and provides a name for the file **[[Error Saving]](#uc9-error-saving)**.
+  3. The list of courses is saved to a text file with a course record on each line **[[Course Records Data Format]](#course-records)**.  The courses are saved in sorted order by course name and section.
+
+#### Alternative Flows
+
+  * <a id="uc9-error-saving"></a>**[Error Saving]** If the file cannot be saved, the error message "Unable to write to file X" is displayed, where 'X' is the filename.  The user clicks OK and is returned to the course catalog display.
+
+
+### <a id="uc10"></a>Use Case 10: Add Course to Course Catalog
+{% include iconHeader.html type="objective" %}
+The registrar can add a course to the course catalog.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with the Course Catalog.
+
+#### Main Flow
+
+  1. The registrar enters information about a new course in the *Course Information* portion of the user interface **[[Course Records Data Format]](#course-records)** and clicks **Add Course** button.
+     * course name **[[Invalid Name]](#uc10-invalidname)**
+	 * course title **[[Invalid Title]](#uc10-invalidtitle)**
+	 * section number **[[Invalid Section]](#uc10-invalidsection)**
+	 * credit hours **[[Invalid Credit Hours]](#uc10-invalidcredithours)**
+	 * instructor unity id **[[Invalid Instructor ID]](#uc10-invalidinstructorid)**
+	 * meeting days **[[Invalid Meeting Days]](#uc10-invalidmeetingdays)**
+	 * start time **[[Invalid Time]](#uc10-invalidtime)**
+	 * end time **[[Invalid Time]](#uc10-invalidtime)**
+  2. The course is added to the *Course Catalog* in sorted order by course name and section **[[Duplicate Course]](#uc10-duplicatecourse)**. 
+
+#### Alternative Flows
+
+  * <a id="uc10-invalidname"></a>**[Invalid Name]** If the course's name is invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid course name" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-invalidtitle"></a>**[Invalid Title]**: If the course's title is invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid course title" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="ucs10-invalidsection"></a>**[Invalid Section]**: If the course's section number is invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid section number" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-invalidcredithours"></a>**[Invalid Credit Hours]**: If the course's credit hours is invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid credit hours" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-invalidinstructorid"></a>**[Invalid Instructor ID]**: If the course's instructor unity id is invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid instructor unity id" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-invalidmeetingdays"></a>**[Invalid Meeting Days]**: If the course's meeting days are invalid **[[Invalid Course Records]](#invalid-course-records)**, the error message "Invalid meeting days" is displayed.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-invalidtime"></a>**[Invalid Time]**: If the course's start time is invalid, end time is invalid **[[Invalid Course Records]](#invalid-course-records)**, or the start time and end time together are invalid, the error message "Invalid X" is displayed, where X is start time, end time, or course times.  The user clicks OK and is returned to the course catalog display.
+  * <a id="uc10-duplicatecourse"></a>**[Duplicate Course]** If the course's name and section already exist in the catalog, the error message "Course already in system." is displayed.  The user clicks OK and is returned to the course catalog display.
+  
+
+
+### <a id="uc11"></a>Use Case 11: Remove Course from Course Catalog
+{% include iconHeader.html type="objective" %}
+The registrar can remove a course from the course catalog.
+
+#### Preconditions
+The PackScheduler application has started and the registrar has selected to work with the Course Catalog.
+
+#### Main Flow
+
+  1. The registrar selects a course in the *Course Catalog* list and clicks the **Remove Course** button **[[No Course Selected]](#uc11-no-course-selected)**.
+  2. The course is removed from the *Course Catalog* list.
+
+
+#### Alternative Flows
+
+  * <a id="uc11-no-course-selected"></a>**[No Course Selected]** If there is no course selected, the error message “No course selected.” is displayed. The user clicks OK and is returned to the course catalog display.
+  
+### <a id="uc12"></a>Use Case 12: Rename Schedule
+{% include iconHeader.html type="objective" %}
+The student changes the schedule's title from the default name of "My Schedule".  The student can provide a new title for their schedule or leave the title empty.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student replaces the current schedule title with a new name
+  2. The student saves the new schedule title
+  3. The system sets the title of the schedule to the submitted text **[[Invalid Title]](#uc12-a1)**
+  
+#### Alternative Flows
+
+  * <a id="uc12-a1"></a>**[Invalid Title]**: The system displays a message stating "Invalid title.".  The student clicks OK and is returned to the main user interface with no change.
+
+### <a id="uc13"></a>Use Case 13: View Course Information
+{% include iconHeader.html type="objective" %}
+The student selects a course from the catalog to see all the information about the course.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student selects a course in the catalog.
+  2. The course details are displayed with the course name, section, title, instructor, credit hours, and meeting information. If the meeting days are “A”, the details view shows “Arranged”. Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time. Only “AM” and “PM” are used.
+  
+
+### <a id="uc14"></a>Use Case 14: Add Course to Schedule
+{% include iconHeader.html type="objective" %}
+The student adds a course from the course catalog into their schedule.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student selects the desired course to add from the course catalog.
+  2. The student clicks the add course button.
+  3. The system updates the schedule to include the selected course **[[Already Added]](#uc14-a1)** **[[Schedule Conflict]](#uc14-a2)**
+
+  
+#### Alternative Flows
+
+  * <a id="uc14-a1"></a> **[Already Added]**: If the student has already added a course with the same name to their schedule (the same section or a different section), a pop-up message stating “You are already enrolled in ." is displayed, where is replaced with the name of the course. The student clicks OK and is returned to their schedule with no change.
+  * <a id="uc14-a2"></a> **[Schedule Conflict]**: If the course conflicts with another course or event (meaning there is an overlap of at least one day and time, even by the same minute) on the student’s schedule, a pop-up message stating “The course cannot be added due to a conflict.” is displayed. The student clicks OK and is returned to their schedule with no change.
+
+
+
+### <a id="uc15"></a>Use Case 15: Remove Course from Schedule
+{% include iconHeader.html type="objective" %}
+The student removes a course from their current schedule.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student selects the desired course to remove from their schedule.
+  2. The student clicks the remove course button.
+  3. The system updates the schedule to remove the selected course **[[No Selected Course]](#uc15-a1)**
+
+  
+#### Alternative Flows
+
+  * <a id="uc15-a1"></a> **[No Selected Course]**: If no course is selected in the student’s schedule, a pop-up message stating “No item selected in the schedule.” is displayed. The student clicks OK and is returned to their schedule with no change.
+
+
+### <a id="uc16"></a>Use Case 16: Reset Schedule
+{% include iconHeader.html type="objective" %}
+The student clears their schedule and resets it to its defaults.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student clicks the reset schedule button.
+  2. The system removes all events and courses from the schedule and changes the title of the schedule to the default “My Schedule”
+
+
+
+### <a id="uc17"></a>Use Case 17: Display Final Schedule
+{% include iconHeader.html type="objective" %}
+The student displays their final schedule with all information about the scheduled activities.
+
+#### Preconditions 
+The PackScheduler application has started, at least one course has been loaded into the course catalog, and the currently logged in user is a Student.
+
+#### Main Flow
+
+  1. The student clicks the display schedule button.
+  2. The student sees the list of scheduled courses and events with columns for name, section, title, instructor, credit hours, meeting information, weekly repeat, and description. If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.  If the row is an event, then the name, section, instructor, and credit hours are left blank.  
+  3. The student clicks the revise schedule button to return to the schedule editing functionality.  
+
+
+## Data Format
+{% include iconHeader.html type="task" %}
+
+### Student Records
+
+Student records can be saved and loaded from a file in the correct format.  An example of a valid file would be:
+
+```
+Zahir,King,zking,orci.Donec@ametmassaQuisque.com,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,15
+Cassandra,Schwartz,cschwartz,semper@imperdietornare.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,4
+Shannon,Hansen,shansen,convallis.est.vitae@arcu.ca,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,14
+Demetrius,Austin,daustin,Curabitur.egestas.nunc@placeratorcilacus.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,18
+Raymond,Brennan,rbrennan,litora.torquent@pellentesquemassalobortis.ca,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,12
+Emerald,Frost,efrost,adipiscing@acipsumPhasellus.edu,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,3
+Lane,Berg,lberg,sociis@non.org,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,14
+Griffith,Stone,gstone,porta@magnamalesuadavel.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,17
+Althea,Hicks,ahicks,Phasellus.dapibus@luctusfelis.com,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,11
+Dylan,Nolan,dnolan,placerat.Cras.dictum@dictum.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´þâ9•{-OîFâapÄ,5
+```
+
+A student has a first name, last name, id, email address, password, and max number of credits they can take in a given semester. To protect the student's information, the student's password should be hashed using SHA-256 when stored.  Note that the hashed values may look different depending on what application you are using to view the input file. 
+
+When stored in a text file, a student record is a comma separated list in the following format:
 
     firstName,lastName,id,email,hashedPassword,maxCredits
+	
+### Invalid Student Records
 
-**Alternative Flows:**
+A student record is invalid in at least the following situations:
 
-  * <a id="uc3-e1"></a>[E1]: A student is invalid if any of the following are true:
-     * an item is missing
-     * first name is null or an empty string
-     * last name is null or an empty string
-     * id is null or an empty string
-     * email is null or an empty string
-     * email doesn't contain an '@' character
-     * email doesn't contain a '.' character
-     * the index of the last '.' character in the email string is smaller than the index of the first '@' character (e.g., first.last@address would be invalid)
-     * the password is null or an empty string
-     * max credits is below 3 or above 18
-
-
-## <a id="uc4"></a>Use Case 4: Course Catalog
-
-**Main Flow:** The registrar can create a new, empty, course catalog [[S1]](#uc4-s1); load an existing course catalog from a text file [[S2]](#uc4-s2); save the current course catalog to a text file [[S3]](#uc4-s3); add a course to the catalog [[S4]](#uc4-s4); and remove a course from the catalog [[S5]](#uc4-s5).  If the user quits the program, any changes to the course catalog are lost unless the user saves the course catalog [[S3]](#uc4-s3). All courses are stored in the catalog in sorted order by course name and section.  There may be multiple sections of the same course, but a course/section pair must be unique.
-
-<!-- TODO: Add in an item for assigning a faculty member to a course -->
-
-<!--![*Course Catalog GUI*](images/CourseCatalogPanel.PNG) -->
-
-**Sub Flows:**
-
-  * <a id="uc4-s1"></a>[S1]: The user clicks the **New Course Catalog** button.  Any courses in the catalog are cleared, and a new empty catalog is created.  The *Course Catalog* list is empty.
-  * <a id="uc4-s2"></a>[S2]: The user clicks the **Load Course Catalog** button.  A dialog opens where the user selects a text file containing course information [[E1]](#uc4-e1).  A list of courses from valid records is created and displayed in the *Course Catalog* list in sorted order.  Any invalid records [[UC5, E1]](#uc5-e1) are ignored. 
-  * <a id="uc4-s3"></a>[S3]: The user clicks the **Save Course Catalog** button.  A dialog opens where the user selects the location to save the list of courses [[E2]](#uc4-e2)  The list of courses is saved to a text file with a course record on each line.  Each course record is a comma separated list of items [[UC5]](#uc5)and the courses are saved in sorted order.
-  * <a id="uc4-s4"></a>[S4]: The user adds a course, with a unique name/section pair [[E3]](#uc4-e3), by entering a course name [[E4]](#uc4-e4), course title [[E5]](#uc4-e5), section number [[E6]](#uc4-e6), credit hours [[E7]](#uc4-e7), instructor unity id [[E8]](#uc4-e8), meeting days [[E9]](#uc4-e9), start time [[E10]](#uc4-e10), and end time [[E11]](#uc4-e11)[[E12]](#uc4-e12) and clicks the **Add Course** button.  The course is added to the catalog in sorted order.
-  * <a id="uc4-s5"></a>[S5]: The user selects a course in the *Course Catalog* list and clicks the **Remove Course** button [[E13]](#uc4-e13).  The course is removed from the *Course Catalog* list.
+  * an item is missing
+  * first name is null or an empty string
+  * last name is null or an empty string
+  * id is null or an empty string
+  * email is null or an empty string
+  * email doesn't contain an '@' character
+  * email doesn't contain a '.' character
+  * the index of the last '.' character in the email string is earlier than the index of the first '@' character (e.g., first.last@address would be invalid)
+  * the password is null or an empty string
+  * max credits is below 3 or above 18
   
-**Alternative Flows:**
+  
+### Course Records
 
-  * <a id="uc4-e1"></a>[E1]: If the file cannot be found on the file system, the error message "Unable to read file <filename>" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e2"></a>[E2]: If the file cannot be written to, the error message "Unable to write to file <filename>" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e3"></a>[E3]: If the course's name and section already exist in the catalog, the error message "Course already in system." is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e4"></a>[E4]: If the course's name is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid course name" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e5"></a>[E5]: If the course's title is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid course title" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e6"></a>[E6]: If the course's section number is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid section number" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e7"></a>[E7]: If the course's credit hours is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid credit hours" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e8"></a>[E8]: If the course's instructor unity id is invalid [[UC5, E1]](#uc5-e1), the error message "Invalid instructor unity id" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e9"></a>[E9]: If the course's meeting days are invalid [[UC5, E1]](#uc5-e1), the error message "Invalid meeting days" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e10"></a>[E10]: If the course's start time is invalid, the error message "Invalid start time" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e11"></a>[E11]: If the course's end time is invalid, the error message "Invalid end time" is displayed.  The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e12"></a>[E12]: If the course's end time and start time together are invalid, the error message "Invalid course times" is displayed. The user clicks OK and is returned to the course catalog display.
-  * <a id="uc4-e13"></a>[E13]: If there is no course selected, the error message "No course selected." is displayed. The user clicks OK and is returned to the course catalog display.
+Course records can be saved and loaded from a file in the correct format.  An example of a valid file would be:
 
-     
-##<a id="uc5"></a>Use Case 5: Course Records
+```
+CSC 116,Intro to Programming - Java,001,3,jdyoung2,MW,0910,1100
+CSC 116,Intro to Programming - Java,002,3,spbalik,MW,1120,1310
+CSC 116,Intro to Programming - Java,003,3,tbdimitr,TH,1120,1310
+CSC 116,Intro to Programming - Java,002,3,jtking,TH,0910,1100
+CSC 216,Software Development Fundamentals,001,3,sesmith5,TH,1330,1445
+CSC 216,Software Development Fundamentals,002,3,ixdoming,MW,1330,1445
+CSC 216,Software Development Fundamentals,601,3,jctetter,A
+CSC 217,Software Development Fundamentals Lab,202,1,sesmith5,M,1040,1230
+CSC 217,Software Development Fundamentals Lab,211,1,sesmith5,T,830,1020
+CSC 217,Software Development Fundamentals Lab,223,1,sesmith5,W,1500,1650
+CSC 217,Software Development Fundamentals Lab,601,1,sesmith5,A
+CSC 226,Discrete Mathematics for Computer Scientists,001,3,tmbarnes,MWF,935,1025
+CSC 230,C and Software Tools,001,3,dbsturgi,MW,1145,1300
+CSC 316,Data Structures and Algorithms,001,3,jtking,MW,830,945
+```
 
-**Main Flow:** Every course has a course name, course title, section number, number of credit hours, instructor's unity id, meeting days, start time, and end time. [[S1]](#uc5-s1). When stored in a text file, a course record is a comma separated list in the following format:
+A course has a course name, course title, section number, number of credit hours, instructor's unity id, meeting days, start time, and end time. When stored in a text file, a course record is a comma separated list in the following format:
 
     courseName,courseTitle,sectionNumber,creditHours,instructorUnityID,meetingDays,startTime,endTime
+	
+### Invalid Course Records
 
-**Sub Flows:**
+A course record is invalid in at least the following situations:
 
-  * <a id="uc5-s1"></a>[S1]: Information about scheduled courses are stored in a file with one course record per line.  A course record is a comma separated list of the course name, course title, section number, the number of credit hours, instructor's unity id, meeting days, start time, and end time.  The start time and end time may be omitted if the meeting days are listed as 'A'(rranged).  Valid course records are stored in a list of courses [[E1]](#uc5-e1).  An example of what a course schedule file might look like is below:
-
-```
-CSC116,Intro to Programming - Java,001,3,jdyoung2,MW,0910,1100
-CSC116,Intro to Programming - Java,002,3,spbalik,MW,1120,1310
-CSC116,Intro to Programming - Java,003,3,tbdimitr,TH,1120,1310
-CSC216,Programming Concepts - Java,001,4,sesmith5,TH,1330,1445
-CSC216,Programming Concepts - Java,002,4,jtking,MW,1330,1445
-CSC216,Programming Concepts - Java,601,4,jep,A
-```
-    
-**Alternative Flows:**
-
-  * <a id="uc5-e1"></a>[E1] An invalid course record is ignored and not added to the list of courses stored by the system. A course record is invalid if one or more of the following are true, and an invalid course records is skipped:
-     * an item is missing
-     * the course name is null or an empty string
-     * the course name is fewer than 4 characters or greater than 6 characters
-     * the course title is null or an empty string
-     * the section number is NOT exactly three digits
-     * the credit hours are not a number
-     * the credit hours are less than 1 or greater than 5
-     * the instructor's id is null or an empty string
-     * meeting days consist of any characters other than 'M', 'T', 'W', 'H', 'F', or 'A' 
-     * if 'A' is in the meeting days list, it must be the only character
-     * the start time is not between 0000 and 2359 an invalid military time
-     * the end time is not between 0000 and 2359 or an invalid military time
-     * the end time is less than the start time (i.e., no overnight classes)
-     * a start time and/or end time is listed when meeting days is 'A'
-     * a course with the same name and section
-
-
-## <a id="uc6"></a>Use Case 6: Student Scheduling
-
-**Preconditions:** The student exists in the student directory [[UC2]](#uc2) and has successfully authenticated to the system [[UC0]](#uc0).  At least one course for the upcoming semester has been loaded into the system [[UC4]](#uc4).
-
-**Main Flow:** The student starts with an empty schedule.  The student can name their schedule [[S1]](#uc6-s1), add a course to their schedule [[S2]](#uc6-s2), and remove a course from their schedule [[S3]](#uc6-s3).  The student can reset their schedule [[S4]](#uc6-s4).  The student can display their final schedule [[UC7]](#uc7).  Any time a course in the catalog list is selected, details about the course are displayed [[S5]](#uc6-s5).
-
-**Sub Flows:**
-
-  * <a id="uc6-s1"></a>[S1]: The schedule's default name is "My Schedule".  The student can name their schedule or leave the title empty [[E1]](#uc6-e1).
-  * <a id="uc6-s2"></a>[S2]: All courses are listed.  The student may select a course and add the course to their schedule [[E2]](#uc6-e2)[[E3]](#uc6-e3).
-  * <a id="uc6-s3"></a>[S3]: The student selects a course from their schedule and clicks the remove course button.  The course is removed from the schedule [[E4]](#uc6-e4).
-  * <a id="uc6-s4"></a>[S4]: The student clicks the reset schedule button.  All courses are removed from the schedule.  The schedule's name is reset.
-  * <a id="uc6-s5"></a>[S5]: The student clicks on a course in the catalog list.  The course details are displayed with the course name, section, title, instructor, credit hours, and meeting information.  If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.
-
-**Alternative Flows:**
-
-  * <a id="uc6-e1"></a>[E1]: If the title name is invalid, a pop-up message stating "Invalid title." is displayed.  The student clicks OK and is returned to the GUI with no change.
-  * <a id="uc6-e2"></a>[E2]: If the student has already added a course with the same name to their schedule (the same section or a different section), a pop-up message stating "You are already enrolled in <course name>." is displayed, where <course name> is replaced with the name of the course.  The student clicks OK and is returned to their schedule with no change.
-  * <a id="uc6-e3"></a>[E3]: If the course conflicts with another course (meaning there is an overlap of at least one day and time, even by the same minute) on the student's schedule, a pop-up message stating "The course cannot be added due to a conflict." is displayed.  The student clicks OK and is returned to their schedule with no change.
-  * <a id="uc6-e4"></a>[E4]: If no course is selected in the student's schedule, a pop-up message stating "No item selected in the schedule." is displayed.  The student clicks OK and is returned to their schedule with no change.
-
-
-## <a id="uc7"></a>Use Case 7: Display Final Schedule
-
-**Preconditions:** At least one course has been added to the student's schedule [[UC6]](#uc6).
-
-**Main Flow:** The student's schedule is displayed showing the courses in a table listing [[S1]](#uc7-s1).  The schedule can be exported as a comma-separated list of courses [[S2]](#uc7-s2).  The student can revise their schedule [[UC6]](#uc6).
-
-**Sub Flows:**
-
-  * <a id="uc7-s1"></a>[S1]: A text table will list all student courses  with columns for course name, section, title, instructor, credit hours, meeting information.  If the meeting days are "A", the details view shows "Arranged".  Otherwise, and the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.  
-  * <a id="uc7-s2"></a>[S2]: If the export button is pressed, the student is prompted with a file dialog where they can provide a file name for saving the schedule.  The schedule is stored in a text file with a comma-separated list of courses, in sorted order by name and section, with an ordering of information as follows: [[E1]](#uc7-e1).
-     * Course: name,section,title,credits,instructor,meetingDays[,startTime,endTime]
-
-**Alternative Flows:**
-
-  * <a id="uc7-e1"></a>[E1]: If the file cannot be saved, a pop-up message stating "The file cannot be saved." is displayed.  The student clicks OK and is returned to the file saving dialog [[S2]](#uc7-s2).
+  * an item is missing
+  * the course name is null or an empty string
+  * the course name is contains less than 5 characters or more than 8 characters
+  * the course name does not contain one space between letter characters and number characters
+  * the course name does not start with 1 to 4 letter characters
+  * the course name does not end with three digit characters
+  * the course title is null or an empty string
+  * the section number is NOT exactly three digits
+  * the credit hours are not a number
+  * the credit hours are less than 1 or greater than 5
+  * the instructor's id is null or an empty string
+  * meeting days consist of any characters other than 'M', 'T', 'W', 'H', 'F', or 'A'
+  * meeting days have a duplicate character
+  * if 'A' is in the meeting days list, it must be the only character
+  * the start time is not between 0000 and 2359 an invalid military time
+  * the end time is not between 0000 and 2359 or an invalid military time
+  * the end time is less than the start time (i.e., no overnight classes)
+  * a start time and/or end time is listed when meeting days is 'A'
+  * a course with the same name and section

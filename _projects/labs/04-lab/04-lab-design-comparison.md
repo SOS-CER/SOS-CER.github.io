@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 04 - Design
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab04]
-description: CSC216 Lab 04 - Design Comparison
+title: CSC 217 Lab 04 - Design
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab04]
+description: CSC 217 Lab 04 - Design Comparison
 navigation: on
 pagegroup: 04-lab
 ---
-# CSC216 Lab 04: Design Comparison
+# CSC 217 Lab 04: Design Comparison
 {% include iconHeader.html type="design" %}
 There are two proposed designs for the integrated and extended requirements for `PackScheduler`. You must compare and contrast the designs and give a recommendation to the manager on which design should be implemented.
 

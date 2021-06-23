@@ -1,0 +1,41 @@
+8
+
+dir
+52
+http://agile.csc.ncsu.edu/subversion/aware/AWARE-UPDATE/plugins
+http://agile.csc.ncsu.edu/subversion/aware
+
+
+
+2006-10-09T15:50:55.338751Z
+50
+smthomas
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f50d9904-c41b-0410-aba3-b7c37cb22f22
+
+edu.ncsu.csc.realsearch.aware_0.2.0.jar
+file
+
+
+
+delete
+2006-10-09T16:25:48.234375Z
+962116e44edf8563788e882c0e66361a
+2006-10-09T15:50:55.338751Z
+50
+smthomas
+has-props
+

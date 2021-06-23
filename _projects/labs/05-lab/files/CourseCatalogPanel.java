@@ -1,8 +1,6 @@
 package edu.ncsu.csc216.pack_scheduler.ui;
 
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -112,7 +110,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 	 * components.
 	 */
 	public CourseCatalogPanel() {
-		super(new GridBagLayout());
+		super(new GridLayout(4, 1));
 		
 		catalog = RegistrationManager.getInstance().getCourseCatalog();
 		
@@ -299,38 +297,10 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		pnlCourseForm.setBorder(boarder);
 		pnlCourseForm.setToolTipText("Course Information");
 		
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weightx = 1;
-		c.weighty = .2;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.fill = GridBagConstraints.BOTH;
-		this.add(pnlCatalogButton, c);
-		
-		c.gridx = 0;
-		c.gridy = 1;
-		c.weightx = 1;
-		c.weighty = 1;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.fill = GridBagConstraints.BOTH;
-		this.add(scrollCourseCatalog, c);
-		
-		c.gridx = 0;
-		c.gridy = 2;
-		c.weightx = 1;
-		c.weighty = .5;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.fill = GridBagConstraints.BOTH;
-		this.add(pnlCourseButtons, c);
-		
-		c.gridx = 0;
-		c.gridy = 3;
-		c.weightx = 1;
-		c.weighty = 1;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.fill = GridBagConstraints.BOTH;
-		this.add(pnlCourseForm, c);
+		this.add(pnlCatalogButton);
+		this.add(scrollCourseCatalog);
+		this.add(pnlCourseButtons);
+		this.add(pnlCourseForm);
 		
 	}
 
@@ -534,6 +504,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		
 		/**
 		 * Returns the column name at the given index.
+		 * @param col column index
 		 * @return the column name at the given column.
 		 */
 		public String getColumnName(int col) {
@@ -542,6 +513,8 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 
 		/**
 		 * Returns the data at the given {row, col} index.
+		 * @param row row index
+		 * @param col column index
 		 * @return the data at the given location.
 		 */
 		public Object getValueAt(int row, int col) {
@@ -554,7 +527,7 @@ public class CourseCatalogPanel extends JPanel implements ActionListener {
 		 * Sets the given value to the given {row, col} location.
 		 * @param value Object to modify in the data.
 		 * @param row location to modify the data.
-		 * @param column location to modify the data.
+		 * @param col location to modify the data.
 		 */
 		public void setValueAt(Object value, int row, int col) {
 			data[row][col] = value;

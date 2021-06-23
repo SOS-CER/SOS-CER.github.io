@@ -6,68 +6,89 @@ navigation: on
 pagegroup: gp3
 ---
 # Independent Task: Submit Project
+{% include iconHeader.html type="task" %}
 There are a few tasks that you must complete to wrap up Guided Project 3 for grading.
 
 {% capture callout_content %}
   * Run static analysis tools and fix notifications
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html icon="objective" content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
   
-## Run Static Analysis Tools
-Run FindBugs, PMD, and CheckStyle on your code (if you haven't been already) and remove any notifications.  
-
-{% capture callout_content %}
-If you need additional help with running `WolfScheduler` in Eclipse, see [Guided Task: Run Static Analysis Tools](../gp1/gp1-static-analysis).
+{% capture reminder_callout %}
+[Guided Task: Run Static Analysis Tools](../gp1/gp1-static-analysis).
 {% endcapture %}
-{% include callout.html content=callout_content type="reminder" icon="saTool" title="Reminder: Running Static Analysis Tools" %}
+{% include mention.html content=reminder_callout icon="saTool" type="reminder" title="Reminder: Running Static Analysis Tools" %}
+## Run Static Analysis Tools
+Run SpotBugs, PMD, and CheckStyle on your code (if you haven't been already) and remove any notifications. 
 
+{% capture reminder_callout %}
+[Guided Task: Generate Javadoc](../gp1/gp1-javadoc).
+{% endcapture %}
+{% include mention.html content=reminder_callout icon="dtTool" type="reminder" title="Reminder: Generating Javadoc" %}
 ## Generate Javadoc
 If you haven't been commenting your code all along, go back and comment your code with Javadoc.  All classes, methods, and fields should be commented.  If you have been commenting as you have implemented the `Activity` hierarchy, go back and double check that the comments are up to date for the implemented functionality.
 
-Generate Javadoc for `WolfScheduler`.
+Make sure you include comments for overridden method that describe why the override was important. 
 
-{% capture callout_content %}
-If you need additional help with generating Javadoc for `WolfScheduler` in Eclipse, see [Guided Task: Generate Javadoc](../gp1/gp1-javadoc).
+Generate Javadoc for `WolfScheduler`.  You may want to delete the existing `doc/` folder before generating a new one to ensure that all Javadoc is updated.  Double check that everything was generated!
+
+
+{% capture reminder_callout %}
+[CSC216 Basics of Jenkins Guide](../jenkins/).
 {% endcapture %}
-{% include callout.html content=callout_content type="reminder" icon="dtTool" title="Reminder: Running Static Analysis Tools" %}
-
-
+{% include mention.html content=reminder_callout icon="ciTool" type="reminder" title="Reminder: Jenkins Feedback" %}
 ## Continuous Integration and Automated Grading
-As with Guided Projects 1 & 2 and all programming assignments for CSC216, we are using Jenkins as an automated grading and feedback system.  Check your [Jenkins results](http://go.ncsu.edu/jenkins-csc216) and use them to [estimate your grade against the Guided Project 3 rubric](../wolf-scheduler/ws-rubric#guided-project-3-rubric).
-
-{% capture callout_content %}
-If you need additional help understanding Jenkins output, see [CSC216 Basics of Jenkins Guide](../jenkins/).
-{% endcapture %}
-{% include callout.html content=callout_content type="reminder" icon="ciTool" title="Reminder: Jenkins Feedback" %}
+As with Guided Project 1, and all programming assignments for CSC 216/217, we are using Jenkins as an automated grading and feedback system.  Check your [Jenkins results](https://csc216-jenkins.csc.ncsu.edu) and use them to [estimate your grade against the Guided Project 2 rubric](#grading-rubric).
 
 ## Final Tasks
 Before you complete your final submission to [GitHub](https://github.ncsu.edu), you should ensure the following:
 
-  * You have met the [requirements and design for the `WolfScheduler` project](../wolf-scheduler/ws-requirements#guided-project-3-requirements).
-  * You have a green ball on [Jenkins](http://go.ncsu.edu/jenkins-csc216). (No test failures and no static analysis notifications.)
-  * All JUnit tests pass with a green bar (0 errors).  There should be no modifications to the teaching staff tests.
-  * All black box tests pass.
-  * There are no FindBugs notifications.
+  * You have met the [requirements and design for the `WolfScheduler` project](#grading-rubric).
+  * You have a green ball on [Jenkins](https://csc216-jenkins.csc.ncsu.edu). (No test failures and no static analysis notifications.)
+  * All JUnit tests pass with a green bar (0 errors). 
+  * All System Tests pass and actual results are reported.
+  * There are no SpotBugs notifications.
   * There are no PMD notifications.
   * There are no CheckStyle notifications.
   * All code is commented with meaningful comments.
   * Javadoc webpages are generated with the latest comments.
-  * That you [meet all rubric items for the assignment](../wolf-scheduler/ws-rubric#guided-project-3-rubric).
+  * That you [meet all rubric items for the assignment](#grading-rubric).
 
-Make sure that all code is pushed to GitHub by the assignment deadline.  There are deductions for any late work up to 48 hours.
+Make sure that all code is **pushed to GitHub** by the assignment deadline (check all the files are on the remote!).  There are deductions for any late work up to 48 hours.
 
-## Push to GitHub
-Before considering your work complete, complete the following tasks:
 
-  * Ensure all classes and methods are fully commented, your tests are passing, and you've filled out your black box test plan.
-  * Add the unstaged changes to the index.
-  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  Try writing your own commit message for this push!
+## Grading Rubric
+{% include iconHeader.html type="rubric" %}
 
-{% capture callout_content %}
+Your Wolf Scheduler Guided Project 3 will be evaluated on the following items:
+
+### Overall Rubric
+
+{% include rubricTable.html project="gp3" grade-category="overall" %} 
+
+### Deductions
+
+{% include deductionsRubricTable.html project="deductions" grade-category="overall" %}
+
+### Javadoc Rubric
+
+{% include javadocRubricTable.html project="javadoc" grade-category="overall" %}
+
+
+{% capture reminder-content %} 
 GitHub Resources:
 
-  * [Staging Files](../git-tutorial/git-staging)
-  * [Committing Files](../git-tutorial/git-commit)
-  * [Pushing Files](../git-tutorial/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content type="reminder" icon="vcTool" title="Reminder: Staging and Pushing to GitHub" %}
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%} 
+## Check Your Progress
+{% include iconHeader.html type="glance" %}
+
+Complete the following tasks before pushing your work to GitHub.
+
+  - [ ] Make sure that all fields, methods, and constructors are commented.
+  - [ ] Resolve all static analysis notifications.
+  - [ ] Fix test failures.
+  - [ ] Commit and push your code changes with a meaningful commit message.  Label your commit with "[Final Submission]" for future you!
+  - [ ] Check Jenkins results for a green ball!  Fix any Jenkins issues.

@@ -1,0 +1,26 @@
+<style>
+.glanceTable{ display: table; }
+.glanceTableRow { display: table-row; }
+.glanceTableHeading { display: table-header-group;}
+.glanceTableCell, .glanceTableHead { display: table-cell;}
+.glanceTableHeading { display: table-header-group;}
+.glanceTableFoot { display: table-footer-group;}
+.glanceTableBody { display: table-row-group;}
+</style>
+
+{% for gp in site.data.tasks %}
+   {% assign thisID = gp.id | remove: ' ' | downcase %}
+   {% if thisID == page.pagegroup %}
+       {% assign thisGP = gp %}
+   {% endif %}
+{% endfor %}
+
+{% capture callout_content %}
+After completing this Guided Project, students will be able to...
+<ul>
+{% for obj in thisGP.objectives %}
+   <li>{{obj}}</li>
+{% endfor %}
+</ul>
+{% endcapture %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}

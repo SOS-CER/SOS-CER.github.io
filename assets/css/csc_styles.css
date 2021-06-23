@@ -1,4 +1,13 @@
 /* Page layout styles */
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+	box-shadow: 0px 0px 20px #888888;
+	-webkit-box-shadow: 0px 0px 20px #888888;
+	-moz-box-shadow: 0px 0px 20px #888888;
+}
+
 figure {
     display: block;
     margin-left: auto;
@@ -9,9 +18,9 @@ figure img {
     margin-left: auto;
     margin-right: auto;
     vertical-align: top;
-    box-shadow: 0px 0px 50px #888888;
-	-webkit-box-shadow: 0px 0px 50px #888888;
-	-moz-box-shadow: 0px 0px 50px #888888;
+    box-shadow: 0px 0px 20px #888888 ;
+    -webkit-box-shadow: 0px 0px 20px #888888 ;
+    -moz-box-shadow: 0px 0px 20px #888888 ;
 }
 figure figcaption {
     display: block;

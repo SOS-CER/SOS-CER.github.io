@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 07 - ArrayLists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab07]
-description: CSC216 Lab 07 - Design
+title: CSC 217 Lab 07 - ArrayLists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab07]
+description: CSC 217 Lab 07 - Design
 navigation: on
 pagegroup: 07-lab
 ---
 
-# CSC216 Lab 07 Design
+# CSC 217 Lab 07 Design
 {% include iconHeader.html type="design" %}
 The design for Lab 07 is shown below.  To follow the development paradigm of *additive change*, the custom `ArrayList` will be implemented in the `edu.ncsu.csc216.pack_scheduler.util` package.  The `Schedule` will be implemented in the `edu.ncsu.csc216.pack_scheduler.user.schedule` package.  The only change to the remainder of the design occurs in the `Student` class, which now has a `Schedule` as per the [requirements](07-lab-requirements).
 

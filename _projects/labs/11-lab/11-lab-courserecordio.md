@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 11 - Recursive Linked Lists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab11]
-description: CSC216 Lab 11 - Update and Test `Course` and `CourseRecordIO`
+title: CSC 217 Lab 11 - Recursive Linked Lists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab11]
+description: CSC 217 Lab 11 - Update and Test `Course` and `CourseRecordIO`
 navigation: on
 pagegroup: 11-lab
 ---
 
-# CSC216 Lab 11 Update and Test `Course` and `CourseRecordIO`
+# CSC 217 Lab 11 Update and Test `Course` and `CourseRecordIO`
 {% include iconHeader.html type="implementation,unitTest" %}
 Now that you are adding a `FacultySchedule` to the system, you need to update `Course` and `CourseRecordIO` to connect to a `Faculty` teaching a `Course`.  Right now, `CourseRecordIO` reads in an instructor id.  You want to update `CourseRecordIO` to do the following:
 
@@ -36,7 +36,7 @@ Your `FacutlyScheduleTest` tests should pass when you have completed the updates
 ## Javadoc your Code
 Javadoc the `CourseRecordIO` class and its methods. 
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -49,9 +49,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -61,11 +61,11 @@ Check your project on Jenkins to ensure that you are making progress.
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

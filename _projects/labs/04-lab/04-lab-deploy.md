@@ -1,20 +1,20 @@
 ---
-title: CSC216 Lab 04 - Design
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab04]
-description: CSC216 Lab 04 - Deployment
+title: CSC 217 Lab 04 - Design
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab04]
+description: CSC 217 Lab 04 - Deployment
 navigation: on
 pagegroup: 04-lab
 ---
-# CSC216 Lab 04: Deployment
+# CSC 217 Lab 04: Deployment
 {% include iconHeader.html type="deployment" %}
-When you deploy your software, you release it to your customer.  For CSC216, that means your work is ready for evaluation by the teaching staff.  We will evaluate your work against the [Lab 04 rubric](#lab-rubric).  As you compare your submission against the rubric and make your final push to GitHub, you will complete these final tasks:
+When you deploy your software, you release it to your customer.  For CSC 217, that means your work is ready for evaluation by the teaching staff.  We will evaluate your work against the [Lab 04 rubric](#lab-rubric).  As you compare your submission against the rubric and make your final push to GitHub, you will complete these final tasks:
 
-  * You have met the [requirements](04-lab-requirements) and [design](04-lab-design) for the [Lab 04 `PackScheduler`](../04-lab-p2) project.
-  * You have a green ball on [your lab section's Jenkins](#lab-deadlines-jenkins-servers) (No test failures and no static analysis notifications).
+  * You have met the [requirements](04-lab-requirements) and [design](04-lab-design) for the [Lab 04 `PackScheduler`](../04-lab) project.
+  * You have a green ball on [your lab section's Jenkins](#lab-deadlines--jenkins-servers) (No test failures and no static analysis notifications).
   * All student unit tests pass with a green bar (0 errors).
   * At least 80% statement coverage on non-UI classes. We now have a check for coverage of > 80% for each class.  If you don't have coverage of > 80% line coverage for every non-UI class, you will have a yellow ball and the teaching staff tests will not run.
   * All teaching staff JUnit tests pass with a green bar (0 errors).
-  * There are no FindBugs notifications.
+  * There are no SpotBugs notifications.
   * There are no PMD notifications.
   * There are no CheckStyle notifications.
   * All design files are in the appropriate locations and pushed to GitHub.
@@ -22,7 +22,7 @@ When you deploy your software, you release it to your customer.  For CSC216, tha
   * [Javadoc webpages](#generate-javadoc) are generated with the latest comments.
   * That you [meet all rubric items for the assignment](#lab-rubric).
 
-Make sure that [you push all code and other required artifacts to GitHub](#push-to-github) by the [assignment deadline](#lab-deadlines-jenkins-servers).  [Check your Jenkins results](#check-jenkins) on [your lab's Jenkins server](#lab-deadlines-jenkins-servers)  **Lab assignments will not be accepted late!**
+Make sure that [you push all code and other required artifacts to GitHub](#push-to-github) by the [assignment deadline](#lab-deadlines-jenkins-servers).  [Check your Jenkins results](#check-jenkins) on [your lab's Jenkins server](#lab-deadlines--jenkins-servers)  **Lab assignments will not be accepted late!**
 
 
 ## Generate Javadoc
@@ -32,7 +32,7 @@ Java provides the Javadoc tool to generate a set of web pages that display the c
 
 
 {% capture callout_content %}
-To generate Javadoc, you need to [configure and run the Javadoc tool](../../gp1/gp1-javadoc#configure-and-run-javadoc-for-your-project), [fix Javadoc errors and warnings](../../gp1/gp1-javadoc#fix-javadoc-errors-and-warnings), and [check the generated Javadoc pages](../../gp1/gp1-javadoc#check-generated-javadoc-pages).  Make sure you push your changes to GitHub!
+To generate Javadoc, you need to [configure and run the Javadoc tool](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#configure-and-run-javadoc-for-your-project), [fix Javadoc errors and warnings](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#fix-javadoc-errors-and-warnings), and [check the generated Javadoc pages](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#check-generated-javadoc-pages).  Make sure you push your changes to GitHub!
 {% endcapture %}
 {% include callout.html content=callout_content icon="dtTool" type="reminder" title="Reminder: Generating Javadoc" %}
 
@@ -45,67 +45,12 @@ There are several checks that will occur during your build to ensure that you're
 
 
 ## Lab Deadlines & Jenkins Servers
-All labs are due 10 minutes before the start of the next lab.  Additionally, each lab section has their own dedicated lab Jenkins server.  The table below provides the deadline and server URL for each lab section.
-
-
-{% capture callout_content %}
-You will receive a certificate warning about a self-signed certificate when accessing the Jenkins servers for CSC216.  All of the certificates for CSC216 Jenkins servers were self signed personally by Dr. Heckman.  Please accept the exception each time you visit a Jenkins server.
-
-Also note that permissions to the Jenkins server are at the job level.  If you have no permissions to any job, you will be unable to sign into the Jenkins server.  Once jobs are created,  you will be able to sign in.
-{% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Jenkins Certificate Warning" %}
+{% include iconHeader.html type="overview" %}
+All labs are due 10 minutes before the start of the next lab.  Additionally, each lab section has their own dedicated lab Jenkins server.  The table below provides the deadline and server URL for each lab section for the current semester.
 
 {% include lab_deadlines.md mon=site.data.labs.lab04.mon04 tues=site.data.labs.lab04.tues04 wed=site.data.labs.lab04.wed04 %}
 
-
-
-## Lab Rubric
-You will be evaluated out of 70 points in the [Technical Rubric](#technical-rubric).  On-campus students will also be [evaluated on their teaming](#on-campus-collaboration-rubric): a combination of In-Lab Participation and Out-Lab Participation.  Collaborating DE students will also be [evaluated on their participation in their pair](#de-collaboration-rubric).  
-
-Pair/teams are expected to work together on all aspects of the lab activity.  Points may be deducted for not contributing or for not providing a partner the opportunity to contribute.  The teaching staff strongly encourages working synchronously and **requires** that these collaborative sessions are documented in GitHub commit messages for the teaching staff to note the team contribution.
-
-
-### Technical Rubric
-
-|Phase|Rubric Item|Points|Description|
-|:---|:----------|----------:|:------------------------------------------------------|
-|{% include icon.html type="design" width="30px" %}|Design Comparison and Evaluation|15|Discussion of tradeoffs and reasoning behind the selection of a design.|
-|{% include icon.html type="design" width="30px" %}{% include icon.html type="unitTest" width="30px" %}|Integration - Teaching Staff Unit Tests|10|Pass all of the teaching staff unit tests (no regressions), both provided and hidden.|
-|{% include icon.html type="unitTest" width="30px" %}|Integration - Student Unit Tests|10|Pass all of your unit tests.|
-|{% include icon.html type="unitTest" width="30px" %}|Integration - Student Test Coverage|10|80% statement/line coverage on non-UI classes|
-|{% include icon.html type="implementation" width="30px" %}|Javadoc Comments|5|All classes, including the tests are commented with meaningful comments.|
-|{% include icon.html type="implementation" width="30px" %}|Javadoc Generation|5|Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.|
-|{% include icon.html type="implementation" width="30px" %}|Style|5|Any PMD, CheckStyle, or FindBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.|
-|{% include icon.html type="design" width="30px" %}|Design Extension|10|Design is a possible solution for the additional use case.|
-| |**Total**|**70**| |
-
-
-### Collaboration Rubric
-The collaboration rubric will only be applied to those working on teams.  
-
-#### On-Campus Collaboration Rubric
-
-|Rubric Item|Points|Description|
-|:----------|----------:|:------------------------------------------------------|
-|In-Lab Participation|15|PTFs will be looking for collaboration with your partner during lab activities.  Did you participate in completing the lab assignment?  Did you balance your roles of driver and navigator?  There will be deductions for observations of non-participation or hogging of one role or the other so a partner cannot participate.|
-|Out-Lab Participation|15|Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit?|
-|**Total**|**30**| |
-
-#### DE Collaboration Rubric
-
-|Rubric Item|Points|Description|
-|:----------|----------:|:------------------------------------------------------|
-|Collaboration|15|Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit?|
-|**Total**|**15**| |
-
-
-### Deductions
-
-|Deduction Item|Deduction|Details|
-|:--------------|---------:|----------------------------------------|
-|Misnamed submission file|-5|Your entire Eclipse project, named `PackScheduler`, must be pushed to GitHub for automated grading.  If your Jenkins job cannot find and grade your project, the teaching staff will attempt to grade it manually.  The deduction will apply in this case.|
-|Incomplete project submission|-5|If the teaching staff are unable to directly import your submission as an Eclipse project into our workspaces when grading, you will receive a 5 point deduction. Make sure that your `.project` and `.classpath` files are pushed to GitHub.|
-|Other Deductions|-5|If the project has to be manually graded due, you will receive a 5 point deduction.  Make sure that your project builds on Jenkins!|
+{% include rubric.md project="lab04"  %} 
 
 
 ## Push to GitHub
@@ -119,9 +64,9 @@ Finalize your submission by pushing all of your code and other project artifacts
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -131,11 +76,11 @@ Ensure that your Jenkins job is reflecting the results that you expect for the l
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

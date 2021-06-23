@@ -1,0 +1,69 @@
+---
+---
+/**********************
+Inspired by https://mademistakes.com/til/styling-language-specific-code-blocks/ 
+****************/
+$wolfpack-red: #CC0000;
+$wolfpack-black: #000000;
+$wolfpack-white: #FFFFFF;
+  
+$gray10: #F2F2F2;
+$gray25: #CCCCCC;
+$gray60: #666666;
+$gray90: #333333;
+  
+$reynoldsred: #990000;
+$pyromanflame: #D14905;
+$huntyellow: #FDD726;
+$genomicgreen: #7d8C1F;
+$innovationblue: #427E93;
+$bioindigo: #4156A1;
+$dkpurple: #7b48d3;
+
+/***************
+Variables for Styling Div Tables
+****************/
+div.purpleTable {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.divTable.purpleTable .divTableCell, .divTable.purpleTable .divTableHead {
+  padding: 3px 2px;
+}
+.divTable.purpleTable .divTableBody .divTableCell {
+  font-size: 13px;
+}
+.divTable.purpleTable .divTableHeading {
+  background: $dkpurple;
+  background: -moz-linear-gradient(top, #9971dd 0%, #8a5cd8 66%, #7b48d3 100%);
+  background: -webkit-linear-gradient(top, #9971dd 0%, #8a5cd8 66%, #7b48d3 100%);
+  background: linear-gradient(to bottom, #9971dd 0%, #8a5cd8 66%, #7b48d3 100%);
+  border-bottom: 2px solid #7b48d3;
+}
+.divTable.purpleTable .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+.purpleTable .tableFootStyle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #040404;
+  background: #c5afec;
+  background: -moz-linear-gradient(top, #b79ae7 0%, #b79ae7 66%, #c5afec 100%);
+  background: -webkit-linear-gradient(top, #b79ae7 0%, #b79ae7 66%, #c5afec 100%);
+  background: linear-gradient(to bottom, #b79ae7 0%, #b79ae7 66%, #c5afec 100%);
+  border-top: 2px solid #444444;
+}
+.purpleTable .tableFootStyle {
+  font-size: 14px;
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: table-row;   border-bottom: 1px solid #AAAAAA; }
+.divTableHeading { display: table-header-group;}
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableHeading { display: table-header-group;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group;}

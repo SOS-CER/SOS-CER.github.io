@@ -1,0 +1,50 @@
+<h4>FaultBench v0.1 </h4>
+<p><img src="images/redline.jpg" /><br>
+</p>
+<p>FaultBench is a set of real, subject Java programs for comparison and evaluation of static analysis alert prioritization and classification techniques. This webpage contains the benchmark subjects and related benchmark materials for dissemination and use by static analysis alert prioritization and classification researchers.</p>
+<p><strong>FaultBench Definition </strong></p>
+<p>The <em>motivating comparison</em> [<a href="references.php#seh03">SEH03</a>] of FaultBench is to find the static analysis alert prioritization or classification technique with the best rate of static analysis fault detection. We can use FaultBench to answer the following research questions:</p>
+<p>[Q1]: Can alert prioritization improve the rate of fault detection when compared with the tool's output?</p>
+<p>[Q2]: How does the rate of fault detection compare between alert ranking techniques?</p>
+<p>[Q3]: Can alert categorization correctly predict true positive (TP) and false positive (FP) alerts?</p>
+<p>The <em>task sample</em> [<a href="references.php#seh03">SEH03</a>] of FaultBench consists of </p>
+<ol>
+  <li>six real Java <a href="subject_content.html">subject programs</a> ranging from 1,276 - 14,120 lines of code (LOC) </li>
+  <li>the set of <a href="../../files/SubjectBaselineAlerts.xls">FindBugs static analysis alerts identified as TP or FP in the context of the subject programs</a> (<em>alert oracle</em>)</li>
+  <li>the set of <a href="subject_content.html">source code changes</a> to fix each TP alert</li>
+  <li>the <a href="../../files/SubjectBaselineAlerts.xls">experimental control alert prioritizations</a>: optimal, tool, and random (columns in the file labeled: o, tool, random, respectivly).</li>
+</ol>
+<p>The following <em>performance measures </em> [<a href="../../references.php#seh03">SEH03</a>] are used to evaluate static analysis ranking and classification techniques:</p>
+<blockquote>
+  <p><strong>Alert Prioritization: </strong><a href="http://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">Spearman's rank correlation</a> [<a href="references.php#zpz07">ZPZ07</a>]</p>
+  <p><strong>Alert Classification: </strong>We want to determine if an alert is correctly classified as a TP or FP. Therefore we use the following terms:</p>
+  <ol>
+    <li>True Positive Classification (TP<sub>C</sub>): an alert is correctly classified as a TP.</li>
+    <li>True Negative Classification (TN<sub>C</sub>): an alert is correctly classified as a FP.</li>
+    <li>False Positive Classification (FP<sub>C</sub>): an alert is incorrectly classified as a TP.</li>
+    <li>False Negative Classification (FN<sub>C</sub>): an alert is incorrectly classified as a FP.</li>
+  </ol>
+  <blockquote>
+    <p>We can use the following metrics to evaluate the alert classification:</p>
+  </blockquote>
+  <ol>
+    <li>Precision [<a href="../../references.php#zpz07">ZPZ07</a>]: The percentage of TP<sub>C</sub> that are actually faults.</li>
+    <li>Recall [<a href="../../references.php#zpz07">ZPZ07</a>]: The percentage of TP<sub>C</sub> out of all possible faults.</li>
+    <li>Accuracy [<a href="../../references.php#zpz07">ZPZ07</a>]: The percentage of correct (TP<sub>C</sub> and TN<sub>C</sub>) classifications.</li>
+    <li>Area under the curve [<a href="../../references.php#ruc01">RUC01</a>]: the area under the curve of the cumulative percentage of TP alerts detected after each inspection. </li>
+  </ol>
+</blockquote>
+<p><strong>FaultBench Process </strong></p>
+<ol>
+  <li>Run a static analysis tool against a clean version of the subject program. (If the static analysis can run automatically, turn on the option).</li>
+  <li>Prioritize of classify the generate alerts with an alert prioritization or classification technique.</li>
+  <li>Record the original state of the alert set.</li>
+  <li>Starting at the top of the ranked or classified list of alerts, inspect each alert,
+    <ol>
+      <li type="a">If the alert oracle indicates the alert is a fault, then fix the alert with the specified change. If the static analysis tool does not run automatically, then rerun static analysis.</li>
+      <li type="a">If the alert oracle indicates the alert is a false positive, then suppress the alert.</li>
+    </ol>
+  </li>
+  <li>After each alert inspection, record the state of the alert set.</li>
+  <li>After all alert inspections, evaluate the results via the above performance measures. </li>
+</ol>

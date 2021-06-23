@@ -1,0 +1,106 @@
+<h1 id="faultbench">FaultBench</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><a href="index">FaultBench Home</a></td>
+      <td><a href="subjects">FaultBench Subjects</a></td>
+      <td><a href="evaluation">Evaluation</a></td>
+      <td><a href="publications">Publications</a></td>
+      <td><a href="references">References</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>FaultBench is a set of real, subject Java programs for comparison and evaluation of actionable alert identification techniques (AAITs) that supplement automated static analysis. This webpage contains the benchmark subjects and related benchmark materials for dissemination and use by static analysis alert prioritization and classification researchers.</p>
+
+<p><a href="version_0.1/index_content.html"><strong>FaultBench v0.1</strong></a></p>
+
+<h2 id="faultbench-definition-v03">FaultBench Definition v0.3</h2>
+
+<h3 id="motivating-comparison">Motivating Comparison</h3>
+<p>The <em>motivating comparison</em> <a href="references#seh02">[SEH03]</a> of FaultBench is to find the static analysis alert prioritization or classification technique with the best rate of static analysis fault detection. We can use FaultBench to answer the following research questions:</p>
+
+<ul>
+  <li>RQ1: How accurately does an AAIT predict actionable and unactionable alerts?</li>
+  <li>RQ2: What is the rate of anomaly detection for an AAIT? &lt;/p&gt;</li>
+  <li>RQ3: How does an AAIT compare with other AAITs? &lt;/p&gt;</li>
+</ul>
+
+<h3 id="task-sample">Task Sample</h3>
+<p>The <em>task sample</em> <a href="references#seh03">[SEH03]</a> of FaultBench consists of:</p>
+
+<ol>
+  <li>three real Java <a href="subjects#subjectdownloads">subject programs</a> ranging from 355-15,516 lines of code (LOC)</li>
+  <li>the set of FindBugs and Check ‘n’ Crash alerts and associated artifact characteristics identified as actionable and unactionable in the context of the <a href="files/SubjectBaselineAlerts.xls">subject program’s history</a> (<em>alert oracle</em>)</li>
+</ol>
+
+<h3 id="performance-measures">Performance Measures</h3>
+<p>The following <em>performance measures</em> <a href="references#seh03">[SEH03]</a> are used to evaluate static analysis prioritization and classification techniques:</p>
+
+<p><strong>Alert Prioritization:</strong></p>
+
+<ul>
+  <li>Area under the curve <a href="references#ruc01">[RUC01]</a>: the area under the curve of the cumulative percentage of TP alerts detected after each inspection.</li>
+  <li>Number of unactionable alerts identified before 50% of actionable alerts (UA50)</li>
+  <li>Inspections before first actionable alert (IFAA)</li>
+  <li>Number of alerts inspected before all actionable alerts identified (IAAA)</li>
+</ul>
+
+<p><strong>Alert Classification:</strong> We want to determine if an alert is correctly classified as a TP or FP. Therefore we use the following terms:</p>
+
+<ul>
+  <li><strong>True positive classification (TP):</strong> classifying an alert as actionable when the alert is actionable.</li>
+  <li><strong>True negative classification (TN):</strong> classifying an alert as unactionable when the alert is unactionable.</li>
+  <li><strong>False positive classification (FP):</strong>  classifying an alert as actionable when the alert is actually unactionable.</li>
+  <li><strong>False negative classification (FN):</strong> classifying an alert as unactionable when the alert is actually actionable.</li>
+</ul>
+
+<p><strong>Alert Classification Metrics:</strong> We can use the following metrics to evaluate the alert classification:</p>
+
+<ul>
+  <li>Precision <a href="references#zpz07">[ZPZ07]</a>: The percentage of TP that are actually faults.</li>
+  <li>Recall <a href="references#zpz07">[ZPZ07]</a>: The percentage of TP out of all possible faults.</li>
+  <li>Accuracy <a href="references#zpz07">[ZPZ07]</a>: The percentage of correct (TP and TN) classifications.</li>
+</ul>
+
+<h3 id="faultbench-process">FaultBench Process</h3>
+
+<p>The scripts and programs implementing the process described below are linked to in Table 1, below. These programs are provided “as is” and with no technical support. The current versions of the program are specific to the creator’s computer setup, and they should be modified to fit with the user’s configurations.</p>
+
+<ul>
+  <li>Generate subject revision history through the source code repository log and select the sample of revisions.</li>
+  <li>Data collection for each subject (jdom, runtime, logging). Data collection consists of a set of batch scripts that download all of the files associated with a revision of the subject program from the source code repository. The project is then built, and a metrics program (<a href="http://www.kclee.de/clemens/java/javancss/">JavaNCSS</a>) and automated static analysis (<a href="http://findbugs.sourceforge.net/">FindBugs</a>, <a href="http://ranger.uta.edu/%7Ecsallner/cnc/">Check ‘n’ Crash</a>) are run.</li>
+  <li>Alert oracle creation by iterating through the alerts created at each revision and determining which alerts were closed during the alert history.</li>
+  <li>Create artifact characteristics for each alert in the alert history</li>
+</ul>
+
+<p><strong>Preresequites:</strong></p>
+
+<ul>
+  <li><a href="http://java.sun.com">Java 1.5</a> installed</li>
+  <li><a href="http://java.sun.com">Java 1.4.2</a> installed</li>
+  <li><a href="http://www.kclee.de/clemens/java/javancss/">JavaNCSS</a> versions 29.50 and 21.41 (both are required due to the use of generics in runtime)</li>
+  <li><a href="http://www.jdom.org/downloads/cvs.exe">CVS</a> (the binary offered by <a href="http://www.jdom.org/index.html">jdom</a>) and SVN installed</li>
+  <li><a href="http://www.eclipse.org/">Eclipse</a> 3.3.1.1 installed</li>
+  <li><a href="http://findbugs.sourceforge.net/">Findbugs</a> 1.3.7</li>
+  <li><a href="http://ranger.uta.edu/%7Ecsallner/cnc/">Check ‘n’ Crash</a></li>
+</ul>
+
+<table width="600" border="1">
+  <tr>
+    <td>Artifact</td>
+    <td><a href="http://www.jdom.org/index.html">jdom</a></td>
+    <td><a href="http://eclipse.org/">runtime</a></td>
+    <td><a href="http://commons.apache.org/logging/">logging</a></td>
+  </tr>
+  <tr>
+    <td>Data Collection </td>
+    <td colspan="3"><p><a href="files/version_0.3/RepositoryDataCollector.zip">RepositoryDataCollector.zip</a></p>
+    <p><a href="files/version_0.3/Subjects.zip">Subjects.zip</a></p></td>
+  </tr>
+  <tr>
+    <td>Alert Oracle and Artifact Characteristic Creation </td>
+    <td colspan="3"><a href="files/version_0.3/AlertCharacteristicMerger.zip">AlertCharacteristicMerger.zip</a></td>
+  </tr>
+</table>

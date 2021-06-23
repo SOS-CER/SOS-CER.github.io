@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 11 - Recursive Linked Lists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab11]
-description: CSC216 Lab 11 - Implement and Test `LinkedListRecursive`
+title: CSC 217 Lab 11 - Recursive Linked Lists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab11]
+description: CSC 217 Lab 11 - Implement and Test `LinkedListRecursive`
 navigation: on
 pagegroup: 11-lab
 ---
 
-# CSC216 Lab 11 Implement and Test `LinkedListRecursive`
+# CSC 217 Lab 11 Implement and Test `LinkedListRecursive`
 {% include iconHeader.html type="implementation,unitTest" %}
 The [design of the faculty schedule directory functionality](11-lab-design) calls for a custom implementation of a recursive linked list that doesn't allow for null elements or duplicate elements as defined by the `equals()` method.
 
@@ -145,9 +145,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -157,11 +157,11 @@ Check your project on Jenkins to ensure that you are making progress.
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

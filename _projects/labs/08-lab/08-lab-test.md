@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 08 - LinkedAbstractList
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab08]
-description: CSC216 Lab 08 - Testing
+title: CSC 217 Lab 08 - LinkedAbstractList
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab08]
+description: CSC 217 Lab 08 - Testing
 navigation: on
 pagegroup: 08-lab
 ---
-# CSC216 Lab 08 Testing
+# CSC 217 Lab 08 Testing
 {% include iconHeader.html type="unitTest,systemTest" %}
 As with any software development project, you must test your code to know if it meets the [requirements](08-lab-requirements) and [design](08-lab-design).  You should have unit tested your new code as you added course validation functionality.  Now you will ensure sufficient coverage and system test `PackScheduler`.
 
@@ -26,7 +26,7 @@ The teaching staff has provided four classes that comprise the GUI for `PackSche
   
 
 ## System Testing and Debugging
-[Download a copy of the black box tests for `PackScheduler` Lab 08](https://docs.google.com/a/ncsu.edu/document/d/1R20kNgCttV88U8MvpYrc9CvdGR78Bew3pIWS49YAtMA/edit?usp=sharing).  Note that the tests haven't changed since lab 6.  Save the black box test plan file in the `project_docs` folder.
+[Download a copy of the black box tests for `PackScheduler` Lab 08](https://docs.google.com/a/ncsu.edu/document/d/1R20kNgCttV88U8MvpYrc9CvdGR78Bew3pIWS49YAtMA/edit?usp=sharing).  There are some updates to the tests to take into account the new enrollment cap, but there are no additional provided black box tests for the new functionality.  You'll want to ensure that you system test your system to ensure that the new enrollment and drop functionality work correctly!  Save the black box test plan file in the `project_docs` folder.
 
 Do the following:
 
@@ -41,8 +41,8 @@ The following files are needed for testing.  Note that the course files are upda
   * [expected_course_catalog.txt](files/expected_course_catalog.txt)
   * [expected_course_records.txt](files/expected_course_records.txt)
   * [starter_course_records.txt](files/starter_course_records.txt)
-  * [t19_student_directory.txt](files/t19_student_directory.txt)
-  * [t39_course_catalog.txt](files/t39_course_catalog.txt)
+  * [expected_t19_student_directory.txt](files/expected_t19_student_directory.txt)
+  * [expected_t39_course_catalog.txt](files/expected_t39_course_catalog.txt)
 
 
 ## Push to GitHub
@@ -57,8 +57,8 @@ Check Jenkins and make sure that you have a green ball and are passing your test
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

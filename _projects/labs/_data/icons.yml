@@ -1,0 +1,92 @@
+requirements:
+    url: assets/images/phases/requirements.png
+design:
+    url: assets/images/phases/design.png 
+implementation:
+    url: assets/images/phases/implementation.png
+unitTest:
+    url: assets/images/phases/unit-test.png
+systemTest:
+    url: assets/images/phases/system-test.png
+deployment:
+    url: assets/images/phases/deploy.png
+    
+ccTool:
+    url: assets/images/tools/tool-code-coverage.png
+ciTool:
+    url: assets/images/tools/tool-continuous-integration.png
+dnTool:
+    url: assets/images/tools/tool-design.png
+dtTool:
+    url: assets/images/tools/tool-documentation.png
+ideTool:
+    url: assets/images/tools/tool-ide.png
+plTool:
+    url: assets/images/tools/tool-programming-language.png
+saTool:
+    url: assets/images/tools/tool-static-analysis.png
+ttTool:
+    url: assets/images/tools/tool-testing.png
+vcTool:
+    url: assets/images/tools/tool-version-control.png
+    
+whiteccTool:
+    url: assets/images/tools/tool-code-coverage-white.png
+whiteciTool:
+    url: assets/images/tools/tool-continuous-integration-white.png
+whitednTool:
+    url: assets/images/tools/tool-design-white.png
+whitedtTool:
+    url: assets/images/tools/tool-documentation-white.png
+whiteideTool:
+    url: assets/images/tools/tool-ide-white.png
+whiteplTool:
+    url: assets/images/tools/tool-programming-language-white.png
+whitesaTool:
+    url: assets/images/tools/tool-static-analysis-white.png
+whitettTool:
+    url: assets/images/tools/tool-testing-white.png
+whitevcTool:
+    url: assets/images/tools/tool-version-control-white.png
+    
+whiteTeamTask:
+    url: assets/images/icons/group.png
+whiteIndividualTask:
+    url: assets/images/icons/individual.png
+teamTask:
+    url: assets/images/icons/group.png
+individualTask:
+    url: assets/images/icons/individual.png   
+
+animation:
+    url: assets/images/icons/video.png
+reminder:
+    url: assets/images/icons/reminder.png
+demo:
+    url: assets/images/icons/demo.png   
+task:
+    url: assets/images/icons/task.png
+rubric:
+    url: assets/images/icons/rubric.png
+download:
+    url: assets/images/icons/download.png
+objective:
+    url: assets/images/icons/objective.png
+whiteobjective:
+    url: assets/images/icons/objective.png
+java:
+    url: assets/images/icons/java.png  
+zip:
+    url: assets/images/icons/zip.png
+pdf:
+    url: assets/images/icons/pdf.png  
+docx:
+    url: assets/images/icons/docx.png    
+quiz:
+    url: assets/images/icons/quiz.png    
+overview:
+    url: assets/images/icons/overview.png 
+whitetime:
+    url: assets/images/icons/time.png
+code:
+    url: assets/images/icons/code.png

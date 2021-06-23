@@ -1,0 +1,41 @@
+{% for lab in site.data.tasks %}
+   {% assign thisID = lab.id | remove: ' ' | downcase %}
+   {% if thisID == page.pagegroup %}
+       {% assign thisLab = lab %}
+   {% endif %}
+{% endfor %}
+
+{% assign directory = thisLab.directory %}
+<button id="printableButton" class="button" onclick="togglePrintable()">Open Printable Version</button>
+
+{% capture final %}
+{% endcapture %}
+<div id="printable" style="display:none;">
+{% for task in thisLab.tasks %}
+{% capture full %}
+{% include_relative {{task.page}}.md %}
+{% endcapture %}
+{% assign raw = full | replace_first: '---','<!--' | replace_first: '---','-->' %} 
+{% assign final = final | append: raw %}
+{% endfor %}
+{{ final | markdownify }}
+</div>
+
+
+<script>
+function togglePrintable() {
+  var full = document.getElementById("printable");
+  var button = document.getElementById("printableButton");
+  var elements = document.getElementsByClassName("conceptualKnowledge");
+  if (full.style.display === "none") {
+    full.style.display = "block";
+	for(var i=0; i<elements.length; i++) {
+		elements[i].style.display = "none";
+  }	
+	button.innerHTML = "Close Printable Version";
+  } else {
+    full.style.display = "none";
+	button.innerHTML = "Open Printable Version";
+  }
+}
+</script>

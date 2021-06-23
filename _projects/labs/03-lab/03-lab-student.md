@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 03 - Collections
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab03]
-description: CSC216 Lab 03 - Implement `Comparable` in `Student`
+title: CSC 217 Lab 03 - Collections
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab03]
+description: CSC 217 Lab 03 - Implement `Comparable` in `Student`
 navigation: on
 pagegroup: 03-lab
 ---
-# CSC216 Lab 03: Implement `Comparable` in `Student`
+# CSC 217 Lab 03: Implement `Comparable` in `Student`
 {% include iconHeader.html type="implementation,unitTest" %}
 Since the [updated requirements](03-lab-requirements) state that `Student`s must be stored in the directory in sorted order by last name, first name, and then unity id, you need to define the functionality for ordering `Student`s.  The `SortedList` implementation requires that elements implement the `Comparable` interface so that elements are added to the list in sorted order. 
 
@@ -17,11 +17,12 @@ The `Comparable` interface is a generic interface, which means that a type must 
 
 There will be a compiler error after adding the `implements` statement and importing `Comparable`.  Use Eclipse's Quick Fix to add the unimplemented method `compareTo()` to `Student`.  The method signature should be:
 
-    public int compareTo(Student s)
-    
+```java
+public int compareTo(Student s)
+```    
 
 ## Test `compareTo()`
-Test that the `compareTo()` method works correctly by adding a new test method to `StudentTest`.  `Student`s should be ordered by last name, then first name, then their unity id.  [Use the documentation for the `Comparable.compareTo()` method to write tests for `Student.compareTo()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html#compareTo-T-).  Your tests will initially fail.
+Test that the `compareTo()` method works correctly by adding a new test method to `StudentTest`.  `Student`s should be ordered by last name, then first name, then their unity id.  [Use the documentation for the `Comparable.compareTo()` method to write tests for `Student.compareTo()`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Comparable.html#compareTo(T)).  Your tests will initially fail.
 
 
 ## Implement `compareTo()`
@@ -35,7 +36,7 @@ Run your tests instrumented for coverage.  Make sure that your tests execute at 
 ## Javadoc your Code
 Make sure that you update the Javadoc in the `Student` and `StudentTest` classes.  
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 We do expect that all test classes are commented!
 
@@ -50,9 +51,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -64,12 +65,12 @@ Your project will have a red ball.  That is because you have not yet completed s
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [Coverage Report](../../jenkins/#coverage-report)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [Coverage Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#coverage-report)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

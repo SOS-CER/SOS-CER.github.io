@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 05 - Inspection & Debugging
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab05]
-description: CSC216 Lab 05 - Inspection & Debugging
+title: CSC 217 Lab 05 - Inspection & Debugging
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab05]
+description: CSC 217 Lab 05 - Inspection & Debugging
 navigation: on
 pagegroup: 05-lab 
 ---
-# CSC216 Lab 05: Inspection & Debugging
+# CSC 217 Lab 05: Inspection & Debugging
 {% include iconHeader.html type="implementation" %}
 There are three components to the [design](05-lab-design) of the `RegistrationManager` class that are new: use of the Singleton pattern, use of an inner class, and use of a properties file.  A colleague elsewhere in the organization has worked with these components before and has put together a quick `RegistrationManager` implementation.  However, while the colleague is an expert on the Singleton pattern, creating inner classes, and properties files, the colleague is not familiar with your project so the implementation may be buggy.
 
@@ -40,7 +40,9 @@ So if the constructor is private, how do you create the single instance?  You do
 
 To work with the instance, a client typically uses the following call:
 
-    RegistrationManager manager = RegistrationManager.getInstance();
+    ```java
+	RegistrationManager manager = RegistrationManager.getInstance();
+	```
     
 This returns the single instance to a reference that the client can then interact with in a normal OO manner.  You can see the Singleton pattern in the `RegistrationManager` constructor, `getInstance()` method, and `instance` field.
 
@@ -97,9 +99,9 @@ You can view your `.gitignore` file in Eclipse by opening the **Navigator View**
 /registrar.properties
 ```
 
-If you have other `.gitignore` files in your project structure or additional files in your `.gitignore` file you can update your `gitignore` to match what we have here, which is ignoring generated `*.class` files and your `registrar.properties` secrets.
+If you have other `.gitignore` files in your project structure or additional files in your `.gitignore` file you can update your `gitignore` to match what we have here, which is ignoring generated `*.class` files in the `/bin/` directory and your `registrar.properties` secrets.
 
-Note that you should not include secrets in other files, like black box test plans!
+Note that you should not include secrets in other files, like system test plans!
 
 ### Using `properties` Files
 Let's walk through the code that works with `registrar.properties`.  We maintain the name of the `properties` file as a constant of the class (`PROP_FILE`).  The `RegistrationManager` constructor calls the `createRegistrar()` method which reads from the `registrar.properties` file using the `Properties` class from the Java API.  The `Properties` class understands how to parse name-value pairs as stored in our `registrar.properties` file.  We can then get the value associated with a name using the `Properties.getProperty(String name)` method call.  
@@ -111,7 +113,7 @@ Since we are reading from a file, there is a chance for an `IOException`.  For e
 ```java
 private static final String PROP_FILE = "registrar.properties";
 
-private RegistrationManager() {   
+private RegistrationManager() { //Private b/c used to construct single instance  
     createRegistrar();
 }
 
@@ -142,7 +144,7 @@ private String hashPW(String pw) {
 
 
 ### Testing with `properties` Files
-When testing, you should NOT hard code your `Registrar` user name and password in your tests!  Instead, you should use the `registrar.properties` file to get the appropriate information for testing.  For example, if you're testing authentication, you will need to work with the `id` and `pw` properties.  You will use code similar to that in `RegistrationManager.createRegistrar()` for working with the `registrar.properties` file in your tests.
+When testing, you should NOT hard code your `Registrar` user name and password in your tests (remember the discussion on secrets)!  Instead, you should use the `registrar.properties` file to get the appropriate information for testing.  For example, if you're testing authentication, you will need to work with the `id` and `pw` properties.  You will use code similar to that in `RegistrationManager.createRegistrar()` for working with the `registrar.properties` file in your tests.
 
 ### Running on Jenkins 
 So how do we run on Jenkins?  Each Jenkins server has it's own secret copy of `registrar.properties` that the teaching staff test cases are configured to work with.  During the Jenkins build we will copy the Jenkins `registrar.properties` into your project, which will set everything up for execution.
@@ -169,10 +171,6 @@ Check your results on Jenkins!
 
 
 {% capture callout_content %}
-GitHub Resources:
-
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+To generate Javadoc, you need to [configure and run the Javadoc tool](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#configure-and-run-javadoc-for-your-project), [fix Javadoc errors and warnings](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#fix-javadoc-errors-and-warnings), and [check the generated Javadoc pages](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#check-generated-javadoc-pages).  Make sure you push your changes to GitHub!
 {% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+{% include callout.html content=callout_content icon="dtTool" type="reminder" title="Reminder: Generating Javadoc" %}

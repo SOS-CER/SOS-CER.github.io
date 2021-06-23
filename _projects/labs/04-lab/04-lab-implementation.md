@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 04 - Design
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab04]
-description: CSC216 Lab 04 - Integrating `WolfScheduler` into `PackScheduler`
+title: CSC 217 Lab 04 - Design
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab04]
+description: CSC 217 Lab 04 - Integrating `WolfScheduler` into `PackScheduler`
 navigation: on
 pagegroup: 04-lab
 ---
-# CSC216 Lab 04: Integrating `WolfScheduler` into `PackScheduler`
+# CSC 217 Lab 04: Integrating `WolfScheduler` into `PackScheduler`
 {% include iconHeader.html type="implementation" %}
 To integrate `WolfScheduler` into `PackScheduler`, you will focus on three packages: 
 
@@ -27,13 +27,13 @@ Complete the following steps to integrate the course classes from `WolfScheduler
 
 Copy in the `src/` files:
 
-  #. Create a new package `edu.ncsu.csc216.pack_scheduler.course` in the `src/` folder of `PackScheduler`
-  #. Select the `Activity`, `Conflict`, `ConflictException`, and `Course` classes from your Guided Project 3 `WolfScheduler` and copy them into the new `edu.ncsu.csc216.pack_scheduler.course` package in the `src/` folder of `PackScheduler`.
+  1. Create a new package `edu.ncsu.csc216.pack_scheduler.course` in the `src/` folder of `PackScheduler`
+  2. Select the `Activity`, `Conflict`, `ConflictException`, and `Course` classes from your Guided Project 3 `WolfScheduler` and copy them into the new `edu.ncsu.csc216.pack_scheduler.course` package in the `src/` folder of `PackScheduler`.
   
 Copy in the `test/` files:
 
-  #. Create a new package `edu.ncsu.csc216.pack_scheduler.course` in the `test/` folder of `PackScheduler`
-  #. Select the `ActivityTest`, `ConflictExceptionTest`, and `CourseTest` classes from your Guided Project 3 `WolfScheduler` and copy them into the new `edu.ncsu.csc216.pack_scheduler.course` package in the `test/` folder of `PackScheduler`.
+  1. Create a new package `edu.ncsu.csc216.pack_scheduler.course` in the `test/` folder of `PackScheduler`
+  2. Select the `ActivityTest`, `ConflictExceptionTest`, and `CourseTest` classes from your Guided Project 3 `WolfScheduler` and copy them into the new `edu.ncsu.csc216.pack_scheduler.course` package in the `test/` folder of `PackScheduler`.
   
 Update your tests to remove any references to `Event` so that `PackScheduler` compiles.  This may mean that some tests will be deleted, and that's ok if they are no longer needed.  There will likely be several tests in `ConflictExceptionTest` that will need to be deleted due to conflict checks involving `Event`s.
 
@@ -94,8 +94,8 @@ Since we can't automate black box tests, you won't need to check Jenkins.  But y
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

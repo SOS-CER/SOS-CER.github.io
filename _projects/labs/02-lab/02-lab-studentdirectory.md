@@ -38,7 +38,10 @@ You will need to use similar strategies for handling hashed passwords that you u
 
 
 ## `addStudent()`
-This method supports the functionality for adding a `Student` to the list of students as described in [[UC2, S4]](01-lab-requirements#uc2-s4).  The method also covers Alternative Flows [[UC2, E4-E9 and E11]](01-lab-requirements#uc2-e4).  The first grouping of error messages come from `IllegalArgumentException`s thrown during construction of `Student` or when checking the `password` and `repeatPassword` parameters.  The error message related to "Cannot hash password" should hopefully never happen, but an exception with a error message is provided in case it ever does.
+This method supports the functionality for adding a `Student` to the list of students as described in [[UC2, S4]](01-lab-requirements#uc2-s4).  The method also covers Alternative Flows [[UC2, E4-E9 and E11]](01-lab-requirements#uc2-e4).  The first grouping of error messages come from `IllegalArgumentException`s thrown during construction of `Student` or when checking the `password` and `repeatPassword` parameters.  
+
+
+The error message related to "Cannot hash password" should hopefully never happen, but an exception with a error message is provided in case it ever does.  You will NOT be expected to write a test to cover this exception. If this is the only uncovered line in `StudentDirectory` you will receive full extra credit.
 
 By returning `false`, the method will trigger [[UC2, E3]](01-lab-requirements#uc2-e3) in the GUI.
 
@@ -67,7 +70,7 @@ Run your tests instrumented for coverage.  Make sure that your tests execute at 
 ## Javadoc your Code
 Make sure that you Javadoc the `StudentDirectoryTest` class and methods. 
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -80,9 +83,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -92,12 +95,12 @@ At this point, your project should build on Jenkins, hopefully with a green ball
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [Coverage Report](../../jenkins/#coverage-report)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [Coverage Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#coverage-report)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

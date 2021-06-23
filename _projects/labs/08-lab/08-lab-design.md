@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 08 - LinkedAbstractList
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab08]
-description: CSC216 Lab 08 - Design
+title: CSC 217 Lab 08 - LinkedAbstractList
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab08]
+description: CSC 217 Lab 08 - Design
 navigation: on
 pagegroup: 08-lab
 ---
-# CSC216 Lab 08 Design
+# CSC 217 Lab 08 Design
 {% include iconHeader.html type="design" %}
 The design for Lab 08 is shown below.  To follow the development paradigm of *additive change*, the custom `LinkedAbstractList` will be implemented in the `edu.ncsu.csc216.pack_scheduler.util` package.  The `CourseRoll` will be implemented in the `edu.ncsu.csc216.pack_scheduler.course.roll` package.  `Course` and `CourseRecordIO` will require some additional work to add the enrollment capacity and `CourseRoll` object (which is a more invasive change, but needed to maintain a good object design).  There are additional minor changes to `Schedule`, `Student`, and `EnrollmentManager` to simplify the logic for adding `Student`s to `CourseRoll`s and adding `Course`s to `Schedule`s.
 

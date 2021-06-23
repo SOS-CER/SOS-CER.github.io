@@ -1,14 +1,14 @@
 ---
-title: CSC216 Lab 10 - Iterators
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab10]
-description: CSC216 Lab 10 - Implement and Test `FacultyRecordIO`
+title: CSC 217 Lab 10 - Iterators
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab10]
+description: CSC 217 Lab 10 - Implement and Test `FacultyRecordIO`
 navigation: on
 pagegroup: 10-lab
 ---
 
-# CSC216 Lab 10 Implement and Test `FacultyRecordIO`
+# CSC 217 Lab 10 Implement and Test `FacultyRecordIO`
 {% include iconHeader.html type="implementation,unitTest" %}
-Like `StudentRecordIO`, `FacultyRecordIO` provides `static` methods that support reading in faculty records from a file and writing faculty records to a file.  A faculty record is defined in [[UC9]](10-lab-requirements#uc9).  The read functionality supports [[UC9, S2]](10-lab-requirements#uc9-s2) and the write functionality supports [[UC9, S3]](10-lab-requirements#uc9-s3).
+Like `StudentRecordIO`, `FacultyRecordIO` provides `static` methods that support reading in faculty records from a file and writing faculty records to a file.  A faculty record is defined in the [[Faculty Records data format]](10-lab-requirements#faculty-records).  The read functionality supports [[UC19]](10-lab-requirements#uc19) and the write functionality supports [[UC20]](10-lab-requirements#uc20).
 
 The two required public methods for `FacultyRecordIO` are similar to `StudentRecordIO`.  The only difference is that the methods return a `LinkedList` (the specialized class you just created) rather than `ArrayList`.
 
@@ -56,9 +56,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -66,12 +66,13 @@ GitHub Resources:
 ## Check Jenkins
 Ensure that your Jenkins job is reflecting the results that you expect for the level of completion of your lab assignment.
 
-{% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+{% capture callout_content %}
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
+
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

@@ -39,7 +39,7 @@ import edu.ncsu.csc216.wolf_scheduler.scheduler.WolfScheduler;
  * 
  * @author Sarah Heckman
  */
-public class WolfSchedulerGUI extends JFrame implements ActionListener {
+public class WolfSchedulerGUI extends JFrame {
 	
 	/** ID used for object serialization */
 	private static final long serialVersionUID = 1L;
@@ -125,12 +125,6 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 		}
 		File catalogFile = fc.getSelectedFile();
 		return catalogFile.getAbsolutePath();
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/**
@@ -266,7 +260,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			btnDisplay = new JButton("Display Final Schedule");
 			btnDisplay.addActionListener(this);
 			lblScheduleTitle = new JLabel("Schedule Title: ");
-			txtScheduleTitle = new JTextField(scheduler.getTitle(), 20); 
+			txtScheduleTitle = new JTextField(scheduler.getScheduleTitle(), 20); 
 			btnSetScheduleTitle = new JButton("Set Title");
 			btnSetScheduleTitle.addActionListener(this);
 			
@@ -343,9 +337,9 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			
 			JScrollPane scrollSchedule = new JScrollPane(tableSchedule);
 			
-			borderSchedule = BorderFactory.createTitledBorder(lowerEtched, scheduler.getTitle());
+			borderSchedule = BorderFactory.createTitledBorder(lowerEtched, scheduler.getScheduleTitle());
 			scrollSchedule.setBorder(borderSchedule);
-			scrollSchedule.setToolTipText(scheduler.getTitle());
+			scrollSchedule.setToolTipText(scheduler.getScheduleTitle());
 			
 			updateTables();
 			
@@ -531,11 +525,11 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == btnAddCourse) {
 				int row = tableCatalog.getSelectedRow();
-				if (row == -1) {
+				if (row == -1  || row == tableCatalog.getRowCount()) {
 					JOptionPane.showMessageDialog(WolfSchedulerGUI.this, "No course selected in the catalog.");
 				} else {
 					try {
-						if (!scheduler.addCourse(tableCatalog.getValueAt(row, 0).toString(), tableCatalog.getValueAt(row, 1).toString())) {
+						if (!scheduler.addCourseToSchedule(tableCatalog.getValueAt(row, 0).toString(), tableCatalog.getValueAt(row, 1).toString())) {
 							JOptionPane.showMessageDialog(WolfSchedulerGUI.this, "Course doesn't exist.");
 						}
 					} catch (IllegalArgumentException iae) {
@@ -545,10 +539,10 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 				updateTables();
 			} else if (e.getSource() == btnRemoveCourse) {
 				int row = tableSchedule.getSelectedRow();
-				if (row == -1) {
+				if (row == -1 || row == tableSchedule.getRowCount()) {
 					JOptionPane.showMessageDialog(WolfSchedulerGUI.this, "No item selected in the schedule.");
 				} else {
-					scheduler.removeActivity(row);
+					scheduler.removeActivityFromSchedule(row);
 				}
 				updateTables();
 			} else if (e.getSource() == btnReset) {
@@ -559,11 +553,11 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 				pnlSchedule.updateFinalizedTable();
 			} else if (e.getSource() == btnSetScheduleTitle) {
 				try {
-					scheduler.setTitle(txtScheduleTitle.getText()); 
+					scheduler.setScheduleTitle(txtScheduleTitle.getText()); 
 				} catch (IllegalArgumentException iae) {
 					JOptionPane.showMessageDialog(WolfSchedulerGUI.this, "Invalid title.");
 				}
-				borderSchedule.setTitle(scheduler.getTitle());
+				borderSchedule.setTitle(scheduler.getScheduleTitle());
 			} else if (e.getSource() == btnAddEvent) {
 				try {
 					String eventMeetingDays = "";
@@ -645,7 +639,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 					}
 					eventWeeklyRepeat = comboWeeklyRepeat.getItemAt(weeklyRepeatIdx);
 					
-					scheduler.addEvent(txtEventTitle.getText(), eventMeetingDays, eventStartTime, eventEndTime, eventWeeklyRepeat, txtDetails.getText());
+					scheduler.addEventToSchedule(txtEventTitle.getText(), eventMeetingDays, eventStartTime, eventEndTime, eventWeeklyRepeat, txtDetails.getText());
 					
 					resetEvent();
 					updateTables();
@@ -695,6 +689,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 		/**
 		 * Updates the pnlCourseDetails with full information about the most
 		 * recently selected course.
+		 * @param c course to use as source of update
 		 */
 		private void updateCourseDetails(Course c) {
 			if (c != null) {
@@ -726,6 +721,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			/**
 			 * Constructs the {@link CourseTableModel} by requesting the latest information
 			 * from the {@link RequirementTrackerModel}.
+			 * @param catalog flag to determine if updating the catalog (true) or schedule (false)
 			 */
 			public CourseTableModel(boolean catalog) {
 				this.catalog = catalog;
@@ -752,6 +748,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			
 			/**
 			 * Returns the column name at the given index.
+			 * @param col column index
 			 * @return the column name at the given column.
 			 */
 			public String getColumnName(int col) {
@@ -760,6 +757,8 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 
 			/**
 			 * Returns the data at the given {row, col} index.
+			 * @param row row index
+			 * @param col column index
 			 * @return the data at the given location.
 			 */
 			public Object getValueAt(int row, int col) {
@@ -776,7 +775,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			 * Sets the given value to the given {row, col} location.
 			 * @param value Object to modify in the data.
 			 * @param row location to modify the data.
-			 * @param column location to modify the data.
+			 * @param col location to modify the data.
 			 */
 			public void setValueAt(Object value, int row, int col) {
 				data[row][col] = value;
@@ -854,9 +853,9 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			
 			scrollSchedule = new JScrollPane(tableSchedule);
 			
-			borderSchedule = BorderFactory.createTitledBorder(lowerEtched, scheduler.getTitle());
+			borderSchedule = BorderFactory.createTitledBorder(lowerEtched, scheduler.getScheduleTitle());
 			scrollSchedule.setBorder(borderSchedule);
-			scrollSchedule.setToolTipText(scheduler.getTitle());
+			scrollSchedule.setToolTipText(scheduler.getScheduleTitle());
 			
 			updateFinalizedTable();
 			
@@ -891,8 +890,8 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 		 */
 		public void updateFinalizedTable() {
 			scheduleTableModel.updateData();
-			borderSchedule.setTitle(scheduler.getTitle());
-			scrollSchedule.setToolTipText(scheduler.getTitle());
+			borderSchedule.setTitle(scheduler.getScheduleTitle());
+			scrollSchedule.setToolTipText(scheduler.getScheduleTitle());
 		}
 		
 		/**
@@ -937,6 +936,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			
 			/**
 			 * Returns the column name at the given index.
+			 * @param col column index
 			 * @return the column name at the given column.
 			 */
 			public String getColumnName(int col) {
@@ -945,6 +945,8 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 
 			/**
 			 * Returns the data at the given {row, col} index.
+			 * @param row row index
+			 * @param col column index
 			 * @return the data at the given location.
 			 */
 			public Object getValueAt(int row, int col) {
@@ -961,7 +963,7 @@ public class WolfSchedulerGUI extends JFrame implements ActionListener {
 			 * Sets the given value to the given {row, col} location.
 			 * @param value Object to modify in the data.
 			 * @param row location to modify the data.
-			 * @param column location to modify the data.
+			 * @param col location to modify the data.
 			 */
 			public void setValueAt(Object value, int row, int col) {
 				data[row][col] = value;

@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 06 - Finite State Machines
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab06]
-description: CSC216 Lab 06 - Design
+title: CSC 217 Lab 06 - Finite State Machines
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab06]
+description: CSC 217 Lab 06 - Design
 navigation: on
 pagegroup: 06-lab
 ---
 
-# CSC216 Lab 06 Design
+# CSC 217 Lab 06 Design
 {% include iconHeader.html type="design" %}
 The design for Lab 06 is shown below.  To follow the development paradigm of *additive change*, the course name validation functionality will be implemented in a new `edu.ncsu.csc216.pack_scheduler.course.validator` package.  The only change to the remainder of the design occurs in the `Course` class, which now uses the `CourseNameValidator` to check for a valid course name as per the [requirements](06-lab-requirements).
 

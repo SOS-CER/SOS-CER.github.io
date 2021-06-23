@@ -1,4 +1,4 @@
-package edu.ncsu.csc216.collections.list;
+package edu.ncsu.csc217.collections.list;
 
 import static org.junit.Assert.*;
 

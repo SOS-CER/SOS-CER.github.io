@@ -43,7 +43,7 @@ There are several resources provided for writing tests, including sample test co
   * [Dr. Heckman's Coverage and Static Analysis Lecture Notes](http://www.csc.ncsu.edu/courses/csc216-common/Heckman/lectures/03_Coverage_StaticAnalysis.pdf)
   * [Dr. Perry's Unit Testing Notes](https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-DE/lectures/1_9_review_junit.html)
   * [Dr. Perry's Code and Testing Analysis](https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-DE/lectures/7_2_code_analysis.html)
-  * [Guided Project 1 CourseRecordIOTest.java](https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/gp1/files/CourseRecordIOTest.java)
+  * [Guided Project 1 CourseRecordIOTest.java](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/files/CourseRecordIOTest.java)
   
 Note that the tests for `StudentRecordIO` are similar to the tests for `CourseRecordIO` in Guided Project 1.  You may use those tests as examples and reference for Lab 2!
 {% endcapture %}
@@ -146,7 +146,7 @@ Because you are working with hashed character strings, using a `File` parameter 
     
 
 ## Testing `readStudentRecords(String)` 
-`readStudentRecords(String fileName)` will read in `Student` records from the file represented by the given `fileName`.  The records are returned in an `ArrayList<Student>` in a very similar manner to [`CourseRecordIO.readCourseRecords()` from GP1](../../gp1/gp1-libraries#java-collections-framework).  The method will throw a `FileNotFoundException` if the file does not exist on the file system. 
+`readStudentRecords(String fileName)` will read in `Student` records from the file represented by the given `fileName`.  The records are returned in an `ArrayList<Student>` in a very similar manner to [`CourseRecordIO.readCourseRecords()` from GP1](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-libraries#java-collections-framework).  The method will throw a `FileNotFoundException` if the file does not exist on the file system. 
 
 Your tests should evaluate the following:
 
@@ -156,7 +156,7 @@ Your tests should evaluate the following:
 
 
 ## Testing `writeStudentRecords(String)`
-`writeStudentRecords(String fileName, ArrayList<Student> studentDirectory)` will write the `Student`s in `studentDirectory` to the file represented by the `fileName` one `Student` record at a time.  The records are written in a very similar manner to [`CourseRecordIO.writeCourseRecords()` from GP1](../../gp1/gp1-libraries#file-output).  The method will throw an `IOException` if unable to write to the file.
+`writeStudentRecords(String fileName, ArrayList<Student> studentDirectory)` will write the `Student`s in `studentDirectory` to the file represented by the `fileName` one `Student` record at a time.  The records are written in a very similar manner to [`CourseRecordIO.writeCourseRecords()` from GP1](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-libraries#file-output).  The method will throw an `IOException` if unable to write to the file.
 
 Your test should evaluate the following:
 
@@ -193,7 +193,7 @@ If the `testWriteStudentRecordsNoPermissions()` fails locally, it won't record t
 ## Javadoc your Code
 Make sure that you Javadoc the `StudentRecordIOTest` class and methods. 
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -206,9 +206,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -218,13 +218,13 @@ At this point, your project should build on Jenkins with a Yellow ball.  That is
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [Coverage Report](../../jenkins/#coverage-report)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [Coverage Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#coverage-report)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
 

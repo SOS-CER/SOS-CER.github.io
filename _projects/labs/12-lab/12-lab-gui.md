@@ -1,14 +1,14 @@
 ---
-title: CSC216 Lab 12 - Graphical User Interfaces
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab12]
-description: CSC216 Lab 12 - FacultySchedule GUI
+title: CSC 217 Lab 12 - Graphical User Interfaces
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab12]
+description: CSC 217 Lab 12 - FacultySchedule GUI
 navigation: on
 pagegroup: 12-lab
 ---
 
-# CSC216 Lab 12 FacultySchedule GUI
+# CSC 217 Lab 12 FacultySchedule GUI
 {% include iconHeader.html type="implementation, systemTest" %}
-Add a GUI for [[UC11]](12-lab-requirements#uc11) so that a faculty user can see their schedule and the course roll of registered students.  Use the [design](12-lab-design) for guidance.
+Add a GUI for [[UC26]](12-lab-requirements#uc26) so that a faculty user can see their schedule and the course roll of registered students.  Use the [design](12-lab-design) for guidance.
 
  
 ## Create `FacultySchedulePanel`
@@ -19,10 +19,12 @@ Add a GUI for [[UC11]](12-lab-requirements#uc11) so that a faculty user can see 
 Parts of the functionality that you need are found in `StudentRegistrationPanel`, `StudentDirectoryPanel`, and `CourseCatalogPanel`.  You may pull code from there to help you with your implementation, but you will need to customize to the specifics of displaying a `FacultySchedule` and `CourseRoll`.
 
 The teaching staff recommend that you create the layout first (and the connection in `PackSchedulerGUI` -- see next step) first and then integrate in the controller portions.
+
+**** CourseRoll.getRoll()
      
  
 ## Update `PackSchedulerGUI`
-You will need to connect `PackScheduleGUI` to `FacultySchedulePanel` so that you can test it.  The connection is similiar to the connection between `PackScheduleGUI` and `StudentRegistrationPanel`.  Use that for guidance.
+You will need to connect `PackScheduleGUI` to `FacultySchedulePanel` so that you can test it.  The connection is similar to the connection between `PackScheduleGUI` and `StudentRegistrationPanel`.  Use that for guidance.
 
  
 ## Testing the New Functionality
@@ -44,9 +46,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -55,11 +57,11 @@ GitHub Resources:
 If you have test failures, use the feedback from Jenkins to help you resolve the issues. 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/jenkins-overview#build-summary-page) and use the results to [estimate your grade](../../jenkins/jenkins-overview#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/jenkins-overview#test-results)
-  * [FindBugs Report](../../jenkins/jenkins-overview#findbugs-report)
-  * [CheckStyle Report](../../jenkins/jenkins-overview#checkstyle-report)
-  * [PMD Report](../../jenkins/jenkins-overview#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

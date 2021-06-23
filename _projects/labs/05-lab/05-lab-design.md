@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 05 - Inspection & Debugging
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab05]
-description: CSC216 Lab 05 - Design
+title: CSC 217 Lab 05 - Inspection & Debugging
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab05]
+description: CSC 217 Lab 05 - Design
 navigation: on
 pagegroup: 05-lab
 ---
-# CSC216 Lab 05: Design
+# CSC 217 Lab 05: Design
 {% include iconHeader.html type="design" %}
 The design for Lab 05 is shown below.  There are three changes from Lab 04 that you will work on:
 

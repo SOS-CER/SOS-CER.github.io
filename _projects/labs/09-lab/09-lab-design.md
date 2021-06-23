@@ -1,14 +1,19 @@
 ---
-title: CSC216 Lab 09 - Stacks and Queues
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - Design
+title: CSC 217 Lab 09 - Stacks and Queues
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab09]
+description: CSC 217 Lab 09 - Design
 navigation: on
 pagegroup: 09-lab
 ---
 
-# CSC216 Lab 09 Design
+# CSC 217 Lab 09 Design
 {% include iconHeader.html type="design" %}
-The design for Lab 09 is shown below.  To follow the development paradigm of *additive change*, the custom Stacks and Queues classes will be implemented in the `edu.ncsu.csc216.pack_scheduler.util` package.  The `CourseRoll` will be implemented in the `edu.ncsu.csc216.pack_scheduler.course.roll` package.  
+The design for Lab 09 is shown below.  To follow the development paradigm of *additive change*, the custom Stacks and Queues classes will be implemented in the `edu.ncsu.csc216.pack_scheduler.util` package.  The `CourseRoll` will be implemented in the `edu.ncsu.csc216.pack_scheduler.course.roll` package. 
+
+{% capture callout_content %}
+There are missing names in the class diagram for a reason!  Part of this lab will be to determine which specialized data structure implementation to use for the waitlist functionality.  
+{% endcapture %}
+{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
 {% include image.html file="images/StudentSchedule_Lab9_ClassDiagram.gif" caption="Figure: Lab 09 CourseRoll in PackScheduler" %} 
 The figure above is an example of a **UML class diagram**. Each class is represented by a rectangle; the text in the class describes the class members. Arrows indicate relationships between classes. The software used to generate the diagram in the figure uses the following notation conventions:

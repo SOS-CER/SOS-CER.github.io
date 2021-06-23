@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 10 - Iterators
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab10]
-description: CSC216 Lab 10 - Update `RegistrationManager`
+title: CSC 217 Lab 10 - Iterators
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab10]
+description: CSC 217 Lab 10 - Update `RegistrationManager`
 navigation: on
 pagegroup: 10-lab
 ---
 
-# CSC216 Lab 10 Update `RegistrationManager`
+# CSC 217 Lab 10 Update `RegistrationManager`
 {% include iconHeader.html type="implementation,unitTest" %}
 `RegistrationManager` is expected to maintain a `FacultyDirectory` in addition to the `StudentDirectory` and `CourseCatalog`.  Additionally, that means `Faculty` should be able to log into the system.  The following changes will integrate `FacultyDirectory` into `RegistrationManager`.
 
@@ -50,9 +50,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -60,12 +60,13 @@ GitHub Resources:
 ## Check Jenkins
 Ensure that your Jenkins job is reflecting the results that you expect for the level of completion of your lab assignment.
 
-{% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+{% capture callout_content %}
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
+
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

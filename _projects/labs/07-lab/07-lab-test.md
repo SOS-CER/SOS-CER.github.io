@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 07 - ArrayLists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab07]
-description: CSC216 Lab 07 - Testing
+title: CSC 217 Lab 07 - ArrayLists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab07]
+description: CSC 217 Lab 07 - Testing
 navigation: on
 pagegroup: 07-lab
 ---
 
-# CSC216 Lab 07 Testing
+# CSC 217 Lab 07 Testing
 {% include iconHeader.html type="unitTest,systemTest" %}
 As with any software development project, you must test your code to know if it meets the [requirements](07-lab-requirements) and [design](07-lab-design).  You should have unit tested your new code as you added course validation functionality.  Now you will ensure sufficient coverage and system test `PackScheduler`.
 
@@ -27,7 +27,7 @@ The teaching staff has provided four classes that comprise the GUI for `PackSche
   
 
 ## System Testing and Debugging
-Since the new functionality shouldn't impact earlier functionality, start your system testing with the tests from Lab 05 & Lab 06.  [A copy of the black box test plan labeled for Lab 07 is available for download.  The tests are the same as Lab 05 and Lab 06 black box tests.](https://docs.google.com/a/ncsu.edu/document/d/1aEX_QMqsYHpkppLepG4TGAiK5l3ijwG3TOeFEMUr90E/edit?usp=sharing).  Save the black box test plan file in the `project_docs` folder.
+Since the new functionality shouldn't impact earlier functionality, start your system testing with the tests from Lab 05 & Lab 06.  [A copy of the black box test plan labeled for Lab 07 is available for download.  The tests are the same as Lab 05 and Lab 06 black box tests.](https://docs.google.com/a/ncsu.edu/document/d/1aEX_QMqsYHpkppLepG4TGAiK5l3ijwG3TOeFEMUr90E/edit?usp=sharing).  Save the black box test plan file in the `project_docs` folder.  You are welcome to update the tests as appropriate for your implementation (i.e., error messages may be in a slightly different order depending on how you implemented your system).
 
 Do the following:
 
@@ -39,8 +39,8 @@ The following files are needed for testing (some you already have):
 
   * [student_records.txt](files/student_records.txt)
   * [course_records.txt](files/course_records.txt)
-  * [t19_student_directory.txt](files/t19_student_directory.txt)
-  * [t39_course_catalog.txt](files/t39_course_catalog.txt)
+  * [expected_t19_student_directory.txt](files/expected_t19_student_directory.txt)
+  * [expected_t39_course_catalog.txt](files/expected_t39_course_catalog.txt)
 
 
 ## Push to GitHub
@@ -55,8 +55,8 @@ Check Jenkins and make sure that you have a green ball and are passing your test
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

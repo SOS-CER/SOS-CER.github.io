@@ -1,5 +1,5 @@
 ---
-title: Guided Project 1 WolfScheduler - Course and Schedule
+title: Guided Project 1 - Software Development Practices and Tools
 tags: [software engineering, software lifecycle, CS2, CSC216, GP1]
 description: Guided Task - Encapsulation and Reducing Redundancy
 navigation: on
@@ -7,6 +7,7 @@ pagegroup: gp1
 ---
  
 # Guided Task: Encapsulation and Reducing Redundancy
+{% include iconHeader.html type="task" %}
 Code is redundant where there are multiple locations with the same or almost the same statements.  By reducing redundancy, you can put functionality in one location in our programs and access that functionality through calling methods.  That means if there's a bug, you have one place to look to find and fix the problem!  
 
 {% capture callout_content %}
@@ -14,7 +15,7 @@ Code is redundant where there are multiple locations with the same or almost the
   * Call setter methods from a constructor
   * Follow *one path of construction* paradigm
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}
   
 {% capture callout_content %}
 You learned in your introductory programming course that methods or procedures were created to provide a name for a related set of program statements that are likely to be used over and over.  While there is a small cost to every method call, the gains in code readability, understandability, and maintenance are critical for teams of software developers working on large programming projects.  When working on code, you should remove redundant code as often as you can!
@@ -23,7 +24,9 @@ You learned in your introductory programming course that methods or procedures w
   
  
 ## Further Encapsulate the `Course.name` Field
-A `Course` shouldn't ever change its `name` (CSC216 will always be CSC216).  You want to have a method that will set the `name` field and do all the appropriate checks that the value is correct when constructing the object, but you don't want to allow clients of your code to change the field after constructtion.  You need to make the `setName()` method `private` to prevent clients from modifying the field.  There will be a warning about not using the `setName()` method, but you can ignore it.  You'll use the method shortly.
+A `Course` shouldn't ever change its `name` (CSC 216 will always be CSC 216).  You want to have a method that will set the `name` field and do all the appropriate checks that the value is correct when constructing the object, but you don't want to allow clients of your code to change the field after construction.  You need to make the `setName()` method `private` to prevent clients from modifying the field.  There will be a warning about not using the `setName()` method, but you can ignore it for now.  You'll use the method shortly.
+
+Change the `setName()` method to use the `private` access identifier as shown below.
 
 ```java
 /**
@@ -44,10 +47,10 @@ Setter methods are convenient for wrapping up all the (potentially complex) func
 ## Reducing Redundancy in the `Course` Constructors
 The Eclipse constructor generation code assigns the parameters to the fields directly.  However, there is error checking that you must complete on the constructor's parameters before assigning them to fields (you'll actually write the error checking code in the next step).  The parameters of all setter methods for `Course` should also be checked.  For example, a `Course` should not be created if the `name` is `null` or an empty string. 
 
-To reduce duplicate code, you can place the error checks in each of the setter methods and call the setter methods from the constructor.
+To reduce duplicate code, you can place the code to check for invalid parameters in each of the setter methods and call the setter methods from the constructor.
 
 {% capture callout_content %}
-Another consideration when designing classes is that if you do have code that checks if a field receives a correct value, you should have that code in only one place.  A setter method for a field may be appropriate.  Other methods that change the field can call the setter with the appropriate value and handle an incorrect value as appropriate for the calling method's goals.
+Another consideration when designing classes is that if you do have code that checks if a field receives a correct value, you should have that code in only one place.  A setter method for a field may be appropriate.  Other methods that change the field can call the setter with the appropriate value and handle an incorrect value as needed for the calling method's goals.
 {% endcapture %}
 {% include callout.html content=callout_content icon="plTool" type="conceptualKnowledge" title="Conceptual Knowledge: Reducing Redundancy" %}
 
@@ -100,7 +103,7 @@ public Course(String name, String title, String section, int credits, String ins
 However, you still have some redundant code in your constructors - the calls to `setName()`, `setTitle()`, `setSection()`, `setCredits()`, `setInstructorId()`, and `setMeetingDays()`.  You want to follow the paradigm of *one path of construction* to further reduce redundant code.
 
 {% capture callout_content %}
-When writing a class, you want to minimize redundancy.  That is one reason why you want to create setters for checking that the values stored in a field are appropriate for the class.  Another way to minimize redundancy is to create one path of construction for a class.  In Java, a class can have multiple constructors with different sets of parameters to initialize a class.  One constructor should call another constructor (with approprate default values for any missing fields) so that there is the main construction code in only one location.  And that code can call (or delegate to) the appropriate setters for setting field values so that the code for checking for a valid field value is in only one location.
+When writing a class, you want to minimize redundancy.  That is one reason why you want to create setters for checking that the values stored in a field are appropriate for the class.  Another way to minimize redundancy is to create one path of construction for a class.  In Java, a class can have multiple constructors with different sets of parameters to initialize a class.  One constructor should call another constructor (with appropriate default values for any missing fields) so that there is the main construction code in only one location.  And that code can call (or delegate to) the appropriate setters for setting field values so that the code for checking for a valid field value is in only one location.
 
 You call another constructor in a Java class using the keyword `this()`.
 
@@ -108,7 +111,7 @@ By having one location for functionality, it's much easier to maintain your code
 {% endcapture %}
 {% include callout.html content=callout_content icon="plTool" type="conceptualKnowledge" title="Conceptual Knowledge: One Path of Construction" %} 
 
-You will update your `Course` constructor with four parameters so that it calls the `Course` constructor with all parameters.  You'll pass in default parameters for the meeting days and course times.
+You will update your `Course` constructor with six parameters so that it calls the `Course` constructor with all eight parameters.  You'll pass in default parameters for the course times.  We'll use 0 to represent the idea of a course with no meeting time.
 
 ```java
 /**
@@ -125,22 +128,22 @@ public Course(String name, String title, String section, int credits, String ins
     this(name, title, section, credits, instructorId, meetingDays, 0, 0);
 }
 ```
- 
-## Push to GitHub
-You've made a lot of changes to your `Course` class by reducing redundancy.  Before moving on to the next portion of the Guided Project, complete the following tasks:
 
-  * Comment the `Course` class.
-  * Make sure that all fields, methods, and constructors are commented.
-  * Commit and push the `Course` class to GitHub.  Remember to use a meaningful commit message describing how you have changed the code.  For example, "Reduced redundancy in Course".
-
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
-  * [Staging Files](../git-tutorial/git-staging)
-  * [Committing Files](../git-tutorial/git-commit)
-  * [Pushing Files](../git-tutorial/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%} 
+## Check Your Progress
+{% include iconHeader.html type="glance" %}
+You've made a lot of changes to your `Course` class by reducing redundancy.  Before moving on to the next portion of the Guided Project, complete the following tasks:
+
+  - [ ] Update the comments on the `Course` class.
+  - [ ] Make sure that all fields, methods, and constructors are commented.
+  - [ ] Commit and push the `Course` class to GitHub.  Remember to use a meaningful commit message describing how you have changed the code.  For example, "[Refactoring] Reduced redundancy in Course".
+
 
 
 <!--

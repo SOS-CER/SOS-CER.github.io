@@ -124,13 +124,13 @@ public class EventTest {
 	}
 
 	/**
-	 * Test Event.setMeetingDays()
+	 * Test Event.setMeetingDaysAndTime()
 	 */
 	@Test
-	public void testSetMeetingDays() {
+	public void testSetMeetingDaysAndTime() {
 		Event event = new Event(EVENT_TITLE, EVENT_MEETING_DAYS, EVENT_START_TIME, EVENT_END_TIME, EVENT_WEEKLY_REPEAT, EVENT_DETAILS);
 		try {
-			event.setMeetingDays("A");
+			event.setMeetingDaysAndTime("A", 0, 0);
 			fail();
 		} catch (IllegalArgumentException e) {
 			assertEquals(EVENT_TITLE, event.getTitle());
@@ -142,7 +142,7 @@ public class EventTest {
 		}
 		
 		try {
-			event.setMeetingDays("MTZTH");
+			event.setMeetingDaysAndTime("MTZTH", 1330, 1445);
 			fail();
 		} catch (IllegalArgumentException e) {
 			assertEquals(EVENT_TITLE, event.getTitle());
@@ -153,19 +153,126 @@ public class EventTest {
 			assertEquals(EVENT_DETAILS, event.getEventDetails());
 		}
 		
-		event.setMeetingDays("MTTHS");
+		try {
+			event.setMeetingDaysAndTime("MTTHS", 1330, 1445);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		
+		event.setMeetingDaysAndTime("UMTWF", 1000, 1100);
 		assertEquals(EVENT_TITLE, event.getTitle());
-		assertEquals("MTTHS", event.getMeetingDays());
-		assertEquals(EVENT_START_TIME, event.getStartTime());
-		assertEquals(EVENT_END_TIME, event.getEndTime());
+		assertEquals("UMTWF", event.getMeetingDays());
+		assertEquals(1000, event.getStartTime());
+		assertEquals(1100, event.getEndTime());
 		assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
 		assertEquals(EVENT_DETAILS, event.getEventDetails());
 		
-		event.setMeetingDays("UMTWF");
+		event.setMeetingDaysAndTime(EVENT_MEETING_DAYS, EVENT_START_TIME, EVENT_END_TIME);
+		
+		//Test that setting the start time to 2400 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", 2400, 1445);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that setting the start time to 1360 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", 1360, 1445);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that setting the start time to -1 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", -1, 1445);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that setting the start time to 2400 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", 1330, 2400);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that setting the start time to 1360 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", 1330, 1360);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that setting the start time to -1 doesn't change the start time (or anything else).
+		try {
+			event.setMeetingDaysAndTime("MWF", 1330, -1);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Test that having the start time after the end time doesn't change the values.
+		try {
+			event.setMeetingDaysAndTime("MWF", 1445, 1330);
+			fail();
+		} catch (IllegalArgumentException e) {
+			assertEquals(EVENT_TITLE, event.getTitle());
+			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
+			assertEquals(EVENT_START_TIME, event.getStartTime());
+			assertEquals(EVENT_END_TIME, event.getEndTime());
+			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
+			assertEquals(EVENT_DETAILS, event.getEventDetails());
+		}
+		
+		//Valid set of start time
+		event.setMeetingDaysAndTime("MWF", 1350, 1445);
 		assertEquals(EVENT_TITLE, event.getTitle());
-		assertEquals("UMTWF", event.getMeetingDays());
-		assertEquals(EVENT_START_TIME, event.getStartTime());
-		assertEquals(EVENT_END_TIME, event.getEndTime());
+		assertEquals("MWF", event.getMeetingDays());
+		assertEquals(1350, event.getStartTime());
+		assertEquals(1445, event.getEndTime());
 		assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
 		assertEquals(EVENT_DETAILS, event.getEventDetails());
 	}
@@ -339,121 +446,6 @@ public class EventTest {
 		assertEquals(EVENT_END_TIME, event.getEndTime());
 		assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
 		assertEquals(EVENT_DETAILS, event.getEventDetails());
-	}
-
-	/**
-	 * Test Event.setCourseTime().
-	 */
-	@Test
-	public void testSetCourseTime() {
-		Event event = new Event(EVENT_TITLE, EVENT_MEETING_DAYS, EVENT_START_TIME, EVENT_END_TIME, EVENT_WEEKLY_REPEAT, EVENT_DETAILS);
-		assertEquals(EVENT_TITLE, event.getTitle());
-		assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-		assertEquals(EVENT_START_TIME, event.getStartTime());
-		assertEquals(EVENT_END_TIME, event.getEndTime());
-		assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-		assertEquals(EVENT_DETAILS, event.getEventDetails());
-		
-		//Test that setting the start time to 2400 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(2400, 1445);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that setting the start time to 1360 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(1360, 1445);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that setting the start time to -1 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(-1, 1445);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that setting the start time to 2400 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(1330, 2400);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that setting the start time to 1360 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(1330, 1360);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that setting the start time to -1 doesn't change the start time (or anything else).
-		try {
-			event.setActivityTime(1330, -1);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Test that having the start time after the end time doesn't change the values.
-		try {
-			event.setActivityTime(1445, 1330);
-			fail();
-		} catch (IllegalArgumentException e) {
-			assertEquals(EVENT_TITLE, event.getTitle());
-			assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-			assertEquals(EVENT_START_TIME, event.getStartTime());
-			assertEquals(EVENT_END_TIME, event.getEndTime());
-			assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-			assertEquals(EVENT_DETAILS, event.getEventDetails());
-		}
-		
-		//Valid set of start time
-		event.setActivityTime(1350, 1445);
-		assertEquals(EVENT_TITLE, event.getTitle());
-		assertEquals(EVENT_MEETING_DAYS, event.getMeetingDays());
-		assertEquals(1350, event.getStartTime());
-		assertEquals(1445, event.getEndTime());
-		assertEquals(EVENT_WEEKLY_REPEAT, event.getWeeklyRepeat());
-		assertEquals(EVENT_DETAILS, event.getEventDetails());
-		
 	}
 
 	/**

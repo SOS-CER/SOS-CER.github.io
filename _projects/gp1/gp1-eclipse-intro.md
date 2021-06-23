@@ -1,5 +1,5 @@
 ---
-title: Guided Project 1 WolfScheduler - Course and Schedule
+title: Guided Project 1 - Software Development Practices and Tools
 tags: [software engineering, software lifecycle, CS2, CSC216, GP1]
 description: Guided Task - Your First Eclipse Project
 navigation: on
@@ -7,6 +7,7 @@ pagegroup: gp1
 ---
 
 # Guided Task: Your First Eclipse Project
+{% include iconHeader.html type="task" %}
 
 {% capture callout_content %}
   * Create an Eclipse project
@@ -14,7 +15,7 @@ pagegroup: gp1
   * Create a class
   * Execute a program in Eclipse
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}
 
 {% capture callout_content %}
 When you first learned how to write Java programs, you probably started by writing code in a text file, compiling using the `javac` command, then running your program from the command line using the `java` command. This form of programming is what we'll refer to as command-line programming, and it follows the practice of write/edit-compile-execute. While command-line programming has many advantages, it can be quite tedious. After all, your text editor doesn't usually provide much outside of... well... editing. Professional developers gravitate toward integrated development environments (IDE) for their programming. The idea of an IDE is to integrate many different developer tools into a single program (such as code editing, compiling, running, file management, code navigation, documenting, version control, and so on). Programming with an IDE can provide some of the following advantages over command-line programming:
@@ -34,7 +35,7 @@ In this Guided Project we'll be covering Eclipse, a professional-grade, open-sou
 
 
 ## Installing Eclipse
-See the [Eclipse Installation Tutorial](../install/) for instructions about installing Eclipse and the other plug-ins you will be using this semester.
+See the [Eclipse Installation Tutorial](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/eclipse/eclipse-install.html) for instructions about installing Eclipse and the other plug-ins you will be using this semester.
 
 
 ## Starting Eclipse
@@ -59,25 +60,30 @@ You can move around and resize the views that make up the perspective. You can s
 
 
 ## Create an Eclipse Project
-Now that your Eclipse workspace is set up, start your first project. This project does not need to be submitted, but you will be expected to complete all of the activites in this section on your own later in the Guided Project.
+Now that your Eclipse workspace is set up, start your first project. This project does not need to be submitted, but you will be expected to complete all of the activities in this section on your own later in the Guided Project.
 
 An **Eclipse project** is a grouping of files that are all part of one application or program. Many Java files, compiled Java .class files, test code and supporting files, documentation, a project's website, and other resources can all be in a single Eclipse project.
 
-  1. Right click in the **Package Explorer** and select `New > Java Project`.
+  1. If you have never created a project in the workspace before, the **Package Explorer** will have the option to **Create a Java project**.  If you have created projects before, you can right click in the **Package Explorer** and select **New > Java Project**.
   
+{% include image.html file="images/NewProjectPackageExplorer.PNG" caption="Figure: Creating a new Java Project in the Project Explorer" %}
  
 {% include image.html file="images/NewProjectContext.PNG" caption="Figure: Creating a new Java Project" %} 
   
   {:start="2"}
-  2. A window pops up for changing settings related to the new project. Type `HelloWorld` as the name of your project. Click the option to **Create separate folders for sources and class files**. This ensures that your `*.java` and `*.class` files are stored in different directories, allowing for a neater project folder.
+  2. A window pops up for selecting project settings. Type `HelloWorld` as the name of your project. Click the option to **Create separate folders for sources and class files**. This ensures that your `*.java` and `*.class` files are stored in different directories, allowing for a neater project folder.
      
  
 {% include image.html file="images/NewJavaProjectWizard.PNG" caption="Figure: Configuring your new project" %} 
   
   {:start="3"}
-  3. Click *Finish*. Your new project should be listed in the *Package Explorer*. Click on the arrow or plus sign next to the project name to expand and look inside your project.
+  3. Click *Finish*. A pop-up will display asking if you would like to create `module-info.java`.  Click **Don't Create**!  The `module-info.java` file is a new feature in Java 11 that we will NOT be using.
 
-Notice the `src/` folder in your project. This is where all of your Java source code files will reside. If you do not have a `src/` folder, right click on the project name and select **New > Source Folder**. In the resulting dialog, name the folder `src/`. A `bin/` folder (which will store all your compiled class files) will be automatically created for you. The `bin/` folder is not displayed in the **Package Explorer**. If you go to the project's directory on your file system, you will see the `bin/` folder with the `*.class` files..
+{% include image.html file="images/ModuleInfo.PNG" caption="Figure: Don't create module-info.java!!!" %}   
+
+Your new project should be listed in the *Package Explorer*. Click on the arrow or plus sign next to the project name to expand and look inside your project.
+
+Notice the `src/` folder in your project. This is where all of your Java source code files will reside. If you do not have a `src/` folder, right click on the project name and select **New > Source Folder**. In the resulting dialog, name the folder `src/`. A `bin/` folder (which will store all your compiled class files) will be automatically created for you. The `bin/` folder is not displayed in the **Package Explorer**. If you go to the project's directory on your file system, you will see the `bin/` folder with the `*.class` files.
      
  
 {% include image.html file="images/ProjectHierarchy.PNG" caption="Figure: Examining your new project" %} 
@@ -86,12 +92,12 @@ Notice the `src/` folder in your project. This is where all of your Java source 
 ## Create a Package
 Packages are a way of organizing java files into folders that contain related functionality. For example, you may have a package for your plain old java objects, a package for any file reading and writing functionality, and a package that contains the business logic of the application.  
 
-Packages are also used to name applications and Eclipse plug-ins. If you look in the `<YOUR INSTALL DIRECTORY>/eclipse/plugins` directory, you will notice several files and folders with names like `org.eclipse.ant.core_3.2.300.v201101211721.jar`. The first part, `org.eclipse.ant.core` is the package name. The package name indicates that the entity that created the code is a organization (`org`), that the organization is `eclipse`, the project is `ant`, and the code in the package is the `core` ant functionality. The numbers specify the version of `ant` and the build date and time of the jar file.
+Packages are also used to name applications and Eclipse plug-ins. If you look in the `<YOUR INSTALL DIRECTORY>/eclipse-install/eclipse/plugins` directory, you will see a file with the name `org.eclipse.equinox.launcher_1.5.400.v20190515-0925.jar`. The first part, `org.eclipse.equinox.launcher` is the package name. The package name indicates that the entity that created the code is a organization (`org`), that the organization is `eclipse`, the project is `equinox`, and the code in the package is the `launcher` functionality. The numbers specify the version of `launcher` and the build date and time of the jar file.
 
 {% capture callout_content %}
 In Java, you can provide modifiers to fields, constants, and methods that determine whether other classes are able to access those elements.  The `public` modifier, typically used on methods, means that any other class can call the method on an instance of the object (or in the case of a static method, on the class itself).  The `private` modifier  encapsulates or hides fields from direct access by other classes.  The `private` access modifier is helpful for auxiliary methods that do not need to be exposed to a client class.  
 
-There are two other modifiers that you need to know about: no modifier (or default level access) and `protected`.  If a Java element has no modifier, it has default level access, which means that elements of the class itself can access the given element AND that methods of any other class in the package can access the elements with default level access!  `Protected` level access means that elements of the class, the package, and any subclass can access the `protected` element (you'll work with subclasses in GP2).  The table below summarizes the access control modifiers.
+There are two other modifiers that you need to know about: no modifier (or default level access) and `protected`.  If a Java element has no modifier, it has default level access, which means that elements of the class itself can access the given element AND methods of any other class in the *same* package can access the elements with default level access!  `Protected` level access means that elements of the class, the *same* package, and any subclass can access the `protected` element (you'll work with subclasses in GP2).  The table below summarizes the access control modifiers.
 
 |Modifier|Class|Package|Subclass|World|
 |--------|-------|-------|-------|-------|
@@ -103,7 +109,15 @@ There are two other modifiers that you need to know about: no modifier (or defau
 {% endcapture %}
 {% include callout.html content=callout_content icon="plTool" type="conceptualKnowledge" title="Conceptual Knowledge: Access Control" %}
 
-Create your package by right clicking on the `src/` folder and selecting **New > Package**. In the resulting dialog, enter `edu.ncsu.csc216.hello_world` for the package name. Verify that the source folder is `HelloWorld/src/`. Click **Finish**. The package name indicates that you are part of an educational organization (`edu`), specifically NCSU (`ncsu`), and completing work for CSC216 (`csc216`). The last part of the package name identifies this specific project (`hello_world`). Package names are typically all lower case with words separated by an underscore (_).
+Create your package by 
+
+1. Right clicking on the `src/` folder and selecting **New > Package**. 
+
+2. In the resulting dialog, enter `edu.ncsu.csc216.hello_world` for the package name. Verify that the source folder is `HelloWorld/src/`. 
+
+3. Click **Finish**. 
+
+The package name indicates that you are part of an educational organization (`edu`), specifically NCSU (`ncsu`), and completing work for CSC216 (`csc216`). The last part of the package name identifies this specific project (`hello_world`). Package names are typically all lower case with words separated by an underscore (_).
   
 
 {% include image.html file="images/NewPackage.PNG" caption="Figure: Creating a new package" %} 
@@ -126,23 +140,24 @@ You can shorten the way that package names are displayed in the Package Explorer
 ## Create a Class
 IDEs such as Eclipse provide shortcuts or wizards for creating common programming elements, like classes.  You will use the **New Java Class Wizard** to help create your first Java class in Eclipse named `HelloWorld` that will be saved in a file `HelloWorld.java`.  The class will be in your `edu.ncsu.csc216.hello_world` package.
 
-Right-click on the `edu.ncsu.csc216.hello_world` package, and select **New > Class.**
-  
-That means you will have a *project folder* called `HelloWorld` and a *class in the project* `HelloWorld` saved in the file `HelloWorld.java`.  Class names and project names do NOT need to be the same.  In fact, class names must be distinct within packages, and unique names are encouraged within projects to ease maintenance.
+1. Right-click on the `edu.ncsu.csc216.hello_world` package, and select **New > Class.**
 
-In the **Name** box, type `HelloWorld` for the name of your class (you do not need the `.java` extension - Eclipse will add that for you automatically).  Also, check the box that says `public static void main(String [] args)` as a method stub that you would like generate.  Verify the following:
+2. In the **Name** box, type `HelloWorld` for the name of your class (you do not need the `.java` extension - Eclipse will add that for you automatically).  Also, check the box that says `public static void main(String [] args)` as a method stub that you would like generate.  Verify the following:
 
-  * Source folder: `HelloWorld/src`
-  * Package: `edu.ncsu.csc216.hello_world`
-  * Name: `HelloWorld`
-  * Modifiers: `public`
-  * Superclass: `java.lang.Object`
-  * Which method stubs would you like to create? At least `public static void main (String [] args)` should be selected.
-  * You can optionally select the checkbox for **Generate comments**
-  
-Click **Finish**.
+    * Source folder: `HelloWorld/src`
+    * Package: `edu.ncsu.csc216.hello_world`
+    * Name: `HelloWorld`
+    * Modifiers: `public`
+    * Superclass: `java.lang.Object`
+    * Which method stubs would you like to create? At least `public static void main (String [] args)` should be selected.
+    * You can optionally select the checkbox for **Generate comments**
+ 
+{:start="3"} 
+3. Click **Finish**.
 
 Eclipse generates a file named `HelloWorld.java` in the `HelloWorld/src/edu/ncsu/csc216/hello_world` folder with a `main` method.  The file is opened in the Java editor so you can start working on it right away.
+
+That means you will have a *project folder* called `HelloWorld` and a *class in the project* `HelloWorld` saved in the file `HelloWorld.java`.  Class names and project names do NOT need to be the same.  In fact, class names must be distinct within packages, and unique names are encouraged within projects to ease maintenance.
 
 
 {% include image.html file="images/NewClass.PNG" caption="Figure: New class wizard" %} 
@@ -154,22 +169,23 @@ Eclipse generates a file named `HelloWorld.java` in the `HelloWorld/src/edu/ncsu
 ## Editing a Class
 You are going to edit your `HelloWorld` class to include a statement that will print `"Hello, World!"` to the console.  
 
-Place a print statement for the `String` literal `"Hello, World!"` in the `main` method.  Click the **Save** button (![Save Button](images/SaveButton.PNG) in the top menu (or press Ctrl+S - Cmd+S on Macs).  As you are typing the print statement into the editor, you may see a red x (![Compiler error icon](images/CompilerError.PNG)) to the left of your line.  Eclipse is trying to compile your code as you type, and since you have an uncompleted statement, Eclipse shows a compilation error.  Simply ignore the red x for now, and focus on finishing your statement.  Saving the file compiles the program, which is equivalent to running the command:
-  
-    javac HelloWorld.java
-    
-on the command line.  Any compiler errors will appear in the **Problems View** after you save your file.  Additionally, any line of code with a compiler error will have a red x to the left, and there will be a red squiggly line under the code.  Fix any compiler errors in your code.
+1. Place a print statement for the `String` literal `"Hello, World!"` in the `main` method. You can delete the `TODO` comment when you add the print statement.
+
+2. Click the **Save** button (![Save Button](images/SaveButton.PNG) in the top menu (or press Ctrl+S - Cmd+S on Macs).  
+
+As you are typing the print statement into the editor, you may see a red x (![Compiler error icon](images/CompilerError.PNG)) to the left of your line.  Eclipse is trying to compile your code as you type, and since you have an uncompleted statement, Eclipse shows a compilation error.  Simply ignore the red x for now, and focus on finishing your statement.  Saving the file compiles the program, which is equivalent to running the command `javac HelloWorld.java` on the command line.  Any compiler errors will appear in the **Problems View** after you save your file.  Additionally, any line of code with a compiler error will have a red x to the left, and there will be a red squiggly line under the code.  Fix any compiler errors in your code.
 
 
 ## Running a Java Program
 You now have everything you need to execute your program!
 
-If there are no compiler errors, right-click on `HelloWorld.java` in the **Package Explorer** and select **Run As > Java Application**.
+1. If there are no compiler errors, right-click on `HelloWorld.java` in the **Package Explorer** and select **Run As > Java Application**.
   
 
 {% include image.html file="images/RunningProgram.PNG" caption="Figure: Running a Java program" %} 
 
-The program output of `Hello, World!` is printed to the Eclipse **Console** view.  If you do not see the **Console** view, select **Window > Show View > Console.**  You may ned to rerun your program for the output to display in the **Console** view.
+
+The program output of `Hello, World!` is printed to the Eclipse **Console** view.  If you do not see the **Console** view, select **Window > Show View > Console.**  You may need to rerun your program for the output to display in the **Console** view.
 
 
 {% include image.html file="images/ConsoleOutput.PNG" caption="Figure: Viewing console output" %} 

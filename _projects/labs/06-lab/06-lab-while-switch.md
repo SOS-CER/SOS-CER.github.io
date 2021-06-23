@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 06 - Finite State Machines
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab06]
-description: CSC216 Lab 06 - Testing `CourseNameValidatorFSM`
+title: CSC 217 Lab 06 - Finite State Machines
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab06]
+description: CSC 217 Lab 06 - Testing `CourseNameValidatorFSM`
 navigation: on
 pagegroup: 06-lab
 ---
 
-# CSC216 Lab 06 Testing `CourseNameValidatorFSM`
+# CSC 217 Lab 06 Testing `CourseNameValidatorFSM`
 {% include iconHeader.html type="unitTest" %}
 The registrar's office has provided an implementation of their internal course validation finite state machine that is implemented using a while-switch idiom.  The implementation is a little long and hard to maintain.  The registrar's office had difficulty modifying the FSM when a forth prefix letter was allowed because of changes in the Physical Education department.  While `PackScheduler` will ultimately implement a state pattern for the course name validation FSM, you can use the provided one from the registrar's office to create a suite of tests for evaluating the state pattern implementation.
   
@@ -42,8 +42,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 06 - Finite State Machines
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab06]
-description: CSC216 Lab 06 - `InvalidTransitionException`
+title: CSC 217 Lab 06 - Finite State Machines
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab06]
+description: CSC 217 Lab 06 - `InvalidTransitionException`
 navigation: on
 pagegroup: 06-lab
 ---
 
-# CSC216 Lab 06 `InvalidTransitionException`
+# CSC 217 Lab 06 `InvalidTransitionException`
 {% include iconHeader.html type="implementation" %}
 The [updated design](06-lab-design) contains a a new package, `edu.ncsu.csc216.pack_scheduler.course.validator`, and a new exception type, `InvalidTransitionException`.  
 
@@ -29,9 +29,9 @@ Test your new exception to ensure that it works as expected.
 
 
 {% capture callout_content %}
-Use the instructions from [Guided Project 3: Create `ConflictException`](../../gp3/gp3-conflict-interface#create-conflictexception) to help you with creating a *checked* `InvalidTransitionException`. 
+Use the instructions from [Guided Project 3: Create `ConflictException`](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp3/gp3-conflict-interface#create-conflictexception) to help you with creating a *checked* `InvalidTransitionException`. 
 
-Use the instructions from [Guided Project 3: Implement and Test `ConflictException`](../../gp3/gp3-conflictexception) to help you with the implementation and testing of the `InvalidTransitionException`.
+Use the instructions from [Guided Project 3: Implement and Test `ConflictException`](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp3/gp3-conflictexception) to help you with the implementation and testing of the `InvalidTransitionException`.
 {% endcapture %}
 {% include callout.html content=callout_content icon="ideTool" type="reminder" title="Reminder: Creating and Testing an Exception" %}
 
@@ -45,8 +45,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

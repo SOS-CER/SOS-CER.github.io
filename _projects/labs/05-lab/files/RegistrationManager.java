@@ -117,8 +117,7 @@ public class RegistrationManager {
 	
 	private static class Registrar extends User {
 		/**
-		 * Create a registrar user with the user id and password 
-		 * in the registrar.properties file.
+		 * Create a registrar user.
 		 */
 		public Registrar(String firstName, String lastName, String id, String email, String hashPW) {
 			super(firstName, lastName, id, email, hashPW);

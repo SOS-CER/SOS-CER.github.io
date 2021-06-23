@@ -7,21 +7,21 @@ pagegroup: gp2
 ---
 
 # Guided Task: Create `ActivityRecordIO`
-`CourseRecordIO` handles reading course records from a file to create a course catalog and writing `Course`s to a file.  Now that you have `Events` that should also be written to an output file (as per [[UC3, S2]](../wolf-scheduler/ws-requirements#gp2-uc3-s2), you need to create a new IO class to handle writing `Activity` objects.
+{% include iconHeader.html type="task" %}
+
+`CourseRecordIO` handles reading course records from a file to create a course catalog and writing `Course`s to a file.  Now that you have `Events` that should also be written to an output file (as per [[UC10]](../wolf-scheduler/ws-requirements#uc10), you need to create a new IO class to handle writing `Activity` objects.
 
 {% capture callout_content %}
   * Refactor file I/O functionality
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}
 
-
+{% capture reminder_content %}
+[Guided Task: Your First Eclipse Project - Create a Class](../gp1/gp1-eclipse-intro#create-a-class).
+{% endcapture %}
+{% include mention.html content=reminder_content icon="ideTool" type="reminder" title="Reminder: Eclipse Java Class Creation" %}
 ## Create `ActivityRecordIO` Class
 Create a new Java class called `ActivityRecordIO` in the `edu.ncsu.csc216.wolf_scheduler.io` package of the `WolfScheduler` project.  Do not create the constructor or any methods in `ActivityRecordIO`.
-
-{% capture callout_content %}
-If you need help creating the `ActivityRecordIO` Java Class, see [Guided Task: Your First Eclipse Project - Create a Class](../gp1/gp1-eclipse-intro#create-a-class).
-{% endcapture %}
-{% include callout.html content=callout_content icon="ideTool" type="reminder" title="Reminder: Eclipse Java Class Creation" %}
 
 
 ## Move `writeCourseRecords()` to `ActivityRecordIO`
@@ -40,8 +40,16 @@ Complete the following steps to move `writeCourseRecords()` from `CourseRecordIO
 {% include image.html file="images/MoveMethodWizard.PNG" caption="Figure: Moving a Method" %}
     
   * The method is now in `ActivityRecordIO`.  `WolfScheduler` and `CourseRecordIOTest` have been udpated with the change.  
-  * Refactor the method name.  Select the method name, right click on the method and select **Refactor > Rename**.  Enter `writeActivityRecords()` and click **Enter**.
-  * Update the generic parameter of the `ArrayList` to be `Activity` instead of `Course`.  At this point, there will be a compilation error in `WolfScheduler.exportSchedule()`. 
+  * Refactor the method name in `ActivityRecordIO`.  Select the method name, right click on the method and select **Refactor > Rename**.  Enter `writeActivityRecords` and click **Enter**.
+  * Update the generic parameter of the `ArrayList` to be `Activity` instead of `Course`.
+  * Update the local variables in the for loop.  You can use the keyboard short cut of **Alt + Shift + R** to do the rename refactoring.
+     * Change `c` to `a`
+     * Change `courses` to `activities`	 
+  * Delete the import for `Course` since it is no longer needed.
+  
+At this point, there will be a compilation error in `WolfScheduler.exportSchedule()`. That's ok.  We'll fix it later.
+
+The complication error in `CourseRecordIOTest` we'll fix after you check that `ActivityRecordIO` is complete.
   
 After you are done, `ActivityRecordIO` should look like the following:
 
@@ -55,46 +63,62 @@ import java.util.ArrayList;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Activity;
 
+/**
+ * Writes activities to file.
+ * @author Sarah Heckman
+ */
 public class ActivityRecordIO {
 
     /**
      * Writes the given list of Courses to 
      * @param fileName file to save to
-     * @param courses list of course to save
+     * @param activities list of course to save
      * @throws IOException if the file cannot be written
      */
-    public static void writeActivityRecords(String fileName, ArrayList<Activity> courses) throws IOException {
-        PrintStream fileWriter = new PrintStream(new File(fileName));
-        
-        for (Activity c : courses) {
-            fileWriter.println(c.toString());
-        }
-        
-        fileWriter.close();
+    public static void writeActivityRecords(String fileName, ArrayList<Activity> activities) throws IOException {
+    	PrintStream fileWriter = new PrintStream(new File(fileName));
+    	
+    	for (Activity a : activities) {
+    		fileWriter.println(a.toString());
+    	}
+    	
+    	fileWriter.close();
     }
 
 }
 ```
-  
+
+
+## Update `CourseRecordIOTest`
+There is a call to `ActivityRecordIO` in `CourseRecordIOTest` that is not compiling.  This is because we changed the parameter type from an `ArrayList` of `Course`s to an `ArrayList` of `Activity`s.  We'll need to update the `ArrayList` generic type in our test. 
+
+Update the first line of the test method to `ArrayList<Activity> courses = new ArrayList<Activity>();`.  You'll need to import `Activity` for the test to compile.
 
 ## Run Tests
-Run your tests!  If any are still failing in the `course` or `io` packages, use the debugger to help you find the problem.  For now, the `WolfScheduler` tests may fail due to compilation errors.
+Run your tests! You'll get a warning because `WolfScheduler` is not compiling, but you can run anyway to make sure that `CourseRecordIOTest` passes. If any are still failing in the `course` or `io` packages, use the debugger to help you find the problem.  For now, the `WolfScheduler` tests may fail due to compilation errors.
 
-Right now, your suite of tests is not sufficient to evaluate if events are correctly written to file.  Create a class `ActivityRecordIOTest` the `edu.ncsu.csc216.wolf_scheduler.io` package of the `test/` folder in the `WolfScheduler` project.  Copy in the [provided `ActivityRecordIOTest` code](files/ActivityRecordIOTest.java) and [the provided `expected_activity_records.txt`](files/expected_activity_records.txt) and run the tests.  Ensure they all pass!
+However, your suite of tests is not sufficient to evaluate if events are correctly written to file.  Create a class `ActivityRecordIOTest` the `edu.ncsu.csc216.wolf_scheduler.io` package of the `test/` folder in the `WolfScheduler` project.  Copy in the [provided `ActivityRecordIOTest` code](files/ActivityRecordIOTest.java) into `ActivityRecordIOTest`.  Create a new text file in the `test-file/` directory called `expected_activity_records.txt` and copy [the provided `expected_activity_records.txt`](files/expected_activity_records.txt). Run the tests.  Ensure they all pass!
+
+## Comment `ActivityRecordIO` and Fix Static Analysis Notifications
+Complete the following tasks:
+
+  * Update all your Javadoc for `ActivityRecordIO`. 
+  * Resolve all static analysis notifications.
 
 
-## Push to GitHub
-Use the feedback from Jenkins to make changes to your code.  Any time you make a change, push to GitHub and check the Jenkins results.
-
-  * Ensure tests are passing, Javadoc is generated, and all static analysis notifications are removed.
-  * Add the unstaged changes to the index.
-  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  Try writing your own commit message for this push!
-
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
-  * [Staging Files](../git-tutorial/git-staging)
-  * [Committing Files](../git-tutorial/git-commit)
-  * [Pushing Files](../git-tutorial/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%} 
+## Check Your Progress
+{% include iconHeader.html type="glance" %}
+
+Complete the following tasks before pushing your work to GitHub.
+
+  - [ ] Make sure that all fields, methods, and constructors are commented.
+  - [ ] Resolve all static analysis notifications.
+  - [ ] Fix test failures.
+  - [ ] Commit and push your code changes with a meaningful commit message.  Label your commit with "[Implementation]" for future you!

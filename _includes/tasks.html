@@ -1,0 +1,58 @@
+<div id="taskList">
+{% assign totalTime = 0 %}
+{% assign count = 1 %}
+{% capture taskList %}
+{% for lab in site.data.tasks %}
+   {% assign thisID = lab.id | remove: ' ' | downcase %}
+   {% if thisID == include.assignment %}
+       {% assign thisLab = lab %}
+   {% endif %}
+{% endfor %}
+<div class="divTable orangeTable">
+   <div class="divTableHeading">
+      <div class="divTableRow">
+         <div class="divTableHead" style="width:40%;">Task</div>
+         <div class="divTableHead" style="width:15%;">Time Estimate</div>
+         <div class="divTableHead" style="width:45%;">Description</div>
+      </div>
+   </div>
+   <div class="divTableBody">
+{% assign taskOrder = thisLab.tasks %}
+{% assign directory = thisLab.directory %}
+{% for task in taskOrder %}
+    {% assign currentPage = task.page | remove: "[" | remove: "]" | remove: '"' | lstrip | rstrip%}
+    {% for doc in site.documents %}
+        {% assign currentFileName = doc.path | split: "/" |
+  last | remove: ".md" | lstrip | rstrip %}
+            {% if currentFileName == currentPage %}
+  {% assign curDir = doc.path |remove: currentFileName |remove: ".md"
+  %} 
+        {% if curDir == directory %} 
+                {% assign url = site.baseurl | append: doc.url %}
+{% assign totalTime = totalTime | plus: task.time %}				
+<div class="divTableRow">
+<div class="divTableCell"><strong>{{count}}. <a href="{{task.page}}">{{ task.title }}</a></strong></div><div class="divTableCell"><em>{{ task.time }} minutes</em></div><div class="divTableCell">{{ task.description }}</div></div>				
+{% assign count = count | plus: 1 %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% assign hours = totalTime | divided_by: 60 %}
+{% assign minutes = totalTime | modulo: 60 %}
+   </div>
+   <div class="divTableFoot tableFootStyle">
+      <div class="divTableRow">
+         <div class="divTableCell">Total Estimated Time*:</div>
+         <div class="divTableCell">{{ hours }} hour{% if hours != 1 %}s{% endif %} {{ minutes }} minute{% if minutes != 1 %}s{% endif %}</div>
+         <div class="divTableCell"></div>
+      </div>
+   </div>
+</div>
+<em>* Times are only estimates. It may take you less time or more time depending on how much debugging effort is required for your specific implementation. Use the relative numbers to help guide you: for example, a task labeled as "5 minutes" should not require as much effort as a task labeled "20 minutes", regardless of how much time it takes to actually complete the task.</em>
+{% endcapture %}
+{{ taskList }}
+</div>
+
+
+

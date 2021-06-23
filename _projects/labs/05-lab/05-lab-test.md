@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 05 - Inspection & Debugging
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab05]
-description: CSC216 Lab 05 - Testing & Debugging
+title: CSC 217 Lab 05 - Inspection & Debugging
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab05]
+description: CSC 217 Lab 05 - Testing & Debugging
 navigation: on
 pagegroup: 05-lab 
 ---
 
-# CSC216 Lab 05: Testing & Debugging
+# CSC 217 Lab 05: Testing & Debugging
 {% include iconHeader.html type="unitTest,systemTest" %}
 As with any software development project, you must test your code to know if it meets the [requirements](05-lab-requirements) and [design](05-lab-design).  You should have unit tested your new code as you integrated and debugged `RegistrationManager`.  Now you will ensure sufficient coverage and system test `PackScheduler`.
 
@@ -35,8 +35,8 @@ The following files are needed for testing (some you already have):
 
   * [student_records.txt](files/student_records.txt)
   * [course_records.txt](files/course_records.txt)
-  * [actual_t19_student_directory.txt](files/actual_t19_student_directory.txt)
-  * [actual_t39_course_catalog.txt](files/actual_t39_course_catalog.txt)
+  * [expected_t19_student_directory.txt](files/expected_t19_student_directory.txt)
+  * [expected_t39_course_catalog.txt](files/expected_t39_course_catalog.txt)
 
 
 ## Push to GitHub
@@ -49,10 +49,6 @@ Check Jenkins and make sure that you have a green ball and are passing your test
 
 
 {% capture callout_content %}
-GitHub Resources:
-
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+To generate Javadoc, you need to [configure and run the Javadoc tool](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#configure-and-run-javadoc-for-your-project), [fix Javadoc errors and warnings](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#fix-javadoc-errors-and-warnings), and [check the generated Javadoc pages](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#check-generated-javadoc-pages).  Make sure you push your changes to GitHub!
 {% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+{% include callout.html content=callout_content icon="dtTool" type="reminder" title="Reminder: Generating Javadoc" %}

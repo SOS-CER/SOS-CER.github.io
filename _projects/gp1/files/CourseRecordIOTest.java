@@ -2,7 +2,7 @@ package edu.ncsu.csc216.wolf_scheduler.io;
 
 import static org.junit.Assert.*;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -15,7 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
-import edu.ncsu.csc216.wolf_scheduler.io.CourseRecordIO;
 
 /**
  * Tests CouresRecordIO.
@@ -28,19 +27,37 @@ public class CourseRecordIOTest {
 	/** Invalid course records */
 	private final String invalidTestFile = "test-files/invalid_course_records.txt";
 	
-	/** Expected results for valid courses */
-	private final String validCourse1 = "CSC116,Intro to Programming - Java,001,3,jdyoung2,MW,910,1100";
-	private final String validCourse2 = "CSC116,Intro to Programming - Java,002,3,spbalik,MW,1120,1310";
-	private final String validCourse3 = "CSC116,Intro to Programming - Java,003,3,tbdimitr,TH,1120,1310";
-	private final String validCourse4 = "CSC216,Programming Concepts - Java,001,4,sesmith5,TH,1330,1445";
-	private final String validCourse5 = "CSC216,Programming Concepts - Java,002,4,jtking,MW,1330,1445";
-	private final String validCourse6 = "CSC216,Programming Concepts - Java,601,4,jep,A";
-	private final String validCourse7 = "CSC226,Discrete Mathematics for Computer Scientists,001,3,tmbarnes,MWF,935,1025";
-	private final String validCourse8 = "CSC230,C and Software Tools,001,3,dbsturgi,MW,1145,1300";
+	/** Expected results for valid courses in course_records.txt - line 1 */	
+	private final String validCourse1 = "CSC 116,Intro to Programming - Java,001,3,jdyoung2,MW,910,1100";
+	/** Expected results for valid courses in course_records.txt - line 2 */
+	private final String validCourse2 = "CSC 116,Intro to Programming - Java,002,3,spbalik,MW,1120,1310";
+	/** Expected results for valid courses in course_records.txt - line 3 */
+	private final String validCourse3 = "CSC 116,Intro to Programming - Java,003,3,tbdimitr,TH,1120,1310";
+	/** Expected results for valid courses in course_records.txt - line 5 (line 4 is a duplicate of line 2 b/c of how we defined Course.equals().) */
+	private final String validCourse4 = "CSC 216,Software Development Fundamentals,001,3,sesmith5,TH,1330,1445";
+	/** Expected results for valid courses in course_records.txt - line 6 */
+	private final String validCourse5 = "CSC 216,Software Development Fundamentals,002,3,ixdoming,MW,1330,1445";
+	/** Expected results for valid courses in course_records.txt - line 7 */
+	private final String validCourse6 = "CSC 216,Software Development Fundamentals,601,3,jctetter,A";
+	/** Expected results for valid courses in course_records.txt - line 8 */
+	private final String validCourse7 = "CSC 217,Software Development Fundamentals Lab,202,1,sesmith5,M,1040,1230";
+	/** Expected results for valid courses in course_records.txt - line 9 */
+	private final String validCourse8 = "CSC 217,Software Development Fundamentals Lab,211,1,sesmith5,T,830,1020";
+	/** Expected results for valid courses in course_records.txt - line 10 */
+	private final String validCourse9 = "CSC 217,Software Development Fundamentals Lab,223,1,sesmith5,W,1500,1650";
+	/** Expected results for valid courses in course_records.txt - line 11 */
+	private final String validCourse10 = "CSC 217,Software Development Fundamentals Lab,601,1,sesmith5,A";
+	/** Expected results for valid courses in course_records.txt - line 12 */
+	private final String validCourse11 = "CSC 226,Discrete Mathematics for Computer Scientists,001,3,tmbarnes,MWF,935,1025";
+	/** Expected results for valid courses in course_records.txt - line 13 */
+	private final String validCourse12 = "CSC 230,C and Software Tools,001,3,dbsturgi,MW,1145,1300";
+	/** Expected results for valid courses in course_records.txt - line 14 */
+	private final String validCourse13 = "CSC 316,Data Structures and Algorithms,001,3,jtking,MW,830,945";
 	
 	/** Array to hold expected results */
 	private final String [] validCourses = {validCourse1, validCourse2, validCourse3, validCourse4,
-			validCourse5, validCourse6, validCourse7, validCourse8};
+			validCourse5, validCourse6, validCourse7, validCourse8, validCourse9, validCourse10, 
+			validCourse11, validCourse12, validCourse13};
 
 	/**
 	 * Resets course_records.txt for use in other tests.
@@ -65,7 +82,7 @@ public class CourseRecordIOTest {
 	public void testReadValidCourseRecords() {
 		try {
 			ArrayList<Course> courses = CourseRecordIO.readCourseRecords(validTestFile);
-			assertEquals(8, courses.size());
+			assertEquals(13, courses.size());
 			
 			for (int i = 0; i < validCourses.length; i++) {
 				assertEquals(validCourses[i], courses.get(i).toString());
@@ -95,9 +112,9 @@ public class CourseRecordIOTest {
 	@Test
 	public void testWriteCourseRecords() {
 		ArrayList<Course> courses = new ArrayList<Course>();
-		courses.add(new Course("CSC116", "Intro to Programming - Java", "003", 3, "spbalik", "MW", 1250, 1440));
-		courses.add(new Course("CSC216", "Programming Concepts - Java", "001", 4, "sesmith5", "MW", 1330, 1445));
-		courses.add(new Course("CSC216", "Programming Concepts - Java", "601", 4, "jep", "A"));
+		courses.add(new Course("CSC 116", "Intro to Programming - Java", "003", 3, "spbalik", "MW", 1250, 1440));
+		courses.add(new Course("CSC 216", "Software Development Fundamentals", "001", 3, "sesmith5", "MW", 1330, 1445));
+		courses.add(new Course("CSC 216", "Software Development Fundamentals", "601", 3, "jctetter", "A"));
 		
 		try {
 			CourseRecordIO.writeCourseRecords("test-files/actual_course_records.txt", courses);
@@ -114,9 +131,8 @@ public class CourseRecordIOTest {
 	 * @param actFile actual output
 	 */
 	private void checkFiles(String expFile, String actFile) {
-		try {
-			Scanner expScanner = new Scanner(new File (expFile));
-			Scanner actScanner = new Scanner(new File(actFile));
+		try (Scanner expScanner = new Scanner(new FileInputStream(expFile));
+			 Scanner actScanner = new Scanner(new FileInputStream(actFile));) {
 			
 			while (expScanner.hasNextLine()) {
 				assertEquals(expScanner.nextLine(), actScanner.nextLine());

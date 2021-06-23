@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="50"
+   name=""
+   committed-date="2006-10-09T15:50:55.338751Z"
+   url="http://agile.csc.ncsu.edu/subversion/aware/AWARE-UPDATE/features"
+   last-author="smthomas"
+   kind="dir"
+   uuid="f50d9904-c41b-0410-aba3-b7c37cb22f22"
+   repos="http://agile.csc.ncsu.edu/subversion/aware"
+   revision="52"/>
+<entry
+   committed-rev="50"
+   name="AWARE_FEATURE_1.0.0.jar"
+   text-time="2006-10-09T16:25:48.328125Z"
+   committed-date="2006-10-09T15:50:55.338751Z"
+   checksum="e804626904c9b5c8a85c0e2f9cae4b08"
+   last-author="smthomas"
+   kind="file"
+   schedule="delete"
+   prop-time="2006-10-09T16:25:48.296875Z"/>
+</wc-entries>

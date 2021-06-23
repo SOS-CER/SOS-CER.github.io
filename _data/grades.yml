@@ -1,0 +1,598 @@
+grades:
+  lab00:
+     overall:
+       - item: CheckStyle Notifications
+         points: 10
+         details: Correct CheckStyle notifications are displayed demonstrating installation of plug-in and configuration file.
+         icon: saTool
+       - item: SpotBugs Notifications
+         points: 10
+         details: Correct SpotBugs notifications are displayed demonstrating installation of plug-in and configuration file.
+         icon: saTool
+       - item: PMD Notifications
+         points: 10
+         details: Correct PMD notifications are displayed demonstrating installation of plug-in and configuration file.
+         icon: saTool
+       - item: Java 11
+         points: 15
+         details: Java 11 is the default JDK in Eclipse
+         icon: plTool
+       - item: Coverage Report
+         points: 10
+         details: Correct coverage when running unit tests. 
+         icon: ccTool
+       - item: Eclipse Git Configuration
+         points: 15
+         details: User name and email are set in Eclipse's eGit settings. This can also be assessed via the user name that shows up in GitHub.
+         icon: ideTool
+       - item: DemoProject Committed to GitHub
+         points: 15
+         details: DemoProject committed to GitHub in the correct folder structure.
+         icon: vcTool
+       - item: Extra Credit - Command Line Git Configuration
+         points: 5
+         details: Command line Git user name and email are set up
+         icon: vcTool
+     collaborative:
+       - item: Pair Programming Activity
+         points: 10
+         details: Participate in pair programming activity.
+         icon: teamTask
+  lab01:
+     overall: 
+       - item: Teaching Staff Unit Tests
+         points: 25
+         details: Pass all of the teaching staff unit tests, both provided and hidden.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 20
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 10
+         details: Student and StudentRecordIO are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 10
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab02:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 10
+         details: Pass all of the teaching staff unit tests, both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 10
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 10
+         details: 80% statement/line coverage on Student, StudentRecordIO, and StudentDirectory
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Student System Tests
+         points: 15
+         details: Pass all of your black box tests.
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 10
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+     extra-credit:
+       - item: Over 90% Statement Coverage
+         points: 1-3
+         details: One point of extra credit for each class with over 90% statement coverage.
+       - item: 100% Statement Coverage
+         points: 1-3
+         details: One point of extra credit for each class with 100% statement coverage except for the paths described in the writeup (in addition to the points earned for the 90% statement threshold). 
+       - item: 100% Condition Coverage
+         points: 1-3
+         details: One point of extra credit for each class with 100% condition coverage except for paths described in the writeup (in addition to the points earned for the 90% & 100% statement threshold).
+  lab03:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on Student, StudentRecordIO, and StudentDirectory
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab04:
+     overall:
+       - item: Design Comparison and Evaluation
+         points: 15
+         details: Discussion of tradeoffs and reasoning behind the selection of a design.
+         icon: design
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on Student, StudentRecordIO, and StudentDirectory
+         icon: unitTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+       - item: Design Extension
+         points: 10
+         details: Design is a possible solution for the additional use case.
+         icon: design
+  lab05:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab06:
+     overall:
+       - item: Finite State Machine Diagram
+         points: 10
+         details: A finite state machine diagram with the correct notation that meets the requirements.
+         icon: design
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 10
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 10
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab07:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab08:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab09:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab10:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  lab11:
+     overall:
+       - item: Teaching Staff Unit Tests
+         points: 15
+         details: Pass all of the teaching staff unit tests (no regressions), both provided and hidden.
+         icon: unitTest
+       - item: Student Unit Tests
+         points: 15
+         details: Pass all of your unit tests.
+         icon: unitTest
+       - item: Student Test Coverage
+         points: 15
+         details: 80% statement/line coverage on every non-UI/non-test class.
+         icon: unitTest
+       - item: Teaching Staff System Tests
+         points: 10
+         details: Pass all of the teaching staff system tests (note that they will not be provided).
+         icon: systemTest
+       - item: Javadoc Comments
+         points: 5
+         details: All classes, including the tests are commented with meaningful comments.
+         icon: dtTool
+       - item: Javadoc Generation
+         points: 5
+         details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+         icon: dtTool
+       - item: Style
+         points: 5
+         details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+         icon: saTool
+  cbe:
+     overall:
+       - item: Finite State Machines
+         points: 20
+         details:
+       - item: ArrayLists
+         points: 20
+         details:
+       - item: LinkedLists
+         points: 20
+         details:
+       - item: Stacks and Queues
+         points: 20
+         details:
+       - item: Recursive LinkedLists
+         points: 20
+         details:
+  cbe-fsm:
+     overall:
+       - item: Student Tests
+         points: 5
+         details: Student tests are passing.
+       - item: Student Coverage
+         points: 5
+         details: Statement coverage exceed 80%
+       - item: Teaching Staff Tests
+         points: 5
+         details: Teaching Staff Tests are passing
+       - item: Design & Review
+         points: 5
+         details: Review of FSM diagram, code, documentation, and tests.
+  cbe-al:
+     overall:
+       - item: Student Tests
+         points: 5
+         details: Student tests are passing.
+       - item: Student Coverage
+         points: 5
+         details: Statement coverage exceed 80%
+       - item: Teaching Staff Tests
+         points: 5
+         details: Teaching Staff Tests are passing
+       - item: Review
+         points: 5
+         details: Review of code, documentation, and tests.
+  cbe-sq:
+     overall:
+       - item: Student Tests
+         points: 5
+         details: Student tests are passing.
+       - item: Student Coverage
+         points: 5
+         details: Statement coverage exceed 80%
+       - item: Teaching Staff Tests
+         points: 5
+         details: Teaching Staff Tests are passing
+       - item: Review
+         points: 5
+         details: Review of code, documentation, algorithm analysis, and tests.
+  cbe-ll:
+     overall:
+       - item: Student Tests
+         points: 5
+         details: Student tests are passing.
+       - item: Student Coverage
+         points: 5
+         details: Statement coverage exceed 80%
+       - item: Teaching Staff Tests
+         points: 5
+         details: Teaching Staff Tests are passing
+       - item: Review
+         points: 5
+         details: Review of code, documentation, and tests.
+  cbe-rll:
+     overall:
+       - item: Student Tests
+         points: 5
+         details: Student tests are passing.
+       - item: Student Coverage
+         points: 5
+         details: Statement coverage exceed 80%
+       - item: Teaching Staff Tests
+         points: 5
+         details: Teaching Staff Tests are passing
+       - item: Review
+         points: 5
+         details: Review of code, documentation, and tests.
+         
+  sync-collab:
+     overall:
+       - item: In-Lab Participation
+         points: 15
+         details: PTFs will be looking for collaboration with your partner during lab activities.  Did you participate in completing the lab assignment?  Did you balance your roles of driver and navigator?  There will be deductions for observations of non-participation or hogging of one role or the other so a partner cannot participate.
+       - item: Out-Lab Participation
+         points: 15
+         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit?  Did you document tasks, owners, and deadlines in the README.md file?
+  async-collab:
+     overall:
+       - item: Collaboration
+         points: 15
+         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit? Did you document tasks, owners, and deadlines in the README.md file?
+  deductions:
+     overall:
+       - item: Misnamed file or incorrect project structure
+         points: -5
+         details: Incorrect names of files or incorrect project structure.  This can include problems when importing the project to Eclipse for acceptance testing, incorrect location of the system test file, incorrect file extension, etc. 
+       - item: Other deductions
+         points: -5
+         details: If the project has to be manually graded due, you will receive a 5 point deduction.  Make sure that your project builds on Jenkins!
+       - item: Late
+         points: varies
+         details: You will lose 1 point for every 2 hours your projects is late, up to 24 points in 48 hours. 
+  
+  gp1: 
+    overall:
+      - item: Teaching Staff JUnit Tests
+        points: 40
+        details: Pass all of the provided JUnit tests.
+        icon: unitTest
+      - item: Teaching Staff System Tests
+        points: 40
+        details: There are 13 test cases at 2 points a piece. To pass a test case, your program must show the appropriate actual results for the provided test inputs. An additional 1 point per test is for reporting the actual results of your program in the system test plan - even if the test is failing. The last point is for submitting your document in the correct location (i.e., the `project_docs/` folder in your Eclipse project).
+        icon: systemTest
+      - item: Javadoc Contents
+        points: 10
+        details: See the Javadoc rubric, below. The rubric will be applied per class and will be averaged by the number of classes.
+        icon: dnTool
+      - item: Javadoc Generation
+        points: 5
+        details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+        icon: dnTool
+      - item: Style
+        points: 5
+        details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+        icon: saTool
+  gp2: 
+    overall:
+      - item: Teaching Staff JUnit Tests
+        points: 40
+        details: Pass all of the provided JUnit tests.
+        icon: unitTest
+      - item: Teaching Staff System Tests
+        points: 45
+        details: There are 15 system-level black box tests. All tests are worth 3 points for a total of 45 points. For each test, 2 points are for passing the test and 1 point is for reporting the actual results of running the test on YOUR program - even if the test if failing!
+        icon: systemTest
+      - item: Javadoc Contents
+        points: 5
+        details: See the Javadoc rubric, below. The rubric will be applied per class and will be averaged by the number of classes.
+        icon: dnTool
+      - item: Javadoc Generation
+        points: 5
+        details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+        icon: dnTool
+      - item: Style
+        points: 5
+        details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+        icon: saTool
+  gp3: 
+    overall:
+      - item: Student JUnit Tests
+        points: 20
+        details: Pass all of *your* JUnit tests.
+        icon: unitTest
+      - item: Student Coverage
+        points: 20
+        details: Achieve at least 80% statement coverage on each non-UI class.
+        icon: unitTest
+      - item: Teaching Staff JUnit Tests
+        points: 20
+        details: Pass all of the provided JUnit tests.
+        icon: unitTest
+      - item: Student System Tests
+        points: 20
+        details: There are 20 tests. You should both pass the test and report the actual results of execution. You will receive partial credit for reporting failing results for any of these tests that fail.
+        icon: systemTest
+      - item: Teaching Staff System Tests
+        points: 20
+        details: Pass the teaching staff's system tests.
+        icon: systemTest
+      - item: Javadoc Contents
+        points: 5
+        details: See the Javadoc rubric, below. The rubric will be applied per class and will be averaged by the number of classes.
+        icon: dnTool
+      - item: Javadoc Generation
+        points: 5
+        details: Javadoc tool was used to generate the HTML version of the API, which matches the current version of the in-code Javadoc.
+        icon: dnTool
+      - item: Style
+        points: 5
+        details: Any PMD, CheckStyle, or SpotBugs Scary or Scariest notifications will result in a one point deduction, up to the available points.
+        icon: saTool
+  javadoc:
+    overall:
+      - item: Class comments
+        strong: Class comments fully describe the behavior and abstraction of the class. Author tag is there.
+        adequate: Class comments lack some details of the class’ behavior and abstraction. Author tag may be missing.
+        inadequate: Class comments are there but provide no detail about the class’ purpose. Author tag may be missing.
+      - item: Method comments
+        strong: Method comments fully describe the behavior of the method. Param and return tags are there and fully specified as appropriate for the method.
+        adequate: Method comments lack some details about the method’s behavior. Param and return tags are there, but not fully specified.
+        inadequate: Method comments are there but provide no detail about the method’s purpose. Param and return tags are missing.
+      - item: Field comments
+        strong: Field comments fully describe the field’s state as part of the class’ abstraction
+        adequate: Field comments lack some details about the field’s state as part of the class.
+        inadequate: Field comments are minimal and provide no detail about the field’s purpose.
+      - item: Spelling
+        strong: No spelling errors
+        adequate: A few minor spelling errors that do not distract from the content.
+        inadequate: Many spelling errors that distract from the content
+      - item: Grammar
+        strong: No grammatical errors
+        adequate: A few grammatical errors that do not distract from the content
+        inadequate: Many grammatical errors that distract from the content.
+         

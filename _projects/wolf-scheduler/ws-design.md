@@ -79,4 +79,5 @@ For GP3, the `WolfScheduler` project is divided into four packages:
   * `edu.ncsu.csc216.wolf_scheduler.scheduler`: Holds the `Scheduler` class that maintains the catalog and selected schedule.
   * `edu.ncsu.csc216.wolf_scheduler.ui`: Holds the user interface.
 
+
 {% include image.html file="images/ws-GP3-design.png" caption="Figure: Guided Project 3 Class Diagram" %} 

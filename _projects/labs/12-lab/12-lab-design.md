@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 12 - Graphical User Interfaces
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab12]
-description: CSC216 Lab 12 - Design
+title: CSC 217 Lab 12 - Graphical User Interfaces
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab12]
+description: CSC 217 Lab 12 - Design
 navigation: on
 pagegroup: 12-lab
 ---
-# CSC216 Lab 12 Design
+# CSC 217 Lab 12 Design
 {% include iconHeader.html type="design" %}
 The design for Lab 12 is shown below.  To follow the development paradigm of *additive change*, you will implement the main Faculty functionality in `FacultySchedulePanel`.  
 
@@ -15,8 +15,8 @@ Note that this design is provided as guidance, but you are NOT required to follo
 
 The guidelines that you must follow for GUI design are as follows:
 
-  * The GUI should be as easy as possible for the PTFs to manually grade (name things well, easy to find, etc.).
-  * The GUI should NOT hurt the PTFs eyes.
+  * The GUI should be as easy as possible for the PTFs to manually grade (name things well, easy to find, etc.). [Of course, we're not grading them, but it's a good guideline.]
+  * The GUI should NOT hurt the PTFs eyes. [Again, not grading, but good guideline.]
 
 {% include image.html file="images/PackScheduler_UI_ClassDiagram.gif" caption="Figure: Lab 12 PackSchedule UI Design" %} 
 

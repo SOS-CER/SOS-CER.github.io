@@ -43,6 +43,10 @@ collections:
         output: true
      smssolitaire:
         output: true
+     aware:
+        output: true
+     faultbench:
+        output: true
                  
 plugins: ['jekyll-relative-links', 'jekyll/scholar']
   

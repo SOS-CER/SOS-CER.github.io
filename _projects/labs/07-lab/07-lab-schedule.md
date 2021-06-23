@@ -1,12 +1,12 @@
 ---
-title: CSC216 Lab 07 - ArrayLists
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab07]
-description: CSC216 Lab 07 - Implement and Test `Schedule`
+title: CSC 217 Lab 07 - ArrayLists
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab07]
+description: CSC 217 Lab 07 - Implement and Test `Schedule`
 navigation: on
 pagegroup: 07-lab
 ---
 
-# CSC216 Lab 07 Implement and Test `Schedule`
+# CSC 217 Lab 07 Implement and Test `Schedule`
 {% include iconHeader.html type="implementation,unitTest" %}
 The [updated design](07-lab-design) contains a new package, `edu.ncsu.csc216.pack_scheduler.user.schedule` and a new class `Schedule`.  
 
@@ -47,7 +47,9 @@ Write tests for `Schedule.addCourseToSchedule(Course)`.
 
 However, if the `Course` is a duplicate to one already in the list through either `equals()` or via the `isDuplidate()` method, then an `IllegalArgumentException` should be thrown with the message specified in the [requirements](07-lab-requirements).  
 
-If there is a conflict with an existing `Course` in the schedule, a `ConflictException` is thrown from the call to `Course.checkConflict()`.  Catch the `ConflictException` and throw an `IllegalArgumentException` with the  message specified in the [requirements](07-lab-requirements). 
+If there is a conflict with an existing `Course` in the schedule, a `ConflictException` is thrown from the call to `Course.checkConflict()`.  Catch the `ConflictException` and throw an `IllegalArgumentException` with the  message specified in the [requirements](07-lab-requirements).
+
+If the `Course` to add to the `Schedule` is `null`, a `NullPointerException` is thrown. However, this check can be delegated to the `ArrayList` you wrote; the `ArrayList` doesn't allow null elements!
 
 
 ## Test and Implement `Schedule.removeCourseFromSchedule(Course)`
@@ -84,8 +86,8 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

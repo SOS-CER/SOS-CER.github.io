@@ -38,7 +38,6 @@ wolf-scheduler:
      - ws-test
      - ws-comment-style
      - ws-deployment
-     - ws-rubric
 
 gp1:
     directory: _projects/gp1/
@@ -91,6 +90,11 @@ gp3:
      - gp3-wolfscheduler
      - gp3-wolfschedulergui
      - gp3-submit
+     
+00-lab:
+    directory: _projects/labs/00-lab/
+    order: 
+     - index
      
 01-lab:
     directory: _projects/labs/01-lab/
@@ -175,7 +179,6 @@ gp3:
     directory: _projects/labs/07-lab/
     order:
      - index
-     - 07-lab-project-selection
      - 07-lab-requirements
      - 07-lab-design
      - 07-lab-arraylist
@@ -250,7 +253,6 @@ gp3:
      - 12-lab-design
      - 12-lab-blackboxtest
      - 12-lab-gui
-     - 12-lab-bugfix
      - 12-lab-studentschedule
      - 12-lab-test
      - 12-lab-deploy

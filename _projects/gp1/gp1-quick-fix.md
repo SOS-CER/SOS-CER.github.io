@@ -1,61 +1,59 @@
 ---
-title: Guided Project 1 WolfScheduler - Course and Schedule
+title: Guided Project 1 - Software Development Practices and Tools
 tags: [software engineering, software lifecycle, CS2, CSC216, GP1]
 description: Guided Task - Eclipse Quick Fix Tool
 navigation: on
 pagegroup: gp1
 ---
- 
+
 # Guided Task: Eclipse Quick Fix Tool
+{% include iconHeader.html type="task" %}
 The Eclipse IDE knows how to identify and fix lots of common errors.  By storing patterns of common errors and their solutions, Eclipse can generate a "Quick Fix" for your problems.  Quick Fixes are errors and warnings that have a lightbulb on the icon. 
 
 {% capture callout_content %}
   * Correct a compiler error using an Eclipse Quick Fix
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}
 
 {% capture callout_content %}
 One way to use Quick Fix is to first write your code ignoring all of your declarations. If you want to call a class you haven't written yet, just use it as if it were already created, then apply quick fix to create your class declaration. It takes some getting used to, but this technique enables you to write code very quickly in the end because you don't have to write so much from scratch. Some developers like to write code in this way because they can simply write what they're currently thinking about without having to stop and deal with details that can be Quick-fixed. You might find that this way of writing code is not so different from writing pseudo code first!
 {% endcapture %}
 {% include callout.html content=callout_content icon="ideTool" type="bestPractices" title="Best Practice: Quick Fix for Error-Driven Development" %}
 
- 
-## Create `edu.ncsu.csc216.wolf_scheduler.io` Package
-Create a new package called `edu.ncsu.csc216.wolf_scheduler.io` in the `test` folder of the `WolfScheduler` project.
+{% capture reminder-content %} 
+References:
 
-{% capture callout_content %}
-If you need help creating the `edu.ncsu.csc216.wolf_scheduler.io` package, see [Guided Task: Your First Eclipse Project - Create a Package](gp1-eclipse-intro#create-a-package).
-{% endcapture %}
-{% include callout.html content=callout_content icon="ideTool" type="reminder" title="Reminder: Eclipse Java Package Creation" %}
- 
-## Create `CourseRecordIOTest` Class
-Create a new Java class called `CourseRecordIOTest` in the `edu.ncsu.csc216.wolf_scheduler.io` package of the `test` source directory of the `WolfScheduler` project.
+  * Eclipse Package Creation - see [Guided Task: Your First Eclipse Project - Create a Package](gp1-eclipse-intro#create-a-package)
+  * Eclipse Class Creation - see [Guided Task: Your First Eclipse Project - Create a Class](gp1-eclipse-intro#create-a-class)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Creating Packages and Classes"%} 
+## Create I/O Test Structure
+We're going to start working on implementing [Use Case 1: Load Course Catalog](../wolf-scheduler/ws-requirements#uc1) where we can process a course catalog file. We typically call working with files I/O or input/output.  Since I/O is so different from our `Course` object, we will create a new package for our I/O implementation.
 
-{% capture callout_content %}
-If you need help creating the `CourseRecordIOTest` Java Class, see [Guided Task: Your First Eclipse Project - Create a Class](gp1-eclipse-intro#create-a-class).
-{% endcapture %}
-{% include callout.html content=callout_content icon="ideTool" type="reminder" title="Reminder: Eclipse Java Class Creation" %}
+To demonstrate the use of Quick Fix, test-driven development, and Eclipse code generation, we'll start by creating our package in the `**test**` folder.  Follow the steps below:
 
-[Copy the code from `CourseRecordIOTest.java](files/CourseRecordIOTest.java) into your Eclipse file.
+  * Create a new package called `edu.ncsu.csc216.wolf_scheduler.io` in the `test` folder of the `WolfScheduler` project.
+  * Create a new Java class called `CourseRecordIOTest` in the `edu.ncsu.csc216.wolf_scheduler.io` package of the `test` source directory of the `WolfScheduler` project.
+  * [Copy the code from `CourseRecordIOTest.java](files/CourseRecordIOTest.java) into your Eclipse file.
 
- 
+{% capture reminder-content %} 
+If your **Problem** view fails to display the error, select **Project > Build Automatically** from the top level menu.  It should be checked on.  You can also clean your project by selecting **Project > Clean**.  Cleaning your project removes all `*.class` files and rebuilds your project.*
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Note: Automatic Compile and Rebuilding/Cleaning a Project"%} 
 ## Compiler Errors in Eclipse
 There's a compiler error in `CourseRecordIOTest`!  You can tell this in several ways:
 
   * There is a red squiggly/dotted line under the `CourseRecordIO` type in `CourseRecordIOTest`.
   * There is a little red X along the left-hand side of the editor in the gutter.  The icon also contains a light bulb, which lets us know that Eclipse has a Quick Fix.
-  * The **Problems** view displays the error.  
+  * The **Problems** view displays the errors.  
   
 
 {% include image.html file="images/ProblemsView.PNG" caption="Figure: Eclipse Problems View" %} 
 
-Three compiler errors state that `CourseRecordIO cannot be resolved` and one states `The import edu.ncsu.csc216.wolf_scheduler.io.CourseRecordIO cannot be resolved`.  This means there is no class in the project, JDK, or any of the other libaries named `CourseRecordIO`.  However, we need a `CourseRecordIO` types for working with reading and writing files that store information about the `Courses` offered in a given semester!  Therefore, you're going to have to create your own `CourseRecordIO` class.
+The compiler errors state that `CourseRecordIO cannot be resolved`.  We need a `CourseRecordIO` type for working with reading and writing files that store information about the `Courses` offered in a given semester!  Therefore, you're going to have to create your own `CourseRecordIO` class.
   
-(*Note: If your **Problem** view fails to display the error, select **Project > Build Automatically** from the top level menu.  It should be checked on.  You can also clean your project by selecting **Project > Clean**.  Cleaning your project removes all `*.class` files and rebuilds your project.*)
 
  
 ## Quick Fix
-While there are two different compiler errors, they all have the same resolution.  Put your cursor anywhere inside the red squiggly of one of the four compiler errors.  The command for Quick Fix is **Ctrl+1** (that's the number ONE; Mac users, try **Apple+1**).  This opens the quick-fix context menu.  There are many possible options.  Select the first option, to create class `CourseRecordIO`, by pressing **Enter**. Note that you can see a preview of what the created class will look like.
+To use Quick Fix, put your cursor anywhere inside the red squiggly of one of the compiler errors.  The command for Quick Fix is **Ctrl + 1** (that's the number ONE; Mac users, try **Cmd +1**).  This opens the quick-fix context menu.  There are many possible options.  Select the first option, to create class `CourseRecordIO`, by pressing **Enter**. Note that you can see a preview of what the created class will look like.
 
 {% include image.html file="images/CourseRecordIOQuickFix.PNG" caption="Figure: CourseRecordIO Quick Fix" %} 
 
@@ -71,15 +69,24 @@ We do need to make one change to the source folder.  Change `WolfScheduler/test`
 ## Create `CourseRecordIO` Methods
 You still have compiler errors, even after creating the `CourseRecordIO` class.  That is because `CourseRecordIOTest` is calling `CourseRecordIO` methods that don't yet exist.
 
-Use Quick Fix to generate the methods.  *(Note: The methods that are generated will be static methods.  We'll discuss why in the next section.)*
+Use Quick Fix to generate the `readCourseRecords()` and `writeCourseRecords()` methods.  The methods that are generated will be static methods.  We'll discuss why in the next section.
+
 
  
 ## `CourseRecordIO` Method Exceptions
 The Eclipse Quick Fix tool can be very powerful, but it is limited to very common and easily-solvable problems. Quick Fix will work only on compiler errors, not logic errors since Quick Fix doesn't know your requirements. Quick Fix may not always fix your code exactly how you want it, so it's not a good idea to completely rely on this feature. Common fixes include adding an import, creating a class/method/variable, public/private access, fixing parameters in a method, and so on.
 
-An example of this is the return type on the `readCourseRecords()` method.  Eclipse Quick Fix generates a return type of `List<Course>`; however in `CourseRecordIOTest` the result of the `CourseRecordIO.readCourseRecords()` call is stored in an `ArrayList`, which is a more specialized type than `List`.  The solution is to update the `CourseRecordIO.readCourseRecords()` to return `ArrayList` rather than `List`.
 
-You still have two compiler errors, even after generating the `CourseRecordIO` methods.  In this case, Quick Fix will not help us.  The suggested fixes are to remove the `try/catch` from the test methods.  However, you know that `CourseRecordIO` will deal with file input and output.  That means you need to handle common file I/O exceptions like `FileNotFoundException` and `IOException`.  You can add `throws` clauses to the `CourseRecordIO` method headers, which will show that the methods throw exceptions and will also let our code compile.  The finished (and commented) methods should look like the code below.
+You still have two compiler errors, even after generating the `CourseRecordIO` methods.  In this case, Quick Fix will not help us.  The suggested fixes are to remove the `try/catch` from the test methods.  However, you know that `CourseRecordIO` will deal with file input and output.  That means you need to handle common file I/O exceptions like `FileNotFoundException` and `IOException`. We will pass those exceptions on to the client so they can handle as appropriate for reading from or writing to a file in their context.  
+
+{% capture callout_content %}
+Both `FileNotFoundException` and `IOException` are *checked* exceptions.  That means we need to add information to the method headers in `CourseRecordIO` to state that we will be throwing these exceptions.  Javadoc should describe when these exceptions are thrown so the client knows to handle them.  Because they are checked exception, the client *must* handle the exceptions in some way.  This can mean that we catch them using `try/catch` or we could throw to the client's client using a `throws` clause on the method header.
+{% endcapture %}
+{% include callout.html content=callout_content type="conceptualKnowledge" title="Conceptual Knowledge: Checked Exceptions" %}
+
+
+
+You can add `throws` clauses to the `CourseRecordIO` method headers, which will show that the methods throw exceptions and will also let our code compile.  The finished (and commented) methods should look like the code below.  You may copy in the provided comments.
 
 (*Note: You will need to import `java.io.FileNotFoundException` and `java.io.IOException` for `CourseRecordIO` to compile.  That's a great use of Quick Fix!)
 
@@ -115,9 +122,9 @@ public class CourseRecordIO {
 
     /**
      * Writes the given list of Courses to 
-     * @param fileName
-     * @param courses
-     * @throws IOException
+     * @param fileName file to write schedule of Courses to
+     * @param courses list of Courses to write
+     * @throws IOException if cannot write to file
      */
     public static void writeCourseRecords(String fileName, ArrayList<Course> courses) throws IOException {
         // TODO Auto-generated method stub
@@ -139,18 +146,18 @@ To rename an identifier, first select the identifier and then do one of the foll
   
 An editing box will open.  Make your edit and press **Enter**. The name will change in all locations, including the Javadoc!
 
- 
-## Push to GitHub
-You've added several new files.  Before moving on to the next portion of the Guided Project, complete the following tasks:
 
-  * Add the new files to the index.
-  * Commit and push the changes to GitHub.  Remember to use a meaningful commit message describing how you have changed the code.  For example, "Added CourseRecordIO and CourseRecordIOTest".
-  
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
-  * [Staging Files](../git-tutorial/git-staging)
-  * [Committing Files](../git-tutorial/git-commit)
-  * [Pushing Files](../git-tutorial/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%} 
+## Check Your Progress
+{% include iconHeader.html type="glance" %}
+You've added several new files.  Before moving on to the next portion of the Guided Project, complete the following tasks:
+
+  - [ ] Make sure that all fields, methods, and constructors are commented.
+  - [ ] Resolve all static analysis notifications.
+  - [ ] Add new files to the index. Commit and push your code changes with a meaningful commit message.For example, "[Implementation][Test] Added CourseRecordIO and CourseRecordIOTest".

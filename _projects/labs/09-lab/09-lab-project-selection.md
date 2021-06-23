@@ -1,13 +1,13 @@
 ---
-title: CSC216 Lab 09 - Stacks and Queues
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab09]
-description: CSC216 Lab 09 - On Campus ONLY - Project Selection
+title: CSC 217 Lab 09 - Stacks and Queues
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab09]
+description: CSC 217 Lab 09 - Team Rotation 3 - Project Selection
 navigation: on
 pagegroup: 09-lab
 ---
 
-# CSC216 Lab 09: On Campus ONLY: Project Selection
-Lab 09 is the last of three team rotations that will occur in CSC216 labs this semester.  We rotate teams for several reasons, but the most important is so that you gain more experience working with a wider variety of students in CSC216.  
+# CSC 217 Lab 09: Team Rotation 3: Project Selection
+Lab 09 is the last of three team rotations that will occur in CSC 217 labs this semester.  We rotate teams for several reasons, but the most important is so that you gain more experience working with a wider variety of students in CSC 217.  
 
 
 ## Select Project
@@ -17,7 +17,7 @@ Each team member will be coming into lab with their own project!  As a team, you
 ## Push Selected Project into GitHub
 You have been assigned a new GitHub repository for the third team rotation: csc216-XXX-LLL-YY, where XXX is your lab section number and YY is your team number (LLL represents the third lab rotation).  
 
-The owner of the selected team project will need to follow the process used in [Guided Project 2](../../gp2/gp2-repo.html) and [Guided Project 3](../../gp3/gp3-repo.html) for disconnecting a project from an existing repository and sharing it to a new repository.
+The owner of the selected team project will need to follow the process used in [Guided Project 2](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp2/gp2-repo.html) and [Guided Project 3](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp3/gp3-repo.html) for disconnecting a project from an existing repository and sharing it to a new repository.
 
 Run all tests to ensure no regressions.
 
@@ -41,8 +41,8 @@ Check that your job on Jenkins recognized the push to GitHub.
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}

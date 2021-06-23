@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 04 - Design
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab04]
-description: CSC216 Lab 04 - Design
+title: CSC 217 Lab 04 - Design
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab04]
+description: CSC 217 Lab 04 - Design
 navigation: on
 pagegroup: 04-lab
 ---
-# CSC216 Lab 04: Design
+# CSC 217 Lab 04: Design
 {% include iconHeader.html type="design" %}
 You have explored 2 different possible designs that could lead to successful implementation of the `PackSchduler` system.  For the remainder of Lab 04, you will integrate the common portion of the designs in the *.catalog, *.user, *.io, *.directory, and *.catalog packages.  The creation and implementation of the *.manager and *.ui packages will be handled in future labs.  
 

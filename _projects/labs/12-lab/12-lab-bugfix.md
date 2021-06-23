@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 12 - Graphical User Interfaces
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab12]
-description: CSC216 Lab 12 - GUI Bug Fix
+title: CSC 217 Lab 12 - Graphical User Interfaces
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab12]
+description: CSC 217 Lab 12 - GUI Bug Fix
 navigation: on
 pagegroup: 12-lab
 ---
-# CSC216 Lab GUI Bug Fix
+# CSC 217 Lab GUI Bug Fix
 {% include iconHeader.html type="implementation, systemTest" %}
 There's a set of six minor bugs in the GUI in the `StudentDirectoryPanel`, `FacultyDirectoryPanel`, and `CourseCatalogPanel`.  If you click a **Load** or **Save** button on those panels, a `JFileChooser` is displayed.  An exception is thrown if the user clicks the **Cancel** button in the `JFileChooser`.  Instead of throwing an exception to the console, catch and handle the exception.
  
@@ -29,9 +29,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -40,11 +40,11 @@ GitHub Resources:
 If you have test failures, use the feedback from Jenkins to help you resolve the issues. 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/jenkins-overview#build-summary-page) and use the results to [estimate your grade](../../jenkins/jenkins-overview#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/jenkins-overview#test-results)
-  * [FindBugs Report](../../jenkins/jenkins-overview#findbugs-report)
-  * [CheckStyle Report](../../jenkins/jenkins-overview#checkstyle-report)
-  * [PMD Report](../../jenkins/jenkins-overview#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}

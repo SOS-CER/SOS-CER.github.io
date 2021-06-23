@@ -1,17 +1,17 @@
 ---
-title: CSC216 Lab 05 - Inspection & Debugging
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab05]
-description: CSC216 Lab 05 - Extract `User` Superclass
+title: CSC 217 Lab 05 - Inspection & Debugging
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab05]
+description: CSC 217 Lab 05 - Extract `User` Superclass
 navigation: on
 pagegroup: 05-lab
 --- 
-# CSC216 Lab 05: Extract `User` Superclass
+# CSC 217 Lab 05: Extract `User` Superclass
 {% include iconHeader.html type="implementation" %}
-The [updated design](05-lab-design) contains a new type of user: `Registrar`.  Since there are commonalities between a `Registar` user and a `Student` user, a parent class `User` can contain those commonalities.  The common functionality currently exists is `Student`.  Extract a `User` superclass from `Student`.
+The [updated design](05-lab-design) contains a new type of user: `Registrar`.  Since there are commonalities between a `Registrar` user and a `Student` user, a parent class `User` can contain those commonalities.  The common functionality currently exists is `Student`.  Extract a `User` superclass from `Student`.
 
 
 {% capture callout_content %}
-Use the instructions from [Guided Project 2: Extract a Super Class](../../gp2/gp2-super-class) to help you with extracting the `User` superclass from `Student`.
+Use the instructions from [Guided Project 2: Extract a Super Class](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp2/gp2-super-class) to help you with extracting the `User` superclass from `Student`.
 {% endcapture %}
 {% include callout.html content=callout_content icon="ideTool" type="reminder" title="Reminder: Extracting a Superclass" %}
 
@@ -56,7 +56,7 @@ Do the following to add back the `hashCode()` and `equals()` functionality:
 
   * Use Eclipse's source generation tools to generate `hashCode()` and `equals()` in `User`.
   * Then use Eclipse's source generation tools to generate `hashCode()` and `equals()` in `Student`.
-  * Run your unit tests.  They should all be passing again!
+  * Run your unit tests.  They should all be passing again!  Aren't they useful to ensure no regression of functionality!
 
 
 ## Push to GitHub
@@ -67,10 +67,6 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 
 
 {% capture callout_content %}
-GitHub Resources:
-
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+To generate Javadoc, you need to [configure and run the Javadoc tool](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#configure-and-run-javadoc-for-your-project), [fix Javadoc errors and warnings](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#fix-javadoc-errors-and-warnings), and [check the generated Javadoc pages](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-javadoc#check-generated-javadoc-pages).  Make sure you push your changes to GitHub!
 {% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+{% include callout.html content=callout_content icon="dtTool" type="reminder" title="Reminder: Generating Javadoc" %}

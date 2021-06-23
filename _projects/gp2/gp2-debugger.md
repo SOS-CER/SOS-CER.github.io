@@ -7,20 +7,22 @@ pagegroup: gp2
 ---
 
 # Guided Task: Run the Debugger
-You have a failing test case!  The test is considering invalid paths of the `setMeetingDays()` functionality for an `Event`.  As defined in [[UC2, S4]](../wolf-scheduler/ws-requirements#gp2-uc2-s4), an `Event`'s `meetingDays` are valid for Sunday through Saturday.  You'll represent Sunday with a `U` and Saturday with an `S`.  That means the `meetingDays` value of "A" is not valid for `Event`.  The test is failing because you CAN set the `meetingDays` to "A".  It's time to use the debugger to find where you need to fix our code.
+{% include iconHeader.html type="task" %}
+
+You have a failing test case!  The test is considering invalid paths of the `setMeetingDaysAndTime()` functionality for an `Event`.  As defined in [[UC6]](../wolf-scheduler/ws-requirements#uc6), an `Event`'s `meetingDays` are valid for Sunday through Saturday.  You'll represent Sunday with a `U` and Saturday with an `S`.  That means the `meetingDays` value of "A" is not valid for `Event`.  The test is failing because you CAN set the `meetingDays` to "A".  It's time to use the debugger to find where you need to fix your code.
 
 The debugger is a tool that steps through your program a statement at a time.  You can follow the flow of control into a called method.  Additionally, the debugger provides a view into the values of variables as the code is executing.  It's a very helpful tool for finding and fixing faults in your code.
 
 {% capture callout_content %}
   * Use the debugger to fix a failing test.
 {% endcapture %}
-{% include callout.html content=callout_content type="learningOutcomes" title="Learning Outcomes" %}
+{% include callout.html content=callout_content icon="objective" type="learningOutcomes" title="Learning Outcomes" %}
 
 
 ## Set a Breakpoint
-When you debug code, you need to stop the execution so you can then step through the program.  A *breakpoint* halts the execution of the program.  Then you can view information about the program's state.
+When you debug code, you need to stop the execution so you can then step through the program.  A *breakpoint* pauses the execution of the program.  Then you can view information about the program's state.
 
-When a test fails, you should put a breakpoint at the line of the code under test that you think is causing the failure.  For the failure at line 134 in `EventTest.testSetMeetingDays()`, the call to the code under test that you want to investigate is at line 133: `event.setMeetingDays("A");`  Double click in the left blue gutter bar to place a breakpoint.
+When a test fails, you should put a breakpoint at the line of the code under test that you think is causing the failure.  For the failure at line 134 in `EventTest.testSetMeetingDaysAndTime()`, the call to the code under test that you want to investigate is at line 133: `event.setMeetingDaysAndTime("A", 0, 0);`  Double click in the left blue gutter bar to place a breakpoint.
 
 
 {% include image.html file="images/Breakpoint.PNG" caption="Figure: Placing a Breakpoint" %}
@@ -36,10 +38,11 @@ The **Debug Perspective** provides several views to help you with the task of de
 
 {% include image.html file="images/DebugPerspective.PNG" caption="Figure: Debug Perspective" %}
 
-  * **Debug** shows the live stack trace of methods. The figure illustrates the stack trace in execution of `EventTest.testSetMeetingDays()`. If other programs were running at the same time, you would see them here. There are also some stepping buttons that we will cover shortly.
+  * **Debug** shows the live stack trace of methods. The figure illustrates the stack trace in execution of `EventTest.testSetMeetingDaysAndTime()`. If other programs were running at the same time, you would see them here. 
+  * **Stepping Buttons** are in the top tool bar.  The provide the ability to restart execution, stop execution, and step through the code.  We'll cover this in more detail shortly.
   * **Variables** shows the values of all the variables that have been declared. If your breakpoint stops before a variable's declaration, that variable will not appear in the list.
   * **Breakpoints** shows the locations of all your breakpoints in the code (you can have many breakpoints).
-  * **EventTest.java** shows where you are in the code at the time of the breakpoint.
+  * **EventTest.java** shows where you are in the code at the time of the breakpoint.  The arrow and highlighted text let you know where you are in the code.
 
 
 ## Debugger Controls
@@ -59,44 +62,51 @@ The main Eclipse toolbar provides buttons for working with the debugger.  There 
 ## Step Through a Program
 You can use the debugger to determine what is happening in a program and find an underlying bug.  By exploring the program, you are likely to have a better understanding of the flow of control and identify where an implementation doesn't meet the requirements.
 
-Since the breakpoint is at line 133 with the program statement `event.setMeetingDays("A");`, you now want to **step into** the method call in order to understand how "A" is being set to the `meetingDays` field.
+Since the breakpoint is at line 133 in `EventTest` with the program statement `event.setMeetingDaysAndTime("A", 0, 0);`, you now want to **step into** the method call in order to understand how "A" is being set to the `meetingDays` field.
 
-Click the **Step Into** button to transfer the flow of control to the first line of `Activity.setMeetingDays()`.  
+Click the **Step Into** button to transfer the flow of control to the first line of `Activity.setMeetingDaysAndTime()`.  
 
 Continue stepping through the method with the **Step Over** button.  You reach the end of the method for the assignment to the `meetingDays` field without throwing an exception!
 
-At this point you can either **Resume** or **Stop** the test run.  You know there's a problem in `Activity.setMeetingDays()`.
+At this point you can either **Resume** or **Stop** the test run.  You know there's a problem in `Activity.setMeetingDaysAndTime()`.
 
 
 ## Debug the Program
-The implementation of `setMeetingDays()` in `Activity` is the implementation extracted from `Course`.  There isn't an implementation of `setMeetingDays()` that supports `Event` specifics!  You need to make a decision about how to best handle the differences between `Course` and `Event` for `setMeetingDays()`.  A common implementation in `Activity` will not work.  
+The implementation of `setMeetingDaysAndTime()` in `Activity` is the implementation extracted from `Course`.  There isn't an implementation of `setMeetingDaysAndTime()` that supports `Event` specifics!  You need to make a decision about how to best handle the differences between `Course` and `Event` for `setMeetingDaysAndTime()`.  A common implementation in `Activity` will not work.  
 
-The solution is to have `Course` and `Event` override the `setMeetingDays()` method.  The original `Course` logic may return to `Course` and `Event` can be customized based on the requirements.  The common code in `Activity` is the setting of the `meetingDays` field.
+The solution is to have `Course` and `Event` override the `setMeetingDaysAndTime()` method.  `Course` and `Activity` will handle their own checks on `meetingDays` appropriate for their requirements.  Then they will pass `meetingDays`, `startTime`, and `endTime` to `Activity.setMeetingDaysAndTime()` for the common time checks and assignment of the fields.  
 
-  * Override `setMeetingDays()` in `Course` and ensure that [[UC1, S1]](../wolf-scheduler/ws-requirements#gp2-uc1-s1) is satisfied.
-  * Override `setMeetingDays()` in `Event` and ensure that [[UC2, S4]](../wolf-scheduler/ws-requirements#gp2-uc2-s4) is satisfied.  Note that for the `meetingDays`, string "U" represents Sunday and "S" represents Saturday.  The other days of week characters are the same as `Course`.  Any other character is invalid.
+  * Override `setMeetingDaysAndTime()` in `Course` and ensure that [[UC1]](../wolf-scheduler/ws-requirements#uc1) is satisfied.
+  * Override `setMeetingDaysAndTime()` in `Event` and ensure that [[UC6]](../wolf-scheduler/ws-requirements#gp2-uc2-s4) is satisfied.  Note that for the `meetingDays`, string "U" represents Sunday and "S" represents Saturday.  The other days of week characters are the same as `Course`.  Any other character, including "A", is invalid
 
 
 ## Run Tests
 Run your tests!  If any are still failing, use the debugger to help you find the problem.
 
+## Comment `Event` and Fix Static Analysis Notifications
+Complete the following tasks:
+
+  * Update all your Javadoc for `Course` and `Event`. Overridden methods much also be commented to describe the specifics in the overridden implementation.
+  * Resolve all static analysis notifications.
+
 
 ## Additional Resources on the Debugger
-This was a very brief overview of using the debugger.  If you would like more information, please see the [Eclipse Debugger Tutorial](https://courses.ncsu.edu/csc216/common/tutorials/eclipse-debugger/eclipse-debugger.html).
+This was a very brief overview of using the debugger.  If you would like more information, please see the [Eclipse Debugger Tutorial](https://pages.github.ncsu.edu/engr-csc216-staff/CSC216-SE-Materials/eclipse-debugger/eclipse-debugger.html).
 
 
-## Push to GitHub
-Use the feedback from Jenkins to make changes to your code.  Any time you make a change, push to GitHub and check the Jenkins results.
-
-  * Ensure tests are passing, Javadoc is generated, and all static analysis notifications are removed.
-  * Add the unstaged changes to the index.
-  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  Try writing your own commit message for this push!
-
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
-  * [Staging Files](../git-tutorial/git-staging)
-  * [Committing Files](../git-tutorial/git-commit)
-  * [Pushing Files](../git-tutorial/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%} 
+## Check Your Progress
+{% include iconHeader.html type="glance" %}
+
+Complete the following tasks before pushing your work to GitHub.
+
+  - [ ] Make sure that all fields, methods, and constructors are commented.
+  - [ ] Resolve all static analysis notifications.
+  - [ ] Fix test failures.
+  - [ ] Commit and push your code changes with a meaningful commit message.  Label your commit with "[Debug]" for future you!

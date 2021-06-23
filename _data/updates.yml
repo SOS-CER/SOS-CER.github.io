@@ -1,0 +1,24 @@
+<rss version="2.0">
+  <channel>
+    <title>Hongkiat</title>
+    <link>https://www.hongkiat.com/</link>
+    <description>Design Tips, Tutorial and Inspirations</description>
+    <language>en-us</language>
+    <item>
+      <title>Visualize Any CSS Stylesheet with CSS Stats</title>
+      <description>Ever wondered how many CSS rules
+      are in a stylesheet? Or have you ever
+      wanted to see…</description>
+      <pubDate>18/05/2017</pubDate>
+      <link>https://www.hongkiat.com/blog/css-stylesheet-with-css-stats/</link>
+    </item>
+    <item>
+      <title>Amazon Echo Show – The Latest Alexa-powered Smart Device</title>
+      <description>Amazon isn't stranger to the concept of smart home
+      systems with an embedded digital assistant.
+      After all, the…</description>
+      <pubDate>17/05/2017</pubDate>
+      <link>https://www.hongkiat.com/blog/alexa-device-amazon-echo-show/</link>
+    </item>
+  </channel>
+</rss>

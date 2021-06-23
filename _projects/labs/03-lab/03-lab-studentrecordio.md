@@ -1,11 +1,11 @@
 ---
-title: CSC216 Lab 03 - Collections
-tags: [software engineering, software lifecycle, CS2, CSC216, Lab03]
-description: CSC216 Lab 03 - Use `SortedList` in `StudentRecordIO`
+title: CSC 217 Lab 03 - Collections
+tags: [software engineering, software lifecycle, CS2, CSC 217, Lab03]
+description: CSC 217 Lab 03 - Use `SortedList` in `StudentRecordIO`
 navigation: on
 pagegroup: 03-lab
 ---
-# CSC216 Lab 03: Use `SortedList` in `StudentRecordIO`
+# CSC 217 Lab 03: Use `SortedList` in `StudentRecordIO`
 {% include iconHeader.html type="implementation, unitTest" %}
 Now that there is a library for maintaining a list in sorted order, the `SortedList` class should be used instead of `ArrayList`.  Update your `StudentRecordIO` to use `SortedList`.
 
@@ -43,7 +43,7 @@ If the `testWriteStudentRecordsNoPermissions()` fails locally, it won't record t
 ## Javadoc your Code
 Make sure that you update the Javadoc for `StudentRecordIO` and `StudentRecordIOTest`. 
 
-Run [CheckStyle](../../gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
+Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
 
 ## Push to GitHub
@@ -56,9 +56,9 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 {% capture callout_content %}
 GitHub Resources:
 
-  * [Staging Files](../../git-tutorial/git-staging)
-  * [Committing Files](../../git-tutorial/git-commit)
-  * [Pushing Files](../../git-tutorial/git-push)
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
 {% endcapture %}
 {% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
 
@@ -70,12 +70,12 @@ Your project will have a red ball.  That is because you will have compiler error
 
 
 {% capture callout_content %}
-Check the following items on Jenkins for [your last build](../../jenkins/#build-summary-page) and use the results to [estimate your grade](../../jenkins/#grade-estimation-example):
+Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
-  * [Test Results](../../jenkins/#test-results)
-  * [Coverage Report](../../jenkins/#coverage-report)
-  * [FindBugs Report](../../jenkins/#findbugs-report)
-  * [CheckStyle Report](../../jenkins/#checkstyle-report)
-  * [PMD Report](../../jenkins/#pmd-report)
+  * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
+  * [Coverage Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#coverage-report)
+  * [FindBugs Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#findbugs-report)
+  * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
+  * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
 {% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
