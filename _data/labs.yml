@@ -96,7 +96,7 @@ lab601time: 11:45pm
 # Open
 lab00open: true
 lab01open: true
-lab02open: true
+lab02open: false
 lab03open: false
 lab04open: false
 lab05open: false
