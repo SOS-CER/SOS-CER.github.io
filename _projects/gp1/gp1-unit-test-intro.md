@@ -64,10 +64,19 @@ You'll start by setting up the `WolfScheduler` project for testing so you can te
   4. [Copy the code from `CourseTest.java`](files/CourseTest.java) into your `CourseTest` class. The class will not compile! That is because you are missing a library.
   
   {:start="5"}
-  5. You need to add the JUnit library to your project. Right click on the `WolfScheduler` project and select **Properties**. In the left menu, select **Java Build Path**. In the right portion of the screen, select the **Libraries** tab. Select *Classpath* and then click **Add Library...**. Select **JUnit** and click **Next**. Select **JUnit 4** in the drop down and click **Finish** followed by **Apply and Close**. When you are done, the JUnit 4 library will be added to the project's build path and the compiler errors should be resolved.
+  5. You need to add the JUnit library to your project. Right click on the `WolfScheduler` project and select **Properties**. In the left menu, select **Java Build Path**. In the right portion of the screen, select the **Libraries** tab. Select *Classpath* and then click **Add Library...**. Select **JUnit** and click **Next**. Select **JUnit 5** in the drop down and click **Finish** followed by **Apply and Close**. When you are done, the JUnit 5 library will be added to the project's build path and the compiler errors should be resolved.
   
-{% include image.html file="images/JUnitLibrary.PNG" caption="Figure: Add the JUnit 4 Library" %} 
+{% include image.html file="images/JUnitLibrary.PNG" caption="Figure: Add the JUnit 5 Library" %} 
     
+	
+  {:start="6"}
+  6. With JUnit 5, we can parameterize our tests with information stored in comma-separated value (CSV) files.  Right-click on the `test` folder and select **New > Folder**. Enter `resources` in the *Folder name* text field.  Click **Finish**.  This will create a package icon that appears empty, but it is a folder!
+  
+  {:start="7"}
+  7. Download and move the following files into your `test/resources/` folder.  You can also create new files with a `.csv` extension and copy in the text.
+  
+      * [course-meeting-days-and-times-valid.csv](files/course-meeting-days-and-times-valid.csv)
+	  * [course-meeting-days-and-times-invalid.csv](files/course-meeting-days-and-times-invalid.csv)
  
 ## Run JUnit Tests
 Run the provided JUnit tests by right clicking on the `test` source folder and selecting **Run As > JUnit Test**.  By running the command on the `test` source folder, you will run all the test classes in the folder.  You can also run all the tests in a package or a single test class by right clicking on that artifact.
@@ -89,6 +98,6 @@ GitHub Resources:
 {% include iconHeader.html type="glance" %}
 You've added your `CourseTest` class.  Before moving on to the next portion of the Guided Project, complete the following tasks:
 
-  - [ ] Add `CourseTest` to the index.
-  - [ ] Commit and push the `CourseTest` class and any `Course` changes to GitHub.  Remember to use a meaningful commit message describing how you have changed the code.  For example, "[Test] Added CourseTest".
+  - [ ] Add `CourseTest`, `course-meeting-days-and-times-valid.csv`, `course-meeting-days-and-times-invalid.csv` to the index.
+  - [ ] Commit and push the `CourseTest` class, the CVS files, and any `Course` changes to GitHub.  Remember to use a meaningful commit message describing how you have changed the code.  For example, "[Test] Added CourseTest and related files".
   

@@ -33,6 +33,13 @@ Additionally, you can select which projects/packages/classes/and files you want 
 
 Check the option to **Use standard doclet**.  Browse for your project as the destination and then append a `doc` folder to the end of the path.  
 
+{% capture callout_content %}
+Make sure that you browse to your current project's location!  The Javadoc tool remembers locations from other projects.  You don't want to generate your Javadoc in the wrong location!
+
+**Always verify that your generated Javadoc is in your project AND that the generated Javadoc is pushed to the correct GitHub repository via the browser!**
+{% endcapture %}
+{% include callout.html content=callout_content  type="learningOutcomes" title="Javadoc Checks!" %}
+
 
 {% include image.html file="images/GenerateJavadoc.PNG" caption="Figure: Generate Javadoc" %} 
 

@@ -1,6 +1,9 @@
 package edu.ncsu.csc216.wolf_scheduler.scheduler;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,9 +11,6 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
 

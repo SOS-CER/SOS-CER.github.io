@@ -54,10 +54,17 @@ Do the following to run PMD on your project:
 
 After PMD runs, you will automatically switch to the **PMD perspective**, where you can browse the PMD results. (Switch back to the **Java perspective** by clicking the **Java perspective** icon in the upper right of the workbench.) You can also look at the PMD results in the **Problems** view of the **Java perspective**.
 
+{% capture callout_content %}
+Running PMD will switch you to the PMD perspective, which doesn't have some of the helpful tools for developing Java code.  Switch back to the Java Perspective after running PMD!
+
+{% include image.html file="images/JavaPerspectivePMD.PNG" caption="Figure: Select the Java Perspective" %} 
+{% endcapture %}
+{% include callout.html content=callout_content type="bestPractices" title="Best Practice: Use the Java Perspective" %}
+
 If you want PMD to run every time your program compiles, right click on your project and select **Properties > PMD > Enable PMD**.
 
  
-## CheckStyle
+## Run CheckStyle
 Do the following to run CheckStyle on your project:
 
   * Right click on the project and select **CheckStyle > Check Code with CheckStyle**. This will run CheckStyle on your code.
@@ -73,6 +80,15 @@ Removing all of the CheckStyle notifications will help you as you write and even
 Each static analysis tool will create its own set of meta data or configuration files in your project folder.  **These files MAY be pushed to GitHub**.  
 
 If you would prefer to leave them off, you can add the files to the `.gitignore`.  If you're using the Eclipse **Git Staging** view, right click on the file and select **Ignore**.  This will add the file to `.gitignore` and add the `.gitignore` file to the list of unstaged changes.
+
+{% capture callout_content %}
+We recommend adding the configuration files associated with the static analysis tools to your project's .gitignore file.  This is especially helpful when working on teams!
+
+You can edit .gitignore directly by opening the **Project Explorer**, selecting the filter icon, and unchecking the **.* resources** item.  The dot-files will then display in the **Project Explorer**.  Switch back to the **Package Explorer** when developing.
+
+{% include image.html file="images/gitignore.PNG" caption="Figure: Example .gitignore file" %} 
+{% endcapture %}
+{% include callout.html content=callout_content type="bestPractices" title="Best Practice: Using .gitignore" %}
 
 Also note that your `.project` file also changed.  The `.project` file contains information about the configuration of your project and has been updated to reflect your use of static analysis tools.  **DO NOT IGNORE THE `.project` FILE!!** If the `.project` file is not pushed to GitHub, the teaching staff will not be able to import your project into Eclipse for manual grading of the black box tests!  You will receive a deduction for any manual configuration of your project required to grade your work.  The same applies to the `.classpath` file even though it was not modified by using static analysis tools.
 

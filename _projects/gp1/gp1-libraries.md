@@ -135,7 +135,7 @@ public static ArrayList<Course> readCourseRecords(String fileName) throws FileNo
                         course.getSection().equals(current.getSection())) {
                     //It's a duplicate!
                     duplicate = true;
-					break; //We can break out of the loop, no need to continue searching
+                    break; //We can break out of the loop, no need to continue searching
                 }
             }
             //If the course is NOT a duplicate

@@ -59,6 +59,8 @@ Override `toString()` by right clicking in the editor (inside the `Student` clas
 
 `toString()` should return a string containing the fields as a comma separated line as defined in [[Student Records Data Format]](01-lab-requirements#student-records) and [[Use Case 4: Save Student Directory]](01-lab-requirements#uc5).  Note that you are not yet implementing the save functionality, just the output format of a single student record.
 
+The teaching staff tests are utilizing hashed passwords when creating `Student` objects.  If your `toString()` method is implemented incorrectly, then there may be a problem reading the test output on Jenkins limiting your feedback.  Test your `Student.toString()` method with the [provided `StudentTest` class](files/StudentTest.java).
+
 
 ## Javadoc your Code
 Make sure that you Javadoc the `Student` class, state, and methods.  For the overridden methods `equals()`, `hashCode()`, and `toString()`, remove the green comments and Javadoc them to describe how the methods work in `Student`.  Do NOT delete the `@Override` annotation.

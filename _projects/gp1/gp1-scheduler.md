@@ -39,6 +39,7 @@ Use Eclipse's tools to set up the classes for `WolfSchedulerTest` and `WolfSched
 
   5. Using the Quick Fix tool, create `WolfScheduler`'s public methods from the compiler errors in  `WolfSchedulerTest`.  You can adjust the parameter names as you work on implementing each method in later steps.  You may also need to update the return type if the generated return type is `Object`.  
      * Update the return types of  `getCourseCatalog()`, `getScheduledCourses()`, and `getFullScheduledCourses()` `String[][]`.
+	 * Update the return types of `addCourseToSchedule()` and `removeCourseFromSchedule()` to `boolean`.
 	 * Update the return type of `getCourseFromCatalog()` to `Course`.
 	 * Update the return type of `getScheduleTitle()` to `String`.
 	 
@@ -166,8 +167,6 @@ The following tests should pass after you implement this method:
   * `testResetSchedule()`
   * `testSetScheduleTitle()`
   
-If `testWolfScheduler()` is failing, you will need to go back and look at the constructor.
-
  
 ### Implement `exportSchedule()`
 `exportSchedule()` receives a `String` parameter that is the filename where the student's schedule will be saved to.  You will use the `CourseRecordIO.writeCourseRecords()` to export the file.  If `CourseRecordIO.writeCourseRecords()` throws an `IOException`, catch it and throw a new `IllegalArgumentException` with the message of "The file cannot be saved.".

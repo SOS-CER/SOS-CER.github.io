@@ -57,7 +57,7 @@ gp1:
      - gp1-courserecordio
      - gp1-scheduler
      - gp1-wolfschedulergui
-     - gp1-bbtp
+     - gp1-stp
      - gp1-static-analysis
      - gp1-javadoc
      - gp1-jenkins

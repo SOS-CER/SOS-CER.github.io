@@ -32,7 +32,7 @@ If there is a possibility that a test or incorrect code under test may manipulat
 
  
 ## Setting up for File I/O Testing
-You should keep your Eclipse projects organized.  Folders keep random files from cluttering the top level of the project.  When working with file I/O functionality, you need a place to store your test files. 
+You should keep your Eclipse projects organized.  Folders keep random files from cluttering the top level of the project.  When working with file I/O functionality, you need a place to store your test files. These test files are different than the `*.csv` files that we used for `CourseTest`.  These test files are files that a user would provide as actual input to the program; they are not the contents of a parameterized test.  Therefore, we'll store these test files in a different location.
 
 Create an Eclipse folder to store your test files by right clicking on the `WolfScheduler` project and selecting **New > Folder**.  Name the folder `test-files`.
 
@@ -56,7 +56,7 @@ If you save your files to a downloads or some other folder that is *NOT* your Ec
 
 If you save your files to the Eclipse project on your computer's file system, the files will not be immediately available inside of Eclipse.  You must refresh your Eclipse project for the files to be available inside of Eclipse.  To refresh, right click on your Eclipse project and select **Refresh**.  This will sync your Eclipse workspace information with the actual files in the file system.
 
-You can also interact with your Eclipse file structure from the file system.  Your Eclipse project folder structure is in  your local git repository.  This is usually a path like `~/git/csc216-001-GP1-001/WolfScheduler`.  You can interact with the files in your Eclipse project directly!  However, be careful.  There are certain files in this directory structure that are important for working with Eclipse.  The `.project` and `.classpath` files are used by Eclipse to know that your project is an Eclipse project and the information to help build and work with your project.  Please don't edit these files unless you have merge conflicts.  If you do have merge conflicts in these files, we strongly recommend that you work with the teaching staff to resolve the issue!
+You can also interact with your Eclipse file structure from the file system.  Your Eclipse project folder structure is in  your local git repository.  This is usually a path like `~/git/csc216-GP1-001-001/WolfScheduler`.  You can interact with the files in your Eclipse project directly!  However, be careful.  There are certain files in this directory structure that are important for working with Eclipse.  The `.project` and `.classpath` files are used by Eclipse to know that your project is an Eclipse project and the information to help build and work with your project.  Please don't edit these files unless you have merge conflicts.  If you do have merge conflicts in these files, we strongly recommend that you work with the teaching staff to resolve the issue!
 {% endcapture %}
 {% include callout.html content=callout_content type="conceptualKnowledge" title="Conceptual Knowledge: Saving Files and Eclipse" %}
 

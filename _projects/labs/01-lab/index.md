@@ -6,12 +6,12 @@ navigation: on
 ---
 
 # CSC216 Lab 01: Project Creation
-For Lab 01, you will complete a pair programming activity (on-campus students only); learn about GitHub, the version control system we use in CSC216; and start work on the `PackScheduler` project that will be developed throughout the semester as part of the lab activities.
+For Lab 01, you will complete a pair programming activity (synchronous labs only); learn about GitHub, the version control system we use in CSC216; and start work on the `PackScheduler` project that will be developed throughout the semester as part of the lab activities.
 
 
 {% capture callout_content %}
-  * Practice working on a pair or small team to understand the benefits
-  * Learn about the version control system GitHub
+  <!--* Practice working on a pair or small team to understand the benefits-->
+  <!--* Learn about the version control system GitHub-->
   * Work with an Eclipse project, packages, and classes
   * Implement a plain old java object class
   * Implement file I/O
@@ -29,6 +29,8 @@ Go through the [Eclipse Install Tutorial](https://pages.github.ncsu.edu/engr-csc
 
 {% if site.data.labs.lab01open %}
 ## Lab Overview
+For students in async lab sections (Sections 231 and 601), watch the [Lab 01 Overview Video](https://ncsu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2b6fa96a-8e80-4ffb-bf4b-ad8b002205f8).
+
 {% include iconHeader.html type="task" %}
 The lab will be completed in the following steps:
 
@@ -39,11 +41,6 @@ The lab will be completed in the following steps:
 ## Lab Deadlines & Jenkins Servers
 {% include iconHeader.html type="overview" %}
 All labs are due 10 minutes before the start of the next lab.  Additionally, each lab section has their own dedicated lab Jenkins server.  The table below provides the deadline and server URL for each lab section for the current semester.
-
-
-{% capture callout_content %}You will receive a certificate warning about a self-signed certificate when accessing the Jenkins servers for CSC216.  All of the certificates for CSC216 Jenkins servers were self signed by CSC IT.  Please accept the exception each time you visit a Jenkins server.
-{% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Jenkins Certificates" %}
 
 
 {% include lab_deadlines.md mon=site.data.labs.lab01.mon01 tues=site.data.labs.lab01.tues01 wed=site.data.labs.lab01.wed01 %}

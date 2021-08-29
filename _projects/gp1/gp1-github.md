@@ -66,8 +66,8 @@ To work with a new remote repository that is assigned to you for submission of y
   1. Get your assigned repository's clone URL:
   
       * Go to [NCSU's Enterprise GitHub](https://github.ncsu.edu).
-      * Open the dropdown menu under your username in the top left of the page.  Choose the CSC 216 organization for the given semester.  For example, Fall 2020's organization is `engr-csc216-fall2020` and Spring 2021's organization is `engr-csc216-spring2021`.
-      * Select the repository for the given assignment.  For example, a repository for Guided Project 1 may be named `csc216-XXX-GP1-YYY`, where `XXX` is your section number and `YYY` is your repository number.
+      * Open the dropdown menu under your username in the top left of the page.  Choose the CSC 216 organization for the given semester.  For example, Fall 2021's organization is `engr-csc216-fall2021` and Spring 2022's organization is `engr-csc216-spring2022`.
+      * Select the repository for the given assignment.  For example, a repository for Guided Project 1 may be named `csc216-GP1-XXX-YYY`, where `XXX` is your section number and `YYY` is your repository number.
       * First select if you would like to copy the SSH clone URL or the HTTPS clone URL in the drop down menu.  Then click the copy button.  Only select the SSH URL if you have [set up your SSH key](#optional-connecting-to-github-with-ssh).  
 	  
 
@@ -208,17 +208,12 @@ git push
         * `Course.java`
      * Enter a commit message like "[Skeleton] Submitting a skeleton of WolfScheduler".
      * Click **Commit and Push**.
+  * If your files aren't showing up in the Staged Changes window, click the refresh button (in the red circle) in the upper left of the view.
        
 {% include image.html file="images/EGitCommitPush.PNG" caption="Figure: Git Staging View" %} 
 
 
-  * You will be asked to confirm that you want to push to the `main` branch.  You do, so click **Preview >**.       
-  
-{% include image.html file="images/ConfirmPush1.PNG" caption="Figure: Push to branch in remote" %} 
-
-  * You then confirm the push.  The commits that will be pushed are included in the top window.  You can push more than one commit at a time.
-  
-{% include image.html file="images/ConfirmPush2.PNG" caption="Figure: Push Confirmation" %} 
+ 
        
   * After the push completes, there will be a confirmation window to show that the project was pushed to the remote correctly.  If you see a message about `fast-forward`, there was an error.  You have a merge conflict and [you will need to resolve the conflict](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-merge.html).
   

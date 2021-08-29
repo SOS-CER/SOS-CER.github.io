@@ -28,7 +28,7 @@ The `main()` method for the WolfScheduler project is in the GUI class.  To run t
 
 The main GUI will load.  There are four sections:
 
-  * Course Catalog: The catalog contains 8 classes in the same order as the file. (Note: the file has 9 lines, one line is invalid.)  The name, section, and title for each are displayed.
+  * Course Catalog: The catalog contains 13 classes in the same order as the file. (Note: the file has 14 lines, one line (line 4) is invalid.)  The name, section, and title for each are displayed.
   * Actions: The actions section has a set of buttons and the Schedule Title text field.  
   * My Schedule: Lists the courses that have been added to the schedule.
   * Course Details: Displays the details of any course selected in the Course Catalog table.

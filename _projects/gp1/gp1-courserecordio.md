@@ -29,16 +29,23 @@ CSC 216,Software Development Fundamentals,601,3,jctetter,A
 ```
 
 
-You can use a `Scanner` to process the line of input.   You must break the line up into *tokens* by using the comma character (e.g., `','`) as a delimiter.   A *delimiter* is a string that is used to separate or break apart a larger string.  The default delimiter for `Scanner` is white space.  You can change the delimiter using the `Scanner.useDelimiter()` method.
+You can use a `Scanner` to process the `String` parameter.   You must break the line up into *tokens* by using the comma character (e.g., `','`) as a delimiter.   A *delimiter* is a string that is used to separate or break apart a larger string.  The default delimiter for `Scanner` is white space.  You can change the delimiter using the `Scanner.useDelimiter()` method.  After updating the delimiter, any call to `Scanner.next()` will return the token before the next delimiter.  So for our example,
+
+```
+CSC 216,Software Development Fundamentals,601,3,jctetter,A
+```
+
+the first call to `Scanner.next()` would return a string `"CSC 216"`, the second call to `Scanner.next()` would return a string `"Software Development Fundamentals"`, etc.  When reading the values for credits, startTime, or endTime, you can use `Scanner.nextInt()`.
 
 Once you break the line into tokens, you can construct a `Course` object and return it from the method.
+
 
 There are two places where code that you work with may lead to an exception for invalid values in the input string:
 
   * `NoSuchElementException` or `InputMismatchException`: if you receive these when processing the input, catch them and throw an `IllegalArgumentException` to the caller (which in this case is `CourseRecordIO.readCourseRecords()`).
   * `IllegalArgumentException`: when constructing a `Course` with invalid values, the `Course` class will throw an `IllegalArgumentException`.  In this case *DO NOT* catch the exception!  Instead, let the exception propagate to the caller (which in this case is `CourseRecordIO.readCourseRecords()`)
 
-Use the fields of the `Course` class to help you determine what type each token should be.  The tokens will always be in the order of:
+Use the fields and constructors of the `Course` class to help you determine what type each token should be.  The tokens will always be in the order of:
 
 ```
 name,title,section,creditHours,instructor,meetingDay,startTime,endTime
@@ -48,6 +55,36 @@ or
 
 ```
 name,title,section,creditHours,instructor,A
+```
+
+If the meeting days string is NOT "A", then you'll need to read in the last two tokens.  If there are any additional tokens after the expected last one, an `IllegalArgumentException` should be thrown.
+
+The high level structure of the method is provided in the pseudocode, below.  You do not have to implement the method this way, but it will be useful for getting started.
+
+```java
+//TODO - Add Javadoc here!
+private static Course readCourse(String line) {
+   construct Scanner to process the line parameter
+   set the delimiter to ","
+   
+   try {
+      read in tokens for name, title, section, credits, instructorId, and meetingDays and store in local variables
+	  
+      if meetingDays is "A"
+         if there are more tokens
+            throw IAE
+         otherwise
+         return a newly constructed Course object
+      
+      otherwise
+      read in tokens for startTime and endTime
+      if there are more tokens
+         throw IAE
+      return a newly constructed Course object
+   } catch any exceptions and throw a new IllegalArgumentException
+   
+   //Remember to close the scanner on all possible paths out of the method - that's not in the pseudocode
+}
 ```
 
 Make sure that all your tests are passing before continuing with the Guided Project!

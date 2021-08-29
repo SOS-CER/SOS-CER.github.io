@@ -1,8 +1,11 @@
 package edu.ncsu.csc216.wolf_scheduler.io;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.FileInputStream;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -11,8 +14,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.junit.Before;
-import org.junit.Test;
 
 import edu.ncsu.csc216.wolf_scheduler.course.Course;
 
@@ -131,8 +132,8 @@ public class CourseRecordIOTest {
 	 * @param actFile actual output
 	 */
 	private void checkFiles(String expFile, String actFile) {
-		try (Scanner expScanner = new Scanner(new FileInputStream(expFile));
-			 Scanner actScanner = new Scanner(new FileInputStream(actFile));) {
+		try (Scanner expScanner = new Scanner(new File(expFile));
+			 Scanner actScanner = new Scanner(new File(actFile));) {
 			
 			while (expScanner.hasNextLine()) {
 				assertEquals(expScanner.nextLine(), actScanner.nextLine());

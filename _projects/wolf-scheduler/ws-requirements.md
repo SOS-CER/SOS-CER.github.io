@@ -141,7 +141,7 @@ The student can add non-course events to their schedule so they can visualize ho
 
   1. The student clicks the button to add an event.
   2. The system displays the new event dialog.
-  3. The student enters the event title, days of the week (Sunday through Saturday), start time, end time, how frequently the event repeats (between 1 and 4 weeks), and optional event details.
+  3. The student enters the event title, days of the week (Sunday through Saturday), start time, end time, and optional event details.
   4. The student clicks the add event button.
   5. The system updates the schedule to add a new event with the provided details. **[[Event Exists]](#uc5-a1)** **[[Schedule Conflict]](#uc5-a2)** **[[Missing Name]](#uc5-a3)** **[[Missing Times]](#uc5-a4)** **[[Missing Days]](#uc5-a5)**
 
@@ -150,9 +150,9 @@ The student can add non-course events to their schedule so they can visualize ho
 
   * <a id="uc5-a1"></a> **[Event Exists]**: If the student has already added an event with the same title to their schedule, a pop-up message stating “You have already created an event called ." is displayed, where is replaced with the title of the event. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
   * <a id="uc5-a2"></a> **[Schedule Conflict]**: If the event conflicts with another course of event (meaning there is an overlap of at least one day and time, even by the same minute) on the student’s schedule, a pop-up message stating “The event cannot be added due to a conflict.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
-  * <a id="uc5-a3"></a> **[Missing Name]**: If the event name is null or an empty string, a pop-up message stating “The event is invalid.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
-  * <a id="uc5-a4"></a> **[Missing Times]**: If the event start time or end time is empty, an invalid time, or if the end time is earlier than the start time, a pop-up message stating “The event is invalid.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
-  * <a id="uc5-a5"></a> **[Missing Days]**: If no day of week is selected, a pop-up message stating “The event must occur on at least one day.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
+  * <a id="uc5-a3"></a> **[Missing Name]**: If the event name is null or an empty string, a pop-up message stating “Invalid title.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
+  * <a id="uc5-a4"></a> **[Missing Times]**: If the event start time or end time is empty, an invalid time, or if the end time is earlier than the start time, a pop-up message stating “Invalid meeting days and times.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
+  * <a id="uc5-a5"></a> **[Missing Days]**: If no day of week is selected, a pop-up message stating “Invalid meeting days and times.” is displayed. The student clicks OK and is returned to the event editing information that is populated with earlier values for editing.
 
 
 
@@ -190,7 +190,7 @@ The student displays their final schedule with all information about the schedul
 ### Main Flow
 
   1. The student clicks the display schedule button.
-  2. The student sees the list of scheduled courses and events with columns for name, section, title, instructor, credit hours, meeting information, weekly repeat, and description. If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.  If the row is an event, then the name, section, instructor, and credit hours are left blank.  After the table, the total number of credit hours is listed for the given schedule.
+  2. The student sees the list of scheduled courses and events with columns for name, section, title, instructor, credit hours, meeting information, and description. If the meeting days are "A", the details view shows "Arranged".  Otherwise, the meeting information shows the meeting days followed by the start time in standard time (e.g., 1:30PM), a dash, and the end time in standard time.  Only "AM" and "PM" are used.  If the row is an event, then the name, section, instructor, and credit hours are left blank.  After the table, the total number of credit hours is listed for the given schedule.
   3. The student clicks the revise schedule button to return to the schedule editing functionality.
   
 ## <a id="uc10"></a>Use Case 10: Export Schedule
@@ -204,7 +204,7 @@ The student exports their schedule to a text file for future reference.
   3. The student is prompted with a file dialog where they can provide a location and file name for saving the schedule.
   3. The schedule is stored in a text file with a comma-separated list of courses and events with an ordering of information as follows: **[[Error Saving]](#uc9-a1)**.
      * Course: name,section,title,credits,instructor,meetingDays[,startTime,endTime]
-     * Event: title,meetingDays,startTime,endTime,weeklyRepeat,details
+     * Event: title,meetingDays,startTime,endTime,details
 
   
 ### Alternative Flows

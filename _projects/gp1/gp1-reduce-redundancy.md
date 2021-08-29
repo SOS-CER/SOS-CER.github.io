@@ -26,7 +26,16 @@ You learned in your introductory programming course that methods or procedures w
 ## Further Encapsulate the `Course.name` Field
 A `Course` shouldn't ever change its `name` (CSC 216 will always be CSC 216).  You want to have a method that will set the `name` field and do all the appropriate checks that the value is correct when constructing the object, but you don't want to allow clients of your code to change the field after construction.  You need to make the `setName()` method `private` to prevent clients from modifying the field.  There will be a warning about not using the `setName()` method, but you can ignore it for now.  You'll use the method shortly.
 
-Change the `setName()` method to use the `private` access identifier as shown below.
+{% capture callout_content %}
+The **Outline View** provides a list of the fields and methods in the class that is currently in focus in the Editor.  You can sort the members listed in the outline view in several different ways. By clicking a member in the outline view, the editor will be updated to display that element.  It's a lot faster to click a method in the outline view than to scroll through your code.  Give it a try to select `setName()`.
+
+{% include image.html file="images/OutlineView.PNG" caption="Figure: Outline View" %} 
+{% endcapture %}
+{% include callout.html content=callout_content type="bestPractices" title="Best Practice: Use the Outline" %}
+
+Change the `setName()` method to use the `private` access identifier as shown below.  Notice the outline view changes the icon next to the method from a green circle (indicating `public`) to a red square (indicating `private`).
+
+
 
 ```java
 /**

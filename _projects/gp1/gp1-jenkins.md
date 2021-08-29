@@ -20,9 +20,9 @@ A common software engineering practice is [*continuous integration*](https://pag
 ## Check Jenkins Results
 You can access the Guided Project and Project Jenkins via https://csc216-jenkins.csc.ncsu.edu/jenkins/. (Labs will have their own Jenkins servers.)  When you log in, your Jenkins job will be listed using the pattern of `GP1-<repo-name>`. If you don't see a project, then email the teaching staff!
 
-Learn more about the [Jenkins continuous integration system and how to use it to for feedback and to estimate your grade by reading the Jenkins tutorial](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/). Your goal is a green ball (no test failures and no static analysis notifications).  
+Learn more about the [Jenkins continuous integration system and how to use it to for feedback and to estimate your grade by reading the Jenkins tutorial](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/). Your goal is a green check (no test failures and no static analysis notifications).  
 
-The Jenkins build for Guided Project 1 will copy the provided teaching staff test cases into your project, overwriting the ones that you were provided. This is to make sure that you didn't accidentally modify the teaching staff tests through an Eclipse QuickFix. If you did modify a test, that will likely lead to a red ball on Jenkins, which means code didn't compile. 
+The Jenkins build for Guided Project 1 will copy the provided teaching staff test cases into your project, overwriting the ones that you were provided. This is to make sure that you didn't accidentally modify the teaching staff tests through an Eclipse QuickFix. If you did modify a test, that will likely lead to a red X on Jenkins, which means code didn't compile. 
 
 If your code doesn't compile, you can see the compiler errors in the Console Output for the build.  To get to the Console Output, select your Jenkins job, the latest build in the box to the lower left, then select Console Output from the left menu.  Scroll down to see the compiler errors.  Use those to resolve any issues.
 
@@ -53,5 +53,5 @@ Use the feedback from Jenkins to make changes to your code.  Any time you make a
   - [ ] Resolve all static analysis notifications.
   - [ ] Fix test failures.
   - [ ] Commit and push your code changes with a meaningful commit message.  Label your commit with "[Implementation]" for future you!
-  - [ ] Check Jenkins results for a green ball!  Fix any Jenkins issues.
+  - [ ] Check Jenkins results for a green check!  Fix any Jenkins issues.
     

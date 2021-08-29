@@ -71,15 +71,11 @@ An **Eclipse project** is a grouping of files that are all part of one applicati
 {% include image.html file="images/NewProjectContext.PNG" caption="Figure: Creating a new Java Project" %} 
   
   {:start="2"}
-  2. A window pops up for selecting project settings. Type `HelloWorld` as the name of your project. Click the option to **Create separate folders for sources and class files**. This ensures that your `*.java` and `*.class` files are stored in different directories, allowing for a neater project folder.
+  2. A window pops up for selecting project settings. Type `HelloWorld` as the name of your project. Click the option to **Create separate folders for sources and class files**. This ensures that your `*.java` and `*.class` files are stored in different directories, allowing for a neater project folder.  Uncheck the option to **Create module-info.java file** as circled below.
      
  
 {% include image.html file="images/NewJavaProjectWizard.PNG" caption="Figure: Configuring your new project" %} 
   
-  {:start="3"}
-  3. Click *Finish*. A pop-up will display asking if you would like to create `module-info.java`.  Click **Don't Create**!  The `module-info.java` file is a new feature in Java 11 that we will NOT be using.
-
-{% include image.html file="images/ModuleInfo.PNG" caption="Figure: Don't create module-info.java!!!" %}   
 
 Your new project should be listed in the *Package Explorer*. Click on the arrow or plus sign next to the project name to expand and look inside your project.
 

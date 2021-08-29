@@ -29,7 +29,7 @@ In TDD practice, you may not always write your test cases first. Iterating betwe
 {% include callout.html content=callout_content icon="ttTool" type="bestPractices" title="Best Practice: Test Driven Development (TDD)" %}
 
 ## Constants
-In the [Guided Project 1 design](../wolf-scheduler/ws-design.html#guided-project-1-design) there are several constants listed for the `Course` class.  Constants are used to provide names, and therefore meaning, to values in our programs.  Add the constant values to `Course` and then use the constant values where appropriate.
+In the [Guided Project 1 design](../wolf-scheduler/ws-design.html#guided-project-1-design) there are several constants listed for the `Course` class.  Constants are used to provide names, and therefore meaning, to values in our programs that do not change.  Add the constant values to `Course` and then use the constant values where appropriate.  Remember that constants are `static` and `final`.  These constants should also be `private` as indicated by the red square in the UML diagram.  See the Conceptual Knowledge block about UML Class Diagrams and Notation for more information.
 
 Comment your constants using Javadoc!
 
@@ -110,15 +110,17 @@ A course record is invalid if one of more of the following are true:
 
 
 {% capture reminder-content %} 
-By describing valid and invalid names, we are starting to identify tests to ensure that our method is implemented correctly.  You can see these valid and invalid names in the provided test class.
+By describing valid and invalid names, we are starting to identify tests to ensure that our method is implemented correctly.  We have a test method that considers valid names (e.g., `testSetNameValid()`) and a test method that considers invalid names (e.g., `testSetNameInvalid()`).
 {% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Note: Testing Basics"%} 
-The requirements describe the characteristics for a course name.  For example, "CSC 216" would be valid, but "CSC216" would not be because there is no space.  Other valid and invalid examples are provided below.
+The requirements describe the characteristics for a course name.  For example, "CSC 216" would be valid, but "CSC216" would not be because there is no space.  Other valid and invalid examples are provided below.  The provided test cases provide additional examples.
 
   * Valid names: "E 115", "CSC 116", "MA 141", "HESF 101" 
   * Invalid names (with reasons invalid)
      * `null` - cannot be null
 	 * "" - cannot be empty string
-     * "115" - length less than 5, no leading characters, no space
+	 * "E 11" - length less than 5, incorrect number of digits
+	 * "HESFQ 101" - prefix has too many characters
+     * "101" - length less than 5, no leading characters, no space
 	 * "CSC 21" - less than 3 digits
 	 * "CSC\t216" - no space
 
@@ -142,12 +144,13 @@ There are several checks that we need to consider to implement `setName()`.  You
   * DIGIT_COUNT
 
 *Exception Messages*
-  * "Name cannot be null." - if `name` is `null` 
-  * "Name's length should be between 5 and 8, inclusive." - if length is incorrect
-  * "Names should have 1-4 letters, a space, and 3 digits." - if name structure is incorrect
+  * "Invalid course name." 
+     - if `name` is `null` 
+     - if length is incorrect
+     - if name structure is incorrect
 
 *Testing*
-  * Run your tests and make sure that `testSetName()` passes.
+  * Run your tests and make sure that `testSetNameValid()` and `testSetNameInvalid()` passes.
   * All previously passing tests should continue to test
 
 ```java
@@ -162,38 +165,38 @@ There are several checks that we need to consider to implement `setName()`.  You
 private void setName(String name) {
     //Throw exception if the name is null
     if name is null
-        throw new IllegalArgumentException("Name cannot be null.");
+        throw new IllegalArgumentException("Invalid course name.");
 
     //Throw exception if the name is an empty string
     //Throw exception if the name contains less than 5 character or greater than 8 characters
     if name's length is less than MIN_LENGTH or name's length is more than MAX_LENGTH
-        throw new IllegalArgumentException("Name's length should be between 5 and 8, inclusive.");
+        throw new IllegalArgumentException("Invalid course name.");
 
     //Check for pattern of L[LLL] NNN
-    counter for number of letters
-    counter for number of digits
-    boolean flag for finding a space should start false
+    initialize counter for number of letters
+    initialize counter for number of digits
+    initialize boolean flag for finding a space to false
     for each character in name
         if a space has not yet been found
             if the character at i is a letter
                 increment the letter counter
-            if the character at i is a space
+            else if the character at i is a space
                 space flag should be set to true
             otherwise
-                throw new IllegalArgumentException("Names should have 1-4 letters, a space, and 3 digits.");
+                throw new IllegalArgumentException("Invalid course name.");
         else if a space is found
             if the character is a digit
                 increment the digit counter
             otherwise
-                throw new IllegalArgumentException("Names should have 1-4 letters, a space, and 3 digits.");
+                throw new IllegalArgumentException("Invalid course name.");
     
     //Check that the number of letters is correct
     if letter counter is less than one or more than 4
-        throw new IllegalArgumentException("Names should have 1-4 letters, a space, and 3 digits.");
+        throw new IllegalArgumentException("Invalid course name.");
     
     //Check that the number of digits is correct
     if digit counter is not 3
-        throw new IllegalArgumentException("Names should have 1-4 letters, a space, and 3 digits.");
+        throw new IllegalArgumentException("Invalid course name.");
     
     set this.name (field) to name (parameter)
 }
@@ -234,7 +237,7 @@ Conditional 2 checks the length of the `title` string.  If the length is zero, t
   * "Invalid title." - if `title` is `null` or empty string
 
 *Testing*
-  * Run your tests and make sure that `testSetTitle()` passes.
+  * Run your tests and make sure that `testSetTitleValid()` and `testSetTitleInvalid()` passes.
   * All previously passing tests should continue to test
 
  
@@ -256,11 +259,12 @@ Section numbers can start with a leading zero, so `section` is a `String`.  That
   * SECTION_LENGTH
 
 *Exception Messages*
-  * "Invalid section." - if `section` is `null` or not three characters
-  * "Section should be three digits." - if any of `section`'s three characters are not digits
+  * "Invalid section." 
+     - if `section` is `null` or not three characters
+     - if any of `section`'s three characters are not digits
 
 *Testing*
-  * Run your tests and make sure that `testSetSection()` passes.
+  * Run your tests and make sure that `testSetSectionValid()` and `testSetSectionInvalid()` passes.
   * All previously passing tests should continue to test
 
  
@@ -273,7 +277,7 @@ A course record is invalid if one of more of the following are true:
   * the credit hours are not a number
   * the credit hours are less than 1 or greater than 5
 {% endcapture %} 
-{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Section" %}
+{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Credits" %}
  
 You actually don't need a specific test here to check if the credit hours are not a number.  The parameter type of `int` guarantees that the value will be a number.  But later on, you will need to handle this case.
 
@@ -284,10 +288,10 @@ You actually don't need a specific test here to check if the credit hours are no
   * MAX_CREDITS
 
 *Exception Messages*
-  * "Credits should be between 1 and 5, inclusive." - if `credits` is out of bounds
+  * "Invalid credits." - if `credits` is out of bounds
 
 *Testing*
-  * Run your tests and make sure that `testSetCredits()` passes.
+  * Run your tests and make sure that `testSetCreditsValid()` and `testSetCreditsInvalid()` passes.
   * All previously passing tests should continue to test
 
  
@@ -299,7 +303,7 @@ A course record is invalid if one of more of the following are true:
 
   * the instructor's id is null or an empty string
 {% endcapture %} 
-{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Section" %}
+{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Instructor" %}
 
 Run your tests and make sure that `()` passes.
 
@@ -309,7 +313,7 @@ Run your tests and make sure that `()` passes.
   * "Invalid instructor id." - if `instructorId` is `null` or empty string
 
 *Testing*
-  * Run your tests and make sure that `testSetInstructorId()` passes.
+  * Run your tests and make sure that `testSetInstructorIdValid()` and `testSetInstructorIdInvalid()` passes.
   * All previously passing tests should continue to test
  
 ### Implement `setMeetingDaysAndTime()` 
@@ -326,7 +330,7 @@ A course record is invalid if one of more of the following are true:
   * the end time is less than the start time (i.e., no overnight classes)
   * a start time and/or end time is listed when meeting days is 'A'
 {% endcapture %} 
-{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Section" %}
+{% include callout.html content=callout_content icon="requirements" type="reminder" title="Requirements: `Course` Meeting Days and Time" %}
 
 We're going to interpret the requirements in the following way.  If the meeting days for the `Course` is arranged (e.g., `"A"`), then `startTime` and `endTime` should be 0.  If the meeting days for `Course` are not arranged, then there MUST be a valid `startTime` and `endTime`.  We could create separate setters for each, but there are too many dependencies and considerations.  Instead, we will create a single method to ensure the changes are consistent with all three values.
 
@@ -338,7 +342,8 @@ Before you start your method implementation, do the following:
   * Create a method `public void setMeetingDaysAndTime(String meetingDays, int startTime, int endTime)`
   * Comment the method to describe the functionality.
   * Update the Course constructor to use the new method
-  * Uncomment the method in `CourseTest` called `testSetMeetingDaysAndTime()` 
+  * Uncomment the method in `CourseTest` called `testSetMeetingDaysAndTimesValid()` 
+  * Uncomment the method in `CourseTest` called `testSetMeetingDaysAndTimesInvalid()`
   
 This method can have lots of decision points, so pseudocode is provided to get you started on the problem.  There are multiple ways to implement this method; you do not need to implement is as per the pseudocode. 
 
@@ -355,25 +360,29 @@ To make the method easier to understand and to reduce redundancy, you may want t
   * UPPER_MINUTE
 
 *Exception Messages*
-  * "Invalid meeting days." - if meeting days is null, empty, or contains invalid characters
-  * "Invalid start time." - if start time is an incorrect time
-  * "Invalid end time." - if end time is an incorrect time
-  * "End time cannot be before start time." - if end time is less than start time
+  * "Invalid meeting days and times." 
+      - if meeting days is null, empty, or contains invalid characters
+	  - if an arranged class has non-zero start or end times
+      - if start time is an incorrect time
+      - if end time is an incorrect time
+      - if end time is less than start time
   
 *Comments*
   * Comment the method, including all parameters.
 
 *Testing*
-  * Run your tests and make sure that `testSetMeetingDaysAndTime()` passes.
+  * Run your tests and make sure that `testSetMeetingDaysAndTimeValid()` and `testSetMeetingDaysAndTimeInvalid()` passes.
   * All previously passing tests should continue to test
 
 ```java
 // TODO - Add Javadoc here!
 public void setMeetingDaysAndTime(String meetingDays, int startTime, int endTime) {
    if meetingDays is null or empty string
-      throw IAE("Invalid meeting days.") // IAE = IllegalArgumentException
+      throw IAE("Invalid meeting days and times.") // IAE = IllegalArgumentException
 
    if meetingDays is "A" // Arranged
+      if startTime is NOT 0 OR endTime is NOT 0
+	     throw IAE("Invalid meeting days and times.")
       set meetingDays to the parameter; startTime and endTime to 0
 	  
    otherwise //not arranged
@@ -381,24 +390,24 @@ public void setMeetingDaysAndTime(String meetingDays, int startTime, int endTime
 	  for all characters in meetingDays
 	     increment weekday letter counter if you find the letter // this will take several lines of code 
 		 if any invalid letters
-		    throw IAE("Invalid meeting days.")
+		    throw IAE("Invalid meeting days and times.")
 	
 	  if any weekday letter counts are more than one // checks for duplicates
-	     throw IAE("Invalid meeting days.")
+	     throw IAE("Invalid meeting days and times.")
 		 
 	  break apart startTime and endTime into hours and minutes //several lines of code
 	  
 	  if startHour is invalid // not between 0 and 23, inclusive
-	     throw IAE("Invalid start time.")
+	     throw IAE("Invalid meeting days and times.")
 	
 	  if startMin is invalid // not between 0 and 59, inclusive
-	     throw IAE("Invalid start time.")
+	     throw IAE("Invalid meeting days and times.")
 	  
 	  if endHour is invalid // not between 0 and 23, inclusive
-	     throw IAE("Invalid end time.")
+	     throw IAE("Invalid meeting days and times.")
 	
 	  if endMin is invalid // not between 0 and 59, inclusive
-	     throw IAE("Invalid end time.")
+	     throw IAE("Invalid meeting days and times.")
 	
 	  //everything is valid and works together!
 	  set fields for meetingDays, startTime, and endTime
@@ -429,7 +438,7 @@ To make the method easier to understand and to reduce redundancy, you may want t
   * Comment the method, including all parameters.
 
 *Testing*
-  * Run your tests and make sure that `getMeetingString()` passes.
+  * Run your tests and make sure that `testGetMeetingString()` passes.
   * All previously passing tests should continue to test
 
 
@@ -492,4 +501,4 @@ You've made a lot of changes to your `Course` class by implementing the required
   - [ ] Make sure that all constants, fields, methods, and constructors are commented.
   - [ ] Resolve all static analysis notifications.
   - [ ] Fix test failures.  DO NOT CHANGE THE PROVIDED TEST CODE!
-  - [ ] Commit and push your code changes with a meaningful commit message. For example, "[Implementation] Completed Course functionality".
+  - [ ] Commit and push your code changes with a meaningful commit message. For example, "[Implementation][Test] Completed Course functionality".

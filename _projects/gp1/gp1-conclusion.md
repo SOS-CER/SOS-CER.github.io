@@ -13,11 +13,11 @@ A common software engineering practice is [*continuous integration*](https://pag
 
  
 ## Check Jenkins Results
-You can access the Guided Project and Project Jenkins via https://csc216-jenkins.csc.ncsu.edu/jenkins/. (Labs will have their own Jenkins servers.)  When you log in, your Jenkins job will be listed using the pattern of `GP1-<unityid>`. If you don't see a project, then email the teaching staff!
+You can access the Guided Project and Project Jenkins via https://csc216-jenkins.csc.ncsu.edu/jenkins/. (Labs will have their own Jenkins servers.)  When you log in, your Jenkins job will be listed using the pattern of `GP1-<repository-name>`. If you don't see a project, then email the teaching staff!
 
-Learn more about the [Jenkins continuous integration system and how to use it to for feedback and to estimate your grade by reading the Jenkins tutorial](../jenkins/). Your goal is a green ball (no test failures and no static analysis notifications).  
+Learn more about the [Jenkins continuous integration system and how to use it to for feedback and to estimate your grade by reading the Jenkins tutorial](../jenkins/). Your goal is a green check (no test failures and no static analysis notifications).  
 
-The Jenkins build for Guided Project 1 will copy the provided teaching staff test cases into your project, overwriting the ones that you were provided. This is to make sure that you don't accidentally modify the teaching staff tests through an Eclipse QuickFix. If you did modify a test, that will likely lead to a red ball on Jenkins, which means code didn't compile. You'll want to use the console output (as described in the Jenkins tutorial) on the build to help you find the compiler error.
+The Jenkins build for Guided Project 1 will copy the provided teaching staff test cases into your project, overwriting the ones that you were provided. This is to make sure that you don't accidentally modify the teaching staff tests through an Eclipse QuickFix. If you did modify a test, that will likely lead to a red X on Jenkins, which means code didn't compile. You'll want to use the console output (as described in the Jenkins tutorial) on the build to help you find the compiler error.
 
 ## Estimate Your Grade Against the Rubric
 All assignments have a rubric that you can use to estimate your grade.  Use the Jenkins feedback and your black box test results to [estimate the grade for Guided Project 1](../wolf-scheduler/ws-rubric).  
@@ -27,7 +27,7 @@ All assignments have a rubric that you can use to estimate your grade.  Use the 
 Before you complete your final submission to [GitHub](https://github.ncsu.edu), you should ensure the following:
 
   * You have met the [requirements and design for the `WolfScheduler` project](../wolf-scheduler/ws-requirements)
-  * You have a green ball on [Jenkins](http://go.ncsu.edu/jenkins-csc216) (No test failures and no static analysis notifications)
+  * You have a green check on [Jenkins](http://go.ncsu.edu/jenkins-csc216) (No test failures and no static analysis notifications)
   * All JUnit tests pass with a green bar (0 errors).  There should be no modifications to the teaching staff tests.
   * All [Black Box Tests](gp1-bbtp) pass
   * There are no FindBugs notifications
@@ -72,4 +72,9 @@ Use the feedback from Jenkins to make changes to your code.  Any time you make a
   - [ ] Resolve all static analysis notifications.
   - [ ] Fix test failures.
   - [ ] Commit and push your code changes with a meaningful commit message.  Label your commit with "[Implementation]" for future you!
-  - [ ] Check Jenkins results for a green ball!  Fix any Jenkins issues.
+  - [ ] Check Jenkins results for a green check!  Fix any Jenkins issues.
+  
+## Congratulations!
+You've finished the first Guided Project and a good portion of the `WolfScheduler` requirements.  Great work on reviewing prerequisite materials and using the new suite of development tools for CSC 216/217!  You're off to a great start.  Take time to celebrate your accomplishment!
+
+Now, onwards to [Guided Project 2](../gp2/).  [Note: Don't start Guided Project 2 until you're assigned a repository by the teaching staff.]
