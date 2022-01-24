@@ -21,9 +21,11 @@ Since the methods of `StudentRecordIO` are `static`, `StudentRecordIO` doesn't r
 
 
 {% capture callout_content %}
-Student passwords are stored in a hashed string.  The hashed string consists of characters with an underlying integer value between 0 and 255.  The [values between 0 and 127](http://www.asciitable.com/) are a determined set of characters from the standard alphabet and other control characters.  The values between 128 and 255 are interpreted by different programs using different extended interpretations.  The above link has some examples.
+Student passwords are stored in a hashed string.  The hashed string consists of characters with an underlying integer value between 0 and 255.  The [values between 0 and 127](http://www.asciitable.com/) are a determined set of characters from the standard alphabet and other control characters.  The values between 128 and 255 are interpreted by different programs using different extended interpretations.  The above link has some examples.  To help keep things more consistent, we are using Base 64 encoding when hashing strings.  This is done in `StudentDirectory`.  
 
-Because we are working with character strings, using a `File` parameter to the `Scanner` object is not sufficient.  The hashes are really bytes of data not a string you would read.  So instead of using a `File` parameter, you should [instead use a `FileInputStream`](https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html).  `FileInputStream` lets you read the input file as a series of bytes rather than a series of characters.  After the `Scanner` is created using the `FileInputStream`, you can work with the `Scanner` like you are used to.
+Because we are working with character strings, using a `File` parameter to the `Scanner` object is not sufficient.  The hashes are really bytes of data ,not a string you would read.  So instead of using a `File` parameter, you should [instead use a `FileInputStream`](https://docs.oracle.com/javase/8/docs/api/java/io/FileInputStream.html).  `FileInputStream` lets you read the input file as a series of bytes rather than a series of characters.  After the `Scanner` is created using the `FileInputStream`, you can work with the `Scanner` like you are used to.  
+
+You may assume that the password strings read in by `StudentRecordIO` are already hashed.  Passwords should NEVER be stored in plain text!
 {% endcapture %}
 {% include callout.html content=callout_content icon="plTool" type="conceptualKnowledge" title="Conceptual Knowledge: Reading Hashed Strings" %}
 
@@ -37,7 +39,13 @@ Make sure that you Javadoc the `StudentRecordIO` class and methods.
 
 Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
+{% capture reminder-content %} 
+GitHub Resources:
 
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%}
 ## Push to GitHub
 Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 
@@ -45,18 +53,6 @@ Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
   * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
 
 
-{% capture callout_content %}
-GitHub Resources:
-
-  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
-  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
-  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
-
-
-## Check Jenkins
-At this point your project will build on Jenkins, maybe even with a green ball!  If you have test failures, use the feedback from Jenkins to help you resolve the issues. Make sure that all `TS_StudentRecordIOTest` methods are passing before moving on to `StudentDirectory`.
 
 
 {% capture callout_content %}
@@ -67,4 +63,8 @@ Check the following items on Jenkins for [your last build](https://pages.github.
   * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
   * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+{% include mention.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+## Check Jenkins
+At this point your project will build on Jenkins, maybe even with a green ball!  If you have test failures, use the feedback from Jenkins to help you resolve the issues. Make sure that all `TS_StudentRecordIOTest` methods are passing before moving on to `StudentDirectory`.
+
+

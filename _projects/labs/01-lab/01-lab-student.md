@@ -67,26 +67,18 @@ Make sure that you Javadoc the `Student` class, state, and methods.  For the ove
 
 Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
-
-## Push to GitHub
-Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
-
-  * Add the unstaged changes to the index.
-  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
-
-
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
   * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
   * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
   * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%}
+## Push to GitHub
+Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 
-
-## Check Jenkins
-At this point your project should build on Jenkins with a Yellow ball.  That is because there are failing tests in `StudentRecordIO` that we haven't gotten to yet.  When fixing test failures, focus on failures in `TS_StudentTest`.  Make sure that all `TS_StudentTest` methods are passing before moving on to `StudentRecordIO`.
+  * Add the unstaged changes to the index.
+  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
 
 
 {% capture callout_content %}
@@ -97,5 +89,10 @@ Check the following items on Jenkins for [your last build](https://pages.github.
   * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
   * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+{% include mention.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+## Check Jenkins
+At this point your project should build on Jenkins with a Yellow ball.  That is because there are failing tests in `StudentRecordIO` that we haven't gotten to yet.  When fixing test failures, focus on failures in `TS_StudentTest`.  Make sure that all `TS_StudentTest` methods are passing before moving on to `StudentRecordIO`.
+
+
+
 

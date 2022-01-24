@@ -24,7 +24,7 @@ For Lab 01, you will complete a pair programming activity (synchronous labs only
 
 ## Pre-lab Activity:
 {% include iconHeader.html type="ideTool" %}
-Go through the [Eclipse Install Tutorial](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/eclipse/eclipse-install.html).  Note down any problems that you run into.  Ask questions about install issues on Piazza!
+Go through the [Eclipse Install Tutorial](https://ncsu.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=7c26cd98-9214-4946-a5d6-ae26000ebc13).  Note down any problems that you run into.  Ask questions about install issues on Piazza!
 
 
 {% if site.data.labs.lab01open %}

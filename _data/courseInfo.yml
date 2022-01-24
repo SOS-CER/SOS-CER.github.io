@@ -1,4 +1,4 @@
-    semester: Spring 2021
+    semester: Fall 2021
     shortName: CSC 217
     name: Software Development Fundamentals Lab
     description: Laboratory course to accompany CSC 216 lecture course. Application of the software processes and practices to design, implement, and test the development of software solutions requiring composition; inheritance; finite state machines; and linear data structures, including recursive linked lists.
@@ -20,10 +20,10 @@
     instructor:
       - name: Dr. Heckman
         primary: yes
-        title: Instructor
+        title: CSC 217 Coordinator
         url: https://www.csc.ncsu.edu/people/sesmith5
         image: heckman.jpg
-        officeLocation: EB2 2297
+        officeLocation: EB2 2299
         email: sarah_heckman@ncsu.edu 
       - name: Mr. Tetterton
         primary: no
@@ -40,11 +40,11 @@
 # Title represents lab sections/        
     logistics:
       - name: Syllabus
-        url: syllabi/S21_CSC217_Syllabus
+        url: syllabi/F21_CSC217_Syllabus
         color: 7b48d3
         description: CSC 217 syllabus
       - name: Schedule
-        url: schedule/S21_CSC217_Schedule
+        url: schedule/F21_CSC217_Schedule
         color: 8a5cd8
         description: CSC 217 schedule
       - name: Labs
@@ -52,16 +52,16 @@
         color: 9971dd
         description: CSC 217 Labs
       - name: Moodle Gradebook
-        url: https://moodle-courses2021.wolfware.ncsu.edu/course/view.php?id=1220
+        url: https://moodle-courses2122.wolfware.ncsu.edu/course/view.php?id=2417
         color: a886e2
         description: CSC 217 grades are managed in Moodle
     support:
       - name: MyDigitalHand
-        url: https://www.mydigitalhand.org
+        url: https://beta.mydigitalhand.org
         color: 1E4173
-        description: Join code "S48H4FR" when visiting office hours
+        description: Join code SZY6WNX when visiting office hours
       - name: Piazza
-        url: https://piazza.com/class/kd9bt9y0eqa3zr
+        url: https://piazza.com/class/ks3k8c8ylf47ma
         color: 3e7aab
         description: Course message board
       - name: Academic Counseling
@@ -77,67 +77,67 @@
         name: Office Hours Calendar
         url: https://calendar.google.com/calendar/embed?src=ncsu.edu_7brr7mh4i38jncp4hlrna64noo%40group.calendar.google.com&ctz=America%2FNew_York&mode=AGENDA 
     labSections:
-      - name: Section 201
-        time: Asynchronous
-        location: Online
-        deadline: T 11:45pm
-        jenkins-url: https://csc217-201-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 202
         time: M 12:50p-2:40p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: M 12:40p
         jenkins-url: https://csc217-202-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 203
         time: M 3:00p-4:50p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: M 2:50p
         jenkins-url: https://csc217-203-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 204
         time: M 5:20p-7:10p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: M 5:10p
         jenkins-url: https://csc217-204-jenkins.csc.ncsu.edu/jenkins/
-      #- name: Section 211
-      #  time: T 8:30a-10:20a
-      #  location: EBII 1229 (students may also participate online)
-      #  deadline: T 8:20a
-      #  jenkins-url: https://csc217-211-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 211
+        time: T 8:30a-10:20a
+        location: Engineering Building II, Room 1221
+        deadline: T 8:20a
+        jenkins-url: https://csc217-211-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 212
-        time: T 10:40a-12:30p
-        location: Online
-        deadline: T 10:30a
+        time: T 12:50p-2:40p
+        location: Engineering Building II, Room 1221
+        deadline: T 12:40p
         jenkins-url: https://csc217-212-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 213
         time: T 3:00p-4:50p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: T 2:50p
         jenkins-url: https://csc217-213-jenkins.csc.ncsu.edu/jenkins/
-      #- name: Section 214
-      #  time: T 5:20p-7:10p
-      #  location: Online
-      #  deadline: T 5:10p
-      #  jenkins-url: https://csc217-214-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 214
+        time: T 5:20p-7:10p
+        location: Engineering Building II, Room 1221
+        deadline: T 5:10p
+        jenkins-url: https://csc217-214-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 221
         time: W 8:30a-10:20a
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: W 8:20a
         jenkins-url: https://csc217-221-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 222
         time: W 12:50p-2:40p
-        location: EBII 1229 (students may also participate online)
+        location: Engineering Building II, Room 1221
         deadline: W 12:40p
         jenkins-url: https://csc217-222-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 223
         time: W 3:00p-4:50p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: W 2:50p
         jenkins-url: https://csc217-223-jenkins.csc.ncsu.edu/jenkins/
       - name: Section 224
         time: W 5:20p-7:10p
-        location: Online
+        location: Engineering Building II, Room 1221
         deadline: W 5:10p
         jenkins-url: https://csc217-224-jenkins.csc.ncsu.edu/jenkins/
-      - name: Section 601
+      - name: Section 231
+        time: Asynchronous
+        location: Online
+        deadline: T 11:45p
+        jenkins-url: https://csc217-231-jenkins.csc.ncsu.edu/jenkins/
+      - name: Section 651
         time: Asynchronous
         location: Online
         deadline: T 11:45p

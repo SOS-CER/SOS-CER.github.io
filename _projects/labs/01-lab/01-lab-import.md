@@ -32,7 +32,13 @@ The teaching staff have provided a starting Eclipse project for `PackScheduler`.
     
 You have been provided a project with enough skeleton code so that it compiles.  You'll complete the code and add more methods throughout the lab.
 
+{% capture reminder-content %} 
+GitHub Resources:
 
+  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
+  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
+  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%}
 ## Push to GitHub
 **Partner 1:** Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 
@@ -40,21 +46,7 @@ You have been provided a project with enough skeleton code so that it compiles. 
   * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
 
 
-{% capture callout_content %}
-GitHub Resources:
-
-  * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
-  * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
-  * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
-
-
-## Check Jenkins
-**Partner 1 & 2:** At this point your project will not build on Jenkins.  That is because the basic skeleton provided in the project is not sufficient for the hidden teaching staff tests to compile.  What you want to check for is that your Jenkins job runs.
-
-
-{% capture callout_content %}
+{% capture reminder-content %}
 Check the following items on Jenkins for [your last build](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#build-summary-page) and use the results to [estimate your grade](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#grade-estimation-example):
 
   * [Test Results](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#test-results)
@@ -62,11 +54,11 @@ Check the following items on Jenkins for [your last build](https://pages.github.
   * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
   * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+{% include mention.html content=reminder-content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+## Check Jenkins
+**Partner 1 & 2:** At this point your project will not build on Jenkins.  That is because the basic skeleton provided in the project is not sufficient for the hidden teaching staff tests to compile.  What you want to check for is that your Jenkins job runs.
 
 
-## Clone and Import
-**Partner 2:** You will now clone the lab repository and import the `PackScheduler` project into your workspace.
 
 
 {% capture callout_content %}
@@ -75,21 +67,26 @@ GitHub Resources:
   * [Cloning an Existing Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-clone)
   * [Importing an Existing Project from your Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-import.html)
 {% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Cloning and Importing in GitHub" %}
+{% include mention.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Cloning and Importing in GitHub" %}
+## Clone and Import
+**Partner 2:** You will now clone the lab repository and import the `PackScheduler` project into your workspace.
+
+
+
 
 **Partner 2:** Add your name to the author list in one of the files.  Stage, commit, and push your change to GitHub.
-
-
-## Pull Changes from GitHub
-**Partner 1:** Pull your partner's changes from GitHub.
-
 
 {% capture callout_content %}
 GitHub Resources:
 
   * [Pull Your Remote Repository Contents to Your Local Repository](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-pull)
 {% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Pulling in GitHub" %}
+{% include mention.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Pulling in GitHub" %}
+## Pull Changes from GitHub
+**Partner 1:** Pull your partner's changes from GitHub.
+
+
+
 
 
 ## Collaborating in GitHub

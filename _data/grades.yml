@@ -399,6 +399,26 @@ grades:
        - item: Recursive LinkedLists
          points: 20
          details:
+  cbe-deductions:
+     overall:
+       - item: Static Analysis Notifications
+         points: -10
+         details: any unresolved static analysis notifications will lead to points off up to 10 points off
+       - item: Poor State Pattern Implementation
+         points: up to 20 points off
+         details: not utilizing the state pattern
+       - item: Poor ArrayList Implementation
+         points: up to 20 points off
+         details: not following expectations
+       - item: Poor LinkedList and Iterator Implementation
+         points: up to 20 points off
+         details: not following expectations
+       - item: Poor Stacks and Queues Implementation
+         points: up to 20 points off
+         details: not following expectations
+       - item: Poor Recursive LinkedList Implementation
+         points: up to 20 points off
+         details: not following expectations or not using recursion
   cbe-fsm:
      overall:
        - item: Student Tests
@@ -472,17 +492,29 @@ grades:
          
   sync-collab:
      overall:
-       - item: In-Lab Participation
-         points: 15
+       - item: In-Lab Collaboration
+         points: 10
          details: PTFs will be looking for collaboration with your partner during lab activities.  Did you participate in completing the lab assignment?  Did you balance your roles of driver and navigator?  There will be deductions for observations of non-participation or hogging of one role or the other so a partner cannot participate.
-       - item: Out-Lab Participation
-         points: 15
-         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit?  Did you document tasks, owners, and deadlines in the README.md file?
+       - item: Out-Lab Collaboration
+         points: 10
+         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit?  
+       - item: Tasks
+         points: 5
+         details: Did you add your tasks for the lab to the top of the README file?  Did you include owners? Did you include internal deadlines?  Are the tasks shown as complete with any other needed updates (e.g., the person who completed or helped with the task changed)
+       - item: Collaboration Check-in
+         points: 5
+         details: Did you complete the collaboration check-in on time?
   async-collab:
      overall:
        - item: Collaboration
-         points: 15
-         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit? Did you document tasks, owners, and deadlines in the README.md file?
+         points: 10
+         details: Did you make at least one meaningful commit to GitHub for completing the lab (e.g., meaningful means that the commit has to contribute to the solution and isn't superficial)?  If you pair programmed, is it noted in the commit message?  Did you not allow your partner, who wanted to contribute, to commit? 
+       - item: Tasks
+         points: 5
+         details: Did you add your tasks for the lab to the top of the README file?  Did you include owners? Did you include internal deadlines?  Are the tasks shown as complete with any other needed updates (e.g., the person who completed or helped with the task changed)
+       - item: Collaboration Check-in
+         points: 5
+         details: Did you complete the collaboration check-in on time?
   deductions:
      overall:
        - item: Misnamed file or incorrect project structure

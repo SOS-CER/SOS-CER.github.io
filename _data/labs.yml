@@ -1,97 +1,101 @@
 # Semester
-semester: Summer 2021
+semester: Spring 2022
 
 # Jenkins
 jenkins:
-  #s201: https://csc217-201-jenkins.csc.ncsu.edu/jenkins/
-  s202: https://csc217-202-jenkins.csc.ncsu.edu/jenkins/
-  s203: https://csc217-203-jenkins.csc.ncsu.edu/jenkins/
-  s204: https://csc217-204-jenkins.csc.ncsu.edu/jenkins/
-  s211: https://csc217-211-jenkins.csc.ncsu.edu/jenkins/
-  s212: https://csc217-212-jenkins.csc.ncsu.edu/jenkins/
-  s213: https://csc217-213-jenkins.csc.ncsu.edu/jenkins/
-  s214: https://csc217-214-jenkins.csc.ncsu.edu/jenkins/
-  s221: https://csc217-221-jenkins.csc.ncsu.edu/jenkins/
-  s222: https://csc217-222-jenkins.csc.ncsu.edu/jenkins/
-  s223: https://csc217-223-jenkins.csc.ncsu.edu/jenkins/
-  s224: https://csc217-224-jenkins.csc.ncsu.edu/jenkins/
-  s231: https://csc217-231-jenkins.csc.ncsu.edu/jenkins/
-  s601: https://csc217-601-jenkins.csc.ncsu.edu/jenkins/
-  #s251: https://csc217-201-jenkins.csc.ncsu.edu/jenkins/
-  #s252: https://csc217-201-jenkins.csc.ncsu.edu/jenkins/
+  s201: https://csc217-201-jenk.csc.ncsu.edu/jenkins/
+  s202: https://csc217-202-jenk.csc.ncsu.edu/jenkins/
+  s203: https://csc217-203-jenk.csc.ncsu.edu/jenkins/
+  s204: https://csc217-204-jenk.csc.ncsu.edu/jenkins/
+  s211: https://csc217-211-jenk.csc.ncsu.edu/jenkins/
+  #s212: https://csc217-212-jenk.csc.ncsu.edu/jenkins/
+  s213: https://csc217-213-jenk.csc.ncsu.edu/jenkins/
+  s214: https://csc217-214-jenk.csc.ncsu.edu/jenkins/
+  #s221: https://csc217-221-jenk.csc.ncsu.edu/jenkins/
+  s222: https://csc217-222-jenk.csc.ncsu.edu/jenkins/
+  s223: https://csc217-223-jenk.csc.ncsu.edu/jenkins/
+  #s224: https://csc217-224-jenk.csc.ncsu.edu/jenkins/
+  s231: https://csc217-231-jenk.csc.ncsu.edu/jenkins/
+  s601: https://csc217-601-jenk.csc.ncsu.edu/jenkins/
+  #s251: https://csc217-201-jenk.csc.ncsu.edu/jenkins/
+  #s252: https://csc217-201-jenk.csc.ncsu.edu/jenkins/
+  
+# Collaboration Check-in
+collab-check: https://go.ncsu.edu/csc216-collaboration
   
 # Deadlines
 lab00:
-  mon00:  8/26/2021
-  tues00: 8/26/2021
-  wed00:  8/26/2021
+  mon00:  1/20/2022
+  tues00: 1/20/2022
+  wed00:  1/20/2022
 lab01:
-  mon01:  8/30/2021
-  tues01: 8/31/2021
-  wed01:  9/01/2021
+  mon01:  1/31/2022
+  tues01: 2/1/2022
+  wed01:  2/2/2022
 lab02:
-  mon02:  9/13/2021
-  tues02: 9/14/2021
-  wed02:  9/15/2021
+  mon02:  2/7/2022
+  tues02: 2/8/2022
+  wed02:  2/9/2022
 lab03:
-  mon03:  9/20/2021
-  tues03: 9/21/2021
-  wed03:  9/22/2021
+  mon03:  2/14/2022
+  tues03: 2/15/2022
+  wed03:  2/16/2022
 lab04:
-  mon04:  9/27/2021
-  tues04: 9/28/2021
-  wed04:  9/29/2021
+  mon04:  2/21/2022
+  tues04: 2/22/2022
+  wed04:  2/23/2022
 lab05:
-  mon05:  10/11/2021
-  tues05: 10/12/2021
-  wed05:  10/13/2021
+  mon05:  2/28/2022
+  tues05: 3/1/2022
+  wed05:  3/2/2022
 lab06:
-  mon06:  10/18/2021
-  tues06: 10/19/2021
-  wed06:  10/20/2021
+  mon06:  3/7/2022
+  tues06: 3/8/2022
+  wed06:  3/9/2022
 lab07:
-  mon07:  10/25/2021
-  tues07: 10/26/2021
-  wed07:  10/27/2021
+  mon07:  3/21/2022
+  tues07: 3/22/2022
+  wed07:  3/23/2022
 lab08:
-  mon08:  11/1/2021
-  tues08: 11/2/2021
-  wed08:  11/3/2021
+  mon08:  3/28/2022
+  tues08: 3/29/2022
+  wed08:  3/30/2022
 lab09:
-  mon09:  11/8/2021
-  tues09: 11/9/2021
-  wed09:  11/10/2021
+  mon09:  4/4/2022
+  tues09: 4/5/2022
+  wed09:  4/6/2022
 lab10:
-  mon10:  11/15/2021
-  tues10: 11/16/2021
-  wed10:  11/17/2021
+  mon10:  4/11/2022
+  tues10: 4/12/2022
+  wed10:  4/13/2022
 lab11:
-  mon11:  11/23/2021
-  tues11: 11/23/2021
-  wed11:  11/23/2021
+  mon11:  4/21/2022
+  tues11: 4/21/2022
+  wed11:  4/21/2022
 #lab12:
 #  mon12: DROPPED
 #  tues12: DROPPED
 #   wed12: 7/30/2021
 
 # Times
-#lab201time: 11:45pm
+lab201time: 10:30am
 lab202time: 12:40pm
 lab203time: 2:50pm
 lab204time: 5:10pm
 lab211time: 8:20am
-lab212time: 12:40[m
+#lab212time: 12:40pm
 lab213time: 2:50pm
 lab214time: 5:10pm
-lab221time: 8:20am
+#lab221time: 8:20am
 lab222time: 12:40pm
 lab223time: 2:50pm
-lab224time: 5:10pm
+#lab224time: 5:10pm
 lab231time: 11:45pm
 lab601time: 11:45pm
 #lab651time: 12:20pm
 #lab251time: 12:20pm
 #lab252time: 12:20pm
+
 
 # Open
 lab00open: true

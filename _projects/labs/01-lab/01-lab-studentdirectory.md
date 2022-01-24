@@ -36,7 +36,11 @@ This method saves the `studentDirectory` to the given file described in [[Use Ca
 
 
 ## `addStudent()`
-This method supports the functionality for adding a `Student` to the list of students as described in [[Use Case 5: Add Student to Student Directory]](01-lab-requirements#uc5).  The method also covers Alternative Flows for Use Case 5.  The first grouping of error messages come from `IllegalArgumentException`s thrown during construction of `Student` or when checking the `password` and `repeatPassword` parameters.  The error message related to "Cannot hash password" should hopefully never happen, but an exception with a error message is provided in case it ever does.
+This method supports the functionality for adding a `Student` to the list of students as described in [[Use Case 5: Add Student to Student Directory]](01-lab-requirements#uc5).  The method also covers Alternative Flows for Use Case 5.  
+
+The first few lines in the method ensure that there are values for the `password` and `repeatPassword` parameters.  If there are values, then these values are hashed.  Passwords should never be stored in plain text!  That's a security vulnerability (if anyone got ahold of your student file with plain text passwords, they could register you in really boring classes at really bad times!)  We use the private helper method `hashString()` to hash the provided passwords. We use a hashing algorithm, in this case SHA-256, to transform the plain text to a hashed output.  We then encode the output using a 64-bit encoder so that the binary data of the hashed password is represented in an ASCII format.  This is important to minimize issues with the build process.  Do NOT change the `hashString()` method!
+
+After hashing the passwords, checks are done to ensure that the student can be successfully added to the `StudentDirectory`.
 
 By returning `false` the method will trigger [[Non-unique ID]](01-lab-requirements#uc5-non-unique-id) in the GUI.
 
@@ -57,26 +61,18 @@ This method returns a 2D array, where each row is a `Student` and the columns ar
 
 Run [CheckStyle](https://pages.github.ncsu.edu/engr-csc216/guided-projects/gp1/gp1-static-analysis#checkstyle) to ensure that your Javadoc has all elements.
 
-
-## Push to GitHub
-Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
-
-  * Add the unstaged changes to the index.
-  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
-
-
-{% capture callout_content %}
+{% capture reminder-content %} 
 GitHub Resources:
 
   * [Staging Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-staging)
   * [Committing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-commit)
   * [Pushing Files](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/git/git-push)
-{% endcapture %}
-{% include callout.html content=callout_content icon="vcTool" type="reminder" title="Reminder: Staging and Pushing to GitHub" %}
+{% endcapture %} {% include mention.html content=reminder-content type="reminder" title="Reference: Staging and Pushing to GitHub"%}
+## Push to GitHub
+Push your `PackScheduler` project to [GitHub](https://github.ncsu.edu)
 
-
-## Check Jenkins
-At this point your project should build on Jenkins, hopefully with a green ball!  If not, work through Jenkins's feedback to fix any errors with the integration of your code with the provided code.  All tests should be passing before you walk through the GUI.
+  * Add the unstaged changes to the index.
+  * Commit and push changes.  Remember to use a meaningful commit message describing how you have changed the code.  
 
 
 {% capture callout_content %}
@@ -87,5 +83,10 @@ Check the following items on Jenkins for [your last build](https://pages.github.
   * [CheckStyle Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#checkstyle-report)
   * [PMD Report](https://pages.github.ncsu.edu/engr-csc-software-development/practices-tools/jenkins/#pmd-report)
 {% endcapture %}
-{% include callout.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+{% include mention.html content=callout_content icon="ciTool" type="reminder" title="Reminder: Interpreting Jenkins" %}
+## Check Jenkins
+At this point your project should build on Jenkins, hopefully with a green ball!  If not, work through Jenkins's feedback to fix any errors with the integration of your code with the provided code.  All tests should be passing before you walk through the GUI.
+
+
+
 
