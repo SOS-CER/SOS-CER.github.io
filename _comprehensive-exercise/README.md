@@ -80,6 +80,9 @@ Complete with appropriate information, which will be used to generate the compre
 ### assets
 * css    * algorithm.scss    * breadcrumb_styles.scss    * calendar.scss    * callout_styles.scss    * csc_styles.css    * expand.scss    * github-light.css    * java.scss    * jump_styles.scss    * mention_styles.scss    * sidebar.scss    * stylesheet.scss    * syntax.css    * table_styles.scss    * terminal.scss    * text.scss* images
     * bg_hr.png
+    * file
+    * icons
+    * phases
 
 ### _comprehensive-exercise
 

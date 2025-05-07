@@ -71,3 +71,5 @@ rubric:
     url: assets/images/icons/rubric.png
 download:
     url: assets/images/icons/download.png
+print:
+    url: assets/images/file/print.png
