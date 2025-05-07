@@ -16,7 +16,7 @@ Configuration for the site must include the following:
       path: ""
       type: "comprehensive-exercise"
     values:
-      layout: CE-page
+      layout: side
 ```
  
 ```
@@ -34,17 +34,6 @@ comprehensive-exercise:
     directory: _comprehensive-exercise/
     order:
      - index
-     - project-selection
-     - team-repo
-     - team-documentation
-     - software-life-cycle
-     - requirements
-     - black-box-testing
-     - design
-     - implementation
-     - testing
-     - presentation
-     - grading-rubric
 ```
 
 ### _data/comprehensive-exercise.yml
@@ -55,7 +44,8 @@ Complete with appropriate information, which will be used to generate the compre
 * `course-short`: course identifier
 * `github`: location of repos (e.g, https://github.com/ or https://github.ncsu.edu)
 * `git-guide`: link to guide for github (e.g., https://sos-cer.github.io/projects/git-guide/)
-* `ce-report`: link to starter report document (e.g., https://docs.google.com/document/d/1nVE-EcJSmRHaTuUsOESkdyV_5EyH-Spjiad-sQilVvc/edit#)
+* `ce-report`: link to starter report document (e.g., http://go.ncsu.edu/csc116-ce-report)
+* `project-selection-form`: link to form for selecting project
 * `re-reflection`: link for requirements reflection
 * `re-resources`: requirements resources (such as links to slides, videos, or readings). Each resource has title and url along with optional note.
 * `bbt-reflection`: link for black box testing reflection 
@@ -64,14 +54,28 @@ Complete with appropriate information, which will be used to generate the compre
 * `design-resources`: design resources (such as links to slides, videos, or readings). Each resource has title and url along with optional note.
 * `imp-test-reflection`: link for implementation and testing reflection 
 * `imp-resources`: implementation resources (such as links to slides, videos, or readings). Each resource has title and url along with optional note.
+* `in-class-demo`: whether the exercise includes an in-class demo
+* `assign-report`: whether teaching staff will assign report document to team
+* `section`: section of the course
+* `day1`: date of Day 1 of exercise
+* `day2`: date of Day 2 of exercise
+* `day3`: date of Day 3 of exercise
+* `day4`: date of Day 4 of exercise
+* `deadline`: deadline for assignment
+* `support-list`: support email address
 
 ### _includes
 
-* breadcrumb.html* callout.html* iconHeader.html* navigation.html* printable-group.md* tableOfContents.html* topButton.html
+* breadcrumb.html* callout.html
+* expand.html
+* footer.html
+* head.html
+* header.html* iconHeader.html* navigation.html* printable-group.md* tableOfContents.html
+* toc.html* topButton.html
 
 ### _layouts
 
-* CE-page.html
+* side.html
 
 ### assets
 * css    * algorithm.scss    * breadcrumb_styles.scss    * calendar.scss    * callout_styles.scss    * csc_styles.css    * expand.scss    * github-light.css    * java.scss    * jump_styles.scss    * mention_styles.scss    * sidebar.scss    * stylesheet.scss    * syntax.css    * table_styles.scss    * terminal.scss    * text.scss* images
@@ -82,13 +86,13 @@ Complete with appropriate information, which will be used to generate the compre
 You will need to update the following files:
 
 - index.md
-	- Mentions CSC116 - would need to update with correct course and any changes to policy (such as attendance)
+	- Updates to policy (such as attendance)
 	- Updates to schedule if changing number of days 
 	- Update due dates and source sections
 - project-selection.md 
     - Add or remove project ideas
     - We have only included the project descriptions written by our teaching staff. We typically also include a couple non-game project descriptions that come from various textbooks.
-- team-repo.md 
+- CE-team-repo.md and CE-submitting.md
     -  Update repo naming, which currently includes csc116
 - presentation.md
     - Update if different schedule and presentation is not on Day 4. 
@@ -100,7 +104,7 @@ The client-ideas directory is not visible through the website. These markdown fi
 ## Instructor TODOs
 
 - Set up website as described above.
-- Create starter report document. We provide our starter document [here](https://docs.google.com/document/d/1nVE-EcJSmRHaTuUsOESkdyV_5EyH-Spjiad-sQilVvc/edit#).
+- Create starter report document. We provide our starter document [here](http://go.ncsu.edu/csc116-ce-report).
 - Assign teams and repos.
 - Set up reflection forms (and include links in _data/comprehensive-exercise.yml).
 - Set up presentation peer review form.

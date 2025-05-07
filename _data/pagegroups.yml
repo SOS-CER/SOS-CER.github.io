@@ -261,17 +261,6 @@ comprehensive-exercise:
     directory: _comprehensive-exercise/
     order:
      - index
-     - project-selection
-     - team-repo
-     - team-documentation
-     - software-life-cycle
-     - requirements
-     - black-box-testing
-     - design
-     - implementation
-     - testing
-     - presentation
-     - grading-rubric
      
 testing:
     directory: _testing/

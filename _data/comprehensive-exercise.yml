@@ -2,7 +2,8 @@ course: "CSC116: Introduction to Computing - Java"
 course-short: "CSC116"
 github: https://github.ncsu.edu
 git-guide: https://sos-cer.github.io/projects/git-guide/
-ce-report: https://docs.google.com/document/d/1nVE-EcJSmRHaTuUsOESkdyV_5EyH-Spjiad-sQilVvc/edit#
+ce-report: http://go.ncsu.edu/csc116-ce-report
+project-selection-form: "https://docs.google.com/forms/d/e/1FAIpQLScNh0yMzkm0-i5ljy8DyThGuZFiFPIPqbxdu0KFfiWyhKfyfw/"
 re-reflection: 
 re-resources:
   - resource: "Slides"
@@ -35,3 +36,12 @@ imp-resources:
   - resource: "Other Resources"
     url: 
     note: "TODO: Add links to resources (in _data/comprehensive-exercise.yml)" 
+in-class-demo: yes
+assign-report: yes
+section: "010"
+day1: "Tuesday, April 8, 2025"
+day2: "Thursday, April 10, 2025"
+day3: "Tuesday, April 15, 2025"
+day4: "Thursday, April 17, 2025"
+deadline: "Friday, April 18, 2025 at 11:45pm"
+support-list: "csc-116-010-sprg-2025-support@wolfware.ncsu.edu"
